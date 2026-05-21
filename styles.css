@@ -149,7 +149,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../4x/Recurso 3@4x.png');
+    background-image: url('texture.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
