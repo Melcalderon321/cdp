@@ -298,12 +298,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 2rem; /* Reduced from 1.25rem to make it thinner */
+    padding: 0.4rem 2rem; /* Reduced to make it thinner */
     transition: var(--transition-smooth);
 }
 
 .header.scrolled .header-container {
-    padding: 0.5rem 2rem; /* Even thinner when scrolling */
+    padding: 0.2rem 2rem; /* Even thinner when scrolling */
 }
 
 .logo {
@@ -2292,7 +2292,7 @@ a {
     left: 0;
     width: 100%;
     height: calc(100% - 50px);
-    background-image: url('texture.png');
+    background-image: url('recurso-3-footer.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
