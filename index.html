@@ -784,30 +784,32 @@
                 const br = document.createElement("br");
                 const span2 = document.createElement("span");
                 
-                container.appendChild(span1);
+                span1.textContent = text1;
+                span2.textContent = text2;
                 
-                const typeWriter = (element, text, i, cb) => {
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        setTimeout(() => typeWriter(element, text, i + 1, cb), 40); // speed
-                    } else if (cb) {
-                        cb();
-                    }
-                };
+                // Estilos iniciales para la animación
+                const initialStyle = "opacity: 0; transform: translateY(20px); transition: all 0.8s ease; display: inline-block;";
+                span1.style.cssText = initialStyle;
+                span2.style.cssText = initialStyle;
+                
+                container.appendChild(span1);
+                container.appendChild(br);
+                container.appendChild(span2);
 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if(entry.isIntersecting) {
                             observer.unobserve(entry.target);
+                            // Primera tanda
                             setTimeout(() => {
-                                typeWriter(span1, text1, 0, () => {
-                                    container.appendChild(br);
-                                    container.appendChild(span2);
-                                    setTimeout(() => {
-                                        typeWriter(span2, text2, 0);
-                                    }, 200); // pause between lines
-                                });
-                            }, 300); // initial delay when scrolled into view
+                                span1.style.opacity = "1";
+                                span1.style.transform = "translateY(0)";
+                                // Segunda tanda
+                                setTimeout(() => {
+                                    span2.style.opacity = "1";
+                                    span2.style.transform = "translateY(0)";
+                                }, 600);
+                            }, 300);
                         }
                     });
                 }, { threshold: 0.5 });
