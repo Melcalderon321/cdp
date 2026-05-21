@@ -548,11 +548,11 @@ a {
 
 .hero-title {
     font-family: var(--font-title);
-    font-size: 6.5rem; /* Massive impact */
+    font-size: 5.5rem; /* Apenitas más chica */
     font-weight: 700; /* Bolder */
     line-height: 0.95; /* Tighter line-height */
     letter-spacing: 0.03em; /* Más interletrado */
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem; /* Menos separación con la bajada */
     transform: translateY(40px);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
