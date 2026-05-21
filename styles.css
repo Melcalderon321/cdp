@@ -656,8 +656,8 @@ a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    aspect-ratio: 4 / 3;
-    min-height: 140px; /* Ensure it's not too small */
+    aspect-ratio: 3 / 2;
+    min-height: 120px; /* Slightly shorter */
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
@@ -697,7 +697,7 @@ a {
     color: var(--text-dark);
     margin: 0 0 0.4rem 0;
     text-transform: none;
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
 }
 
 .quick-card p {
@@ -712,14 +712,12 @@ a {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
-    height: 75px;
-    width: auto;
-    max-width: 90px;
-    object-fit: contain;
+    height: 36px;
+    width: 36px;
+    color: var(--primary);
+    opacity: 0.85;
+    transition: var(--transition-smooth);
     z-index: 1;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.05));
-    opacity: 0.8;
 }
 
 /* Hover effects */
@@ -1285,6 +1283,7 @@ a {
     color: var(--text-dark);
     line-height: 1.25;
     margin: 0;
+    letter-spacing: normal;
 }
 
 .doc-card-spec {
@@ -1956,7 +1955,7 @@ a {
 
 .spec-minimal-card {
     background: var(--primary);
-    padding: 2rem;
+    padding: 1.25rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1968,7 +1967,7 @@ a {
     border: none;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-    height: 120px;
+    height: 90px;
 }
 
 /* Decorative texture background */
@@ -2024,6 +2023,7 @@ a {
     margin: 0;
     z-index: 1;
     text-transform: none;
+    letter-spacing: normal;
     transition: var(--transition-fast);
 }
 
@@ -2196,6 +2196,29 @@ a {
     pointer-events: none;
     z-index: 1;
     filter: brightness(0) invert(1);
+    animation: ctaMeshFloat 25s ease-in-out infinite alternate;
+}
+
+@keyframes ctaMeshFloat {
+    0% { transform: scale(1.1) translate(0, 0); }
+    100% { transform: scale(1.1) translate(-2%, 3%); }
+}
+
+.cta-title-word {
+    display: inline-block;
+    white-space: pre;
+}
+
+.cta-title-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-title-char.char-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .cta-content {
@@ -2325,7 +2348,7 @@ a {
 .footer-col h4 {
     font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
     color: var(--text-dark);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
