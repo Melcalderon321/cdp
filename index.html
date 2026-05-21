@@ -50,6 +50,7 @@
                         <a href="#pediatria">Pediatría</a>
                         <a href="#IMÁGENES">Imágenes Médicas</a>
                         <a href="#laboratorio">Laboratorio</a>
+                        <a href="#especialidades" style="color: var(--primary); text-align: center; margin-top: 8px;">ver todas</a>
                     </div>
                 </div>
 
@@ -503,34 +504,52 @@
             <div class="specs-minimal-grid">
                 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Cirugía General</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Cirugía General</h3>
+                        <i data-lucide="syringe" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Traumatología</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Traumatología</h3>
+                        <i data-lucide="bone" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Oftalmología</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Oftalmología</h3>
+                        <i data-lucide="eye" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Imágenes Médicas</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Imágenes Médicas</h3>
+                        <i data-lucide="monitor" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Cardiología</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Cardiología</h3>
+                        <i data-lucide="heart" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
                 <a href="#" class="spec-minimal-card">
-                    <h3 class="spec-minimal-name">Laboratorio</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        <h3 class="spec-minimal-name">Laboratorio</h3>
+                        <i data-lucide="flask-conical" style="color: white; width: 24px; height: 24px;"></i>
+                    </div>
                 </a>
 
             </div>
 
             <!-- CTA -->
             <div style="display:flex; justify-content:center; margin-top:3.5rem;">
-                <a href="#" class="btn btn-secondary">Ver todas las especialidades</a>
+                <a href="#" class="btn btn-primary">Ver todas las especialidades</a>
             </div>
             
         </div>
@@ -742,27 +761,61 @@
         <div class="container">
             <div class="cta-card">
                 <div class="cta-mesh"></div>
-                <div class="cta-content">
-                    <h2 class="cta-title">
-                        <span class="cta-word" style="--delay: 0.1s">Tu</span>
-                        <span class="cta-word" style="--delay: 0.15s">salud</span>
-                        <span class="cta-word" style="--delay: 0.2s">merece</span>
-                        <span class="cta-word" style="--delay: 0.25s">la</span>
-                        <span class="cta-word" style="--delay: 0.3s">tranquilidad</span><br>
-                        <span class="cta-word" style="--delay: 0.4s">de</span>
-                        <span class="cta-word" style="--delay: 0.45s">estar</span>
-                        <span class="cta-word" style="--delay: 0.5s">en</span>
-                        <span class="cta-word" style="--delay: 0.55s">las</span>
-                        <span class="cta-word" style="--delay: 0.6s">mejores</span>
-                        <span class="cta-word" style="--delay: 0.65s">manos.</span>
+                <div class="cta-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 180px;">
+                    <h2 class="cta-title" id="typing-cta" style="line-height: 1.1; margin-bottom: 0;">
+                        <!-- JS typing effect -->
                     </h2>
-                    <div class="cta-actions">
+                    <div class="cta-actions" style="margin-top: 0.5rem;">
                         <a href="#" class="btn btn-white btn-booking-trigger">Consultar por WhatsApp</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("typing-cta");
+            if(container) {
+                const text1 = "Tu salud merece la tranquilidad";
+                const text2 = "de estar en las mejores manos.";
+                
+                const span1 = document.createElement("span");
+                const br = document.createElement("br");
+                const span2 = document.createElement("span");
+                
+                container.appendChild(span1);
+                
+                const typeWriter = (element, text, i, cb) => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        setTimeout(() => typeWriter(element, text, i + 1, cb), 40); // speed
+                    } else if (cb) {
+                        cb();
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            observer.unobserve(entry.target);
+                            setTimeout(() => {
+                                typeWriter(span1, text1, 0, () => {
+                                    container.appendChild(br);
+                                    container.appendChild(span2);
+                                    setTimeout(() => {
+                                        typeWriter(span2, text2, 0);
+                                    }, 200); // pause between lines
+                                });
+                            }, 300); // initial delay when scrolled into view
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(container);
+            }
+        });
+    </script>
 
     <!-- ==========================================
        FOOTER

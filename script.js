@@ -500,44 +500,14 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
        ========================================================================== */
     const ctaTitle = document.querySelector(".cta-title");
     if (ctaTitle) {
-        const textNodes = Array.from(ctaTitle.childNodes);
-        ctaTitle.innerHTML = "";
-        let delayCount = 0;
-        
-        textNodes.forEach(node => {
-            if (node.nodeType === 3) { // Text node
-                const words = node.textContent.split(/(\s+)/);
-                words.forEach(word => {
-                    if (word.trim() === "") {
-                        ctaTitle.appendChild(document.createTextNode(word));
-                    } else {
-                        const wordSpan = document.createElement("span");
-                        wordSpan.className = "cta-title-word";
-                        word.split('').forEach(char => {
-                            const charSpan = document.createElement("span");
-                            charSpan.className = "cta-title-char";
-                            charSpan.textContent = char;
-                            charSpan.style.transitionDelay = `${delayCount * 0.02}s`;
-                            wordSpan.appendChild(charSpan);
-                            delayCount++;
-                        });
-                        ctaTitle.appendChild(wordSpan);
-                    }
-                });
-            } else {
-                ctaTitle.appendChild(node.cloneNode(true));
-            }
-        });
-
         const ctaObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const chars = entry.target.querySelectorAll(".cta-title-char");
-                    chars.forEach(char => char.classList.add("char-visible"));
+                    entry.target.classList.add("is-visible");
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.2 });
 
         ctaObserver.observe(ctaTitle);
     }
