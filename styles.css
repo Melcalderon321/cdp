@@ -811,6 +811,7 @@ a {
 .sede-acc-title {
     font-size: 1.5rem;
     font-weight: 500;
+    color: white;
     margin: 0;
     white-space: nowrap;
     transition: var(--transition-smooth);
@@ -858,7 +859,7 @@ a {
     max-height: 300px;
     opacity: 1;
     transform: translateY(0);
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .sede-acc-address {
