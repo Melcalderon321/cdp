@@ -5,6 +5,7 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 
 /* --- CUSTOM VARIABLES & DESIGN SYSTEM --- */
 :root {
@@ -58,6 +59,7 @@
     /* Typographies */
     --font-sans: 'Red Hat Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-serif: var(--font-sans);
+    --font-title: 'Acumin Extra Condensed', 'Acumin Pro Extra Condensed', 'Bebas Neue', 'Oswald', var(--font-sans);
     
     --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -108,7 +110,8 @@ body {
 
 /* --- TYPOGRAPHY UTILITIES --- */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+    font-family: var(--font-title);
+    font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -121,20 +124,19 @@ a {
 }
 
 .text-accent-serif {
-    font-family: var(--font-sans);
+    font-family: var(--font-title);
     font-style: normal;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--primary);
     text-transform: uppercase;
 }
 
 .text-accent-uppercase {
-    font-family: var(--font-sans);
+    font-family: var(--font-title);
     font-style: normal;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 /* --- BRAND TEXTURE OVERLAYS --- */
@@ -149,11 +151,11 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('recurso-3.png');
+    background-image: url('texture.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.08; /* stronger visual brand identity */
+    opacity: 0.15; /* stronger visual brand identity */
     pointer-events: none;
     z-index: 0;
 }
@@ -189,8 +191,9 @@ a {
 }
 
 .section-title {
+    font-family: var(--font-title);
     font-size: 2.25rem;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0.25rem;
     max-width: 100%;
 }
@@ -407,8 +410,8 @@ a {
 .header-cta .btn {
     padding: 0.65rem 1.5rem;
     font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    text-transform: none;
+    letter-spacing: 0.02em;
 }
 
 .menu-toggle {
@@ -520,8 +523,9 @@ a {
 }
 
 .hero-title {
+    font-family: var(--font-title);
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     letter-spacing: normal;
@@ -630,7 +634,8 @@ a {
 
 /* Center the decorative line under the section tag */
 .quick-section .section-tag::after,
-.cobertura-section .section-tag::after {
+.cobertura-section .section-tag::after,
+.manifiesto-slide .section-tag::after {
     margin-left: auto;
     margin-right: auto;
 }
@@ -645,18 +650,20 @@ a {
 .quick-card {
     background: #ffffff;
     border: 1px solid var(--border-light); /* Neutral border */
-    border-radius: 12px; /* Less rounded, more classic */
-    padding: 0 1.5rem 0 2rem;
+    border-radius: 20px; /* More rounded, modern */
+    padding: 1.5rem;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px; /* Horizontal pill shape */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    aspect-ratio: 4 / 3;
+    min-height: 140px; /* Ensure it's not too small */
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .quick-card::before {
@@ -678,34 +685,41 @@ a {
     background: #f4fbfb;
 }
 
+.quick-card-content {
+    margin-top: auto;
+    z-index: 2;
+    position: relative;
+}
+
 .quick-card h3 {
     font-size: 1.15rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-dark);
+    margin: 0 0 0.4rem 0;
+    text-transform: none;
+    letter-spacing: -0.02em;
+}
+
+.quick-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted-dark);
     margin: 0;
-    z-index: 2;
-    letter-spacing: normal; /* Removed negative spacing */
+    line-height: 1.4;
+    opacity: 0.8;
 }
 
 .custom-card-icon {
-    height: 75px; /* Default size */
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    height: 75px;
     width: auto;
-    max-width: 120px;
+    max-width: 90px;
     object-fit: contain;
     z-index: 1;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.05));
-    transform-origin: bottom center;
-}
-
-/* Make the first icon (Pedir turno) slightly larger */
-.quick-card:nth-child(1) .custom-card-icon {
-    height: 95px; 
-}
-
-/* Push doctor image down to the edge */
-.quick-card:nth-child(2) .custom-card-icon {
-    transform: translateY(12px); 
+    opacity: 0.8;
 }
 
 /* Hover effects */
@@ -722,11 +736,7 @@ a {
 .quick-card:hover .custom-card-icon {
     transform: translateY(-2px) scale(1.05);
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
-}
-
-/* Doctor hover maintains bottom offset */
-.quick-card:nth-child(2):hover .custom-card-icon {
-    transform: translateY(10px) scale(1.05); 
+    opacity: 1;
 }
 
 /* --- SEDES RED --- */
@@ -799,13 +809,12 @@ a {
 }
 
 .sede-acc-title {
-    color: var(--text-light);
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0;
     white-space: nowrap;
     transition: var(--transition-smooth);
-    letter-spacing: normal;
+    letter-spacing: -0.02em;
 }
 
 /* When compressed, rotate the title so it looks like a spine of a book */
@@ -941,12 +950,14 @@ a {
 }
 
 .manifiesto-text {
+    font-family: var(--font-title);
     font-size: 2.85rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.35;
     letter-spacing: -0.02em;
     color: var(--text-dark);
     margin: 0; /* Margin moved to .manifiesto-rotator */
+    text-transform: uppercase;
 }
 
 .manifiesto-stats {
@@ -1943,20 +1954,23 @@ a {
 }
 
 .spec-minimal-card {
-    background: #ffffff;
-    padding: 1.5rem 2rem;
+    background: var(--primary);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    justify-content: center;
+    gap: 0.5rem;
     text-decoration: none;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    height: 120px;
 }
 
+/* Decorative texture background */
 .spec-minimal-card::before {
     content: '';
     position: absolute;
@@ -1964,40 +1978,63 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--primary-glow);
-    opacity: 0;
-    transition: var(--transition-smooth);
+    background-image: url('texture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
     z-index: 0;
+    transition: var(--transition-smooth);
+    filter: brightness(0) invert(1);
 }
 
 .spec-minimal-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: rgba(1, 128, 128, 0.2);
+    box-shadow: 0 12px 32px rgba(1, 128, 128, 0.2);
 }
 
 .spec-minimal-card:hover::before {
-    opacity: 1;
+    opacity: 0.3;
 }
 
-.spec-minimal-num {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--primary-light);
-    z-index: 1;
+/* Arrow indicator */
+.spec-minimal-card::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%) translateX(-10px);
+    font-size: 1.5rem;
+    color: #ffffff;
+    opacity: 0;
+    transition: var(--transition-smooth);
+    z-index: 2;
+}
+
+.spec-minimal-card:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 .spec-minimal-name {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: #ffffff;
     margin: 0;
     z-index: 1;
+    text-transform: none;
     transition: var(--transition-fast);
 }
 
+.spec-minimal-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    z-index: 1;
+    line-height: 1.4;
+}
+
 .spec-minimal-card:hover .spec-minimal-name {
-    color: var(--primary);
     transform: translateX(4px);
 }
 
@@ -2139,14 +2176,6 @@ a {
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transform: perspective(1000px) rotateX(0) rotateY(0) scale(1);
-    will-change: transform;
-}
-
-.cta-card:hover {
-    transform: perspective(1000px) translateY(-10px) rotateX(3deg) rotateY(-3deg) scale(1.02);
-    box-shadow: 0 30px 60px rgba(1, 128, 128, 0.25);
 }
 
 /* Mesh Canvas Overlay styling */
@@ -2156,20 +2185,16 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('recurso-3.png'),
+    background-image: url('recurso-1.png'),
                       radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 40%),
                       radial-gradient(circle at 0% 0%, rgba(255,255,255,0.08) 0%, transparent 40%);
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: cover, auto, auto;
     background-position: center, center, center;
-    opacity: 0.55; /* ultra strong brand tech overlay on CTA card */
+    opacity: 0.2; /* subtle texture overlay */
     pointer-events: none;
     z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.cta-card:hover .cta-mesh {
-    transform: scale(1.06);
+    filter: brightness(0) invert(1);
 }
 
 .cta-content {
@@ -2191,8 +2216,9 @@ a {
 }
 
 .cta-title {
+    font-family: var(--font-title);
     font-size: 2.75rem;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.35;
     letter-spacing: -0.02em;
     margin-bottom: 1.25rem;
@@ -2210,13 +2236,74 @@ a {
     justify-content: center;
     align-items: center;
 }
+/* --- GALLERY SECTION --- */
+.gallery-section {
+    padding: 2rem 0 6rem 0;
+    background-color: transparent;
+}
+
+.gallery-grid {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    max-width: 100%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    flex: 4;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.02);
+}
 
 /* --- FOOTER --- */
 .footer {
     background-color: #f8fafb;
     color: var(--text-dark);
     padding: 6rem 0 3rem 0;
-    border-top: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 50px; /* Pushed down a bit */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    background-image: url('texture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    transform: scaleY(-1);
+}
+
+.footer > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .footer-grid {
@@ -2237,7 +2324,7 @@ a {
 .footer-col h4 {
     font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
     color: var(--text-dark);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
