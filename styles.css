@@ -505,7 +505,7 @@ a {
 }
 
 .hero-slide.active .hero-image {
-    transform: scale(1.1); /* Zooms in when active */
+    transform: scale(1.04); /* Subtle zoom */
 }
 
 .hero-content {
@@ -518,20 +518,20 @@ a {
 }
 
 .hero-slide-tag {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.3em;
-    color: var(--primary-light);
+    color: #ffffff;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
     display: inline-block;
-    padding: 0.5rem 1.25rem;
+    padding: 0.4rem 1rem;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 2px; /* Forma cuadrada */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 3px solid var(--primary-light); /* Accent line on the left */
+    border-left: 3px solid rgba(255, 255, 255, 0.6); /* Accent line on the left */
     transform: translateY(30px);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
@@ -549,7 +549,7 @@ a {
 .hero-title {
     font-family: var(--font-title);
     font-size: 5.5rem; /* Apenitas más chica */
-    font-weight: 700; /* Bolder */
+    font-weight: 500; /* Bolder */
     line-height: 0.95; /* Tighter line-height */
     letter-spacing: 0.03em; /* Más interletrado */
     margin-bottom: 0.5rem; /* Menos separación con la bajada */
@@ -695,7 +695,7 @@ a {
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     text-decoration: none;
     cursor: pointer;
 }
@@ -770,6 +770,24 @@ a {
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
     opacity: 1;
 }
+
+.quick-card-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: var(--primary);
+    opacity: 0.4;
+    transition: var(--transition-smooth);
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.2px;
+}
+
+.quick-card:hover .quick-card-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
 
 /* --- SEDES RED --- */
 .sedes-section {
@@ -1262,11 +1280,12 @@ a {
 }
 
 .doc-card:hover {
-    transform: translateY(-12px) scale(1.025);
-    box-shadow: 0 24px 56px rgba(0,20,40,0.14);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(1, 128, 128, 0.2);
 }
 
-/* Foto */
+/* Overlay teal al hacer hover en la foto */
 .doc-card-photo {
     width: 100%;
     height: 300px;
@@ -1275,6 +1294,21 @@ a {
     align-items: center;
     justify-content: center;
     background: #d4eaf4;
+    position: relative;
+}
+
+.doc-card-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(1, 128, 128, 0.65) 0%, rgba(1, 128, 128, 0.0) 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.doc-card:hover .doc-card-photo::after {
+    opacity: 1;
 }
 
 .doc-card-photo img {
@@ -1287,7 +1321,7 @@ a {
 }
 
 .doc-card:hover .doc-card-photo img {
-    transform: scale(1.06);
+    transform: scale(1.07);
 }
 
 /* Panel inferior */
@@ -1301,7 +1335,19 @@ a {
 }
 
 .doc-card:hover .doc-card-body {
-    background: #cce5f0;
+    background: #ffffff !important;
+}
+
+.doc-card:hover .doc-card-name {
+    color: var(--text-dark) !important;
+}
+
+.doc-card:hover .doc-card-spec {
+    color: var(--primary) !important;
+}
+
+.doc-card:hover .doc-turno-btn {
+    color: var(--primary) !important;
 }
 
 /* Nombre + especialidad (siempre visible) */
