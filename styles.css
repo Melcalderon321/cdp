@@ -669,7 +669,9 @@ a {
 /* Center the decorative line under the section tag */
 .quick-section .section-tag::after,
 .cobertura-section .section-tag::after,
-.manifiesto-slide .section-tag::after {
+.manifiesto-slide .section-tag::after,
+.testi-section .section-tag::after,
+.specs-section .section-tag::after {
     margin-left: auto;
     margin-right: auto;
 }
