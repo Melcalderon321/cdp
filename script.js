@@ -96,17 +96,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let slideInterval;
 
     function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove("active"));
-        dots.forEach(dot => dot.classList.remove("active"));
+        if (slides && slides.length > 0) {
+            slides.forEach(slide => slide.classList.remove("active"));
+        }
+        if (dots && dots.length > 0) {
+            dots.forEach(dot => dot.classList.remove("active"));
+        }
         
-        currentSlide = (index + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add("active");
-        dots[currentSlide].classList.add("active");
+        if (slides && slides.length > 0) {
+            currentSlide = (index + slides.length) % slides.length;
+            
+            if (slides[currentSlide]) {
+                slides[currentSlide].classList.add("active");
+            }
+            if (dots && dots[currentSlide]) {
+                dots[currentSlide].classList.add("active");
+            }
 
-        // Update URL to match current slide without jumping or reloading
-        if (window.history && window.history.replaceState) {
-            window.history.replaceState(null, null, "#slide-" + (currentSlide + 1));
+            // Update URL to match current slide without jumping or reloading
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, null, "#slide-" + (currentSlide + 1));
+            }
         }
     }
 
@@ -510,5 +520,28 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
         }, { threshold: 0.2 });
 
         ctaObserver.observe(ctaTitle);
+    }
+
+    /* ==========================================================================
+       11. MANIFIESTO ROTATOR (Misión, Visión, Valores)
+       ========================================================================== */
+    const manifestoSlides = document.querySelectorAll(".manifiesto-slide");
+    let currentManifestoSlide = 0;
+    let manifestoInterval;
+
+    function showManifestoSlide(index) {
+        if (manifestoSlides.length === 0) return;
+        manifestoSlides.forEach(slide => slide.classList.remove("active"));
+        currentManifestoSlide = (index + manifestoSlides.length) % manifestoSlides.length;
+        manifestoSlides[currentManifestoSlide].classList.add("active");
+    }
+
+    function nextManifestoSlide() {
+        showManifestoSlide(currentManifestoSlide + 1);
+    }
+
+    if (manifestoSlides.length > 1) {
+        showManifestoSlide(0);
+        manifestoInterval = setInterval(nextManifestoSlide, 6000);
     }
 });

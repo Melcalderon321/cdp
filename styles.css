@@ -227,30 +227,30 @@ a {
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    background-color: #004d4d;
     color: var(--text-light);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-light);
+    background-color: #005f5f;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(1, 128, 128, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 77, 77, 0.25);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--primary);
-    border-color: var(--primary);
+    color: #004d4d;
+    border-color: #004d4d;
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary-glow);
+    background-color: rgba(0, 77, 77, 0.08);
     transform: translateY(-2px);
 }
 
 .btn-white {
     background-color: #ffffff;
-    color: var(--primary);
+    color: #004d4d;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -429,6 +429,40 @@ a {
     background-color: var(--bg-dark);
 }
 
+.hero-bottom-shape {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+    pointer-events: none;
+    line-height: 0;
+    transform: translateY(30%); /* Pushed down to the bottom */
+}
+
+.hero-bottom-shape img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cta-top-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 0;
+    transform: scaleY(-1) scaleX(-1) translateY(45%); /* Positioned to bridge the gallery and CTA */
+}
+
+.cta-top-shape img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .hero-slide::before {
     display: none;
 }
@@ -518,13 +552,13 @@ a {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: var(--primary);
+    color: #004d4d;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     display: inline-block;
     padding: 0.4rem 1.2rem;
     background: transparent;
-    border: 1px solid var(--primary);
+    border: 1px solid #004d4d;
     border-radius: var(--radius-full);
     transform: translateY(30px);
     opacity: 0;
@@ -565,7 +599,7 @@ a {
 
 .hero-desc {
     font-size: 1.2rem;
-    color: var(--text-muted-dark);
+    color: #004d4d;
     margin-bottom: 2.5rem;
     max-width: 600px;
     line-height: 1.4;
@@ -595,7 +629,7 @@ a {
 }
 
 .btn-hero-booking {
-    background-color: var(--primary);
+    background-color: #004d4d;
     color: #ffffff;
     border-radius: var(--radius-full);
     padding: 0.8rem 2rem;
@@ -614,10 +648,10 @@ a {
 }
 
 .btn-hero-booking:hover {
-    background-color: var(--primary-light);
+    background-color: #005f5f;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(1, 128, 128, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 77, 77, 0.25);
 }
 
 .btn-whatsapp-icon {
@@ -757,15 +791,20 @@ a {
     margin-top: auto;
     z-index: 2;
     position: relative;
+    width: 100%;
 }
 
 .quick-card h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin: 0 0 0.4rem 0;
-    text-transform: none;
-    letter-spacing: normal;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #004d4d;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid #004d4d;
+    padding-bottom: 0.4rem;
+    width: 100%;
 }
 
 .quick-card p {
@@ -893,7 +932,7 @@ a {
 }
 
 .sede-acc-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: white;
     margin: 0;
@@ -902,27 +941,59 @@ a {
     letter-spacing: -0.02em;
 }
 
+.sede-badge-soon {
+    font-size: 0.65rem;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    color: #004d4d;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    margin-left: 0.75rem;
+    vertical-align: middle;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-block;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.sede-acc-item:hover .sede-badge-soon,
+.sede-acc-item.active .sede-badge-soon {
+    opacity: 1;
+}
+
 /* When compressed, rotate the title so it looks like a spine of a book */
 .sede-acc-item:not(:hover):not(.active) .sede-acc-title {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     opacity: 0.8;
     letter-spacing: 0.05em; /* Add slight tracking for vertical legibility */
 }
 
 .sede-acc-icon {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
     color: var(--primary-light);
     opacity: 0;
     transition: var(--transition-smooth);
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(4px);
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.sede-acc-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
 .sede-acc-item:hover .sede-acc-icon,
@@ -1019,8 +1090,16 @@ a {
 .manifiesto-slide {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateY(15px);
+}
+
+.manifiesto-slide.active {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
 }
 
 .manifiesto-tag {
@@ -1377,7 +1456,7 @@ a {
 }
 
 .doc-card:hover .doc-turno-btn {
-    background: var(--primary) !important;
+    background: #004d4d !important;
     color: #ffffff !important;
 }
 
@@ -1389,20 +1468,20 @@ a {
     align-items: center;
 }
 
-.doc-card-name {
+.doc-carousel .doc-card-name {
     font-family: var(--font-title);
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 300;
     color: #004d4d;
-    line-height: 1.2;
+    line-height: 1.05;
     margin: 0;
     letter-spacing: normal;
     text-transform: uppercase;
 }
 
-.doc-card-spec {
+.doc-carousel .doc-card-spec {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--primary);
     text-transform: none;
@@ -1430,8 +1509,8 @@ a {
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--primary);
-    border: 1px solid var(--primary);
+    color: #004d4d;
+    border: 1px solid #004d4d;
     border-radius: var(--radius-full);
     font-family: var(--font-sans);
     font-size: 0.75rem;
@@ -1649,17 +1728,17 @@ a {
 
 .doc-card-name {
     font-family: var(--font-title);
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 300;
     color: #004d4d;
-    line-height: 1.2;
+    line-height: 1.05;
     margin: 0;
     text-transform: uppercase;
 }
 
 .doc-card-spec {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     font-weight: 500;
     color: var(--primary);
     text-transform: none;
@@ -2068,6 +2147,8 @@ a {
     gap: 1.5rem;
     background-color: transparent;
     border: none;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .spec-minimal-card {
@@ -2117,7 +2198,7 @@ a {
 
 .spec-minimal-name {
     font-family: var(--font-title);
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #004d4d; /* dark green text */
     margin: 0;
