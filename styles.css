@@ -429,23 +429,6 @@ a {
     background-color: var(--bg-dark);
 }
 
-.hero-bottom-shape {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    z-index: 4;
-    pointer-events: none;
-    line-height: 0;
-    transform: translateY(30%); /* Pushed down to the bottom */
-}
-
-.hero-bottom-shape img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .hero-slide::before {
     display: none;
 }
