@@ -460,9 +460,9 @@ a {
     opacity: 0;
     clip-path: inset(0 100% 0 0);
     filter: blur(20px) grayscale(100%);
-    transition: clip-path 1.2s cubic-bezier(0.86, 0, 0.07, 1), 
-                opacity 0.8s ease 0.4s, 
-                filter 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: clip-path 0s ease 1.2s, 
+                opacity 0s ease 1.2s, 
+                filter 0s ease 1.2s;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -696,6 +696,29 @@ a {
 .quick-section {
     padding: 6rem 0;
     background-color: transparent;
+    position: relative;
+}
+
+.quick-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.quick-top-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 0;
+    transform: translateY(-80%);
+}
+
+.quick-top-shape img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Center the decorative line under the section tag */
