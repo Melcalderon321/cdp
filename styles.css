@@ -429,6 +429,63 @@ a {
     background-color: var(--bg-dark);
 }
 
+.hero-quick-divider {
+    width: 100%;
+    line-height: 0;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: -18vw;
+}
+
+@media (max-width: 1024px) {
+    .hero-quick-divider {
+        margin-top: -12vw;
+    }
+}
+@media (max-width: 768px) {
+    .hero-quick-divider {
+        margin-top: -8vw;
+    }
+}
+
+.hero-quick-divider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scaleX(-1); /* Horizontally mirrored */
+}
+
+.gallery-cta-divider {
+    width: 100%;
+    line-height: 0;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: -12.5vw;
+    margin-bottom: -5px; /* Hides subpixel rendering lines */
+}
+
+@media (max-width: 1024px) {
+    .gallery-cta-divider {
+        margin-top: -8vw;
+    }
+}
+@media (max-width: 768px) {
+    .gallery-cta-divider {
+        margin-top: -5vw;
+    }
+}
+
+.gallery-cta-divider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scaleY(-1) scaleX(-1); /* Mirrored vertically and horizontally */
+}
+
 .hero-slide::before {
     display: none;
 }
@@ -511,7 +568,7 @@ a {
     max-width: 800px;
     color: var(--text-dark);
     padding: 0 2rem;
-    margin-top: 4rem;
+    margin-top: -5rem; /* Shift content upwards to clear the bottom wave */
 }
 
 .hero-slide-tag {
@@ -694,31 +751,22 @@ a {
 
 /* --- QUICK ACTIONS BENTO --- */
 .quick-section {
-    padding: 6rem 0;
+    padding: 3rem 0 6rem 0;
     background-color: transparent;
-    position: relative;
+    margin-top: -16.6vw;
 }
 
-.quick-section .container {
-    position: relative;
-    z-index: 2;
+@media (max-width: 1024px) {
+    .quick-section {
+        margin-top: -11vw;
+        padding: 2.5rem 0 5rem 0;
+    }
 }
-
-.quick-top-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    pointer-events: none;
-    line-height: 0;
-    transform: translateY(-80%);
-}
-
-.quick-top-shape img {
-    width: 100%;
-    height: auto;
-    display: block;
+@media (max-width: 768px) {
+    .quick-section {
+        margin-top: -8vw;
+        padding: 2rem 0 4rem 0;
+    }
 }
 
 /* Center the decorative line under the section tag */
@@ -967,10 +1015,10 @@ a {
     position: absolute;
     top: 2.5rem;
     right: 2.5rem;
-    color: var(--primary-light);
+    color: #ffffff;
     opacity: 0;
     transition: var(--transition-smooth);
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2);
     backdrop-filter: blur(4px);
     width: 48px;
     height: 48px;
@@ -978,6 +1026,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .sede-acc-icon svg {
