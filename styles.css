@@ -446,23 +446,6 @@ a {
     display: block;
 }
 
-.cta-top-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    pointer-events: none;
-    line-height: 0;
-    transform: scaleY(-1) scaleX(-1) translateY(45%); /* Positioned to bridge the gallery and CTA */
-}
-
-.cta-top-shape img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .hero-slide::before {
     display: none;
 }
