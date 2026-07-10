@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sedesData = {
         dalvian: {
             title: "Sede Dalvian (Sede Principal)",
-            address: "Av. 7 Colores 2015, Dalvian · Mendoza",
+            address: "Av. 7 Colores 2015, Local 42, Dalvian · Mendoza",
             hours: "Lun a Vie · 08:00 – 20:00",
             coords: "32° 52' S · 68° 51' W",
             image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000",
