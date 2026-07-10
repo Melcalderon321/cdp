@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const sedesData = {
         dalvian: {
             title: "Sede Dalvian (Sede Principal)",
-            address: "Vías del Pilar S/N, Dalvian · Mendoza",
+            address: "Av. 7 Colores 2015, Dalvian · Mendoza",
             hours: "Lun a Vie · 08:00 – 20:00",
             coords: "32° 52' S · 68° 51' W",
             image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000",
-            mapLink: "https://maps.google.com/?q=Vias+del+Pilar+Dalvian+Mendoza"
+            mapLink: "https://maps.google.com/?q=Av.+7+Colores+2015+Dalvian+Mendoza"
         },
         peru: {
             title: "Sede Perú (Consultorios externos)",
