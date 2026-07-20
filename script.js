@@ -526,6 +526,7 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
        11. MANIFIESTO ROTATOR (Misión, Visión, Valores)
        ========================================================================== */
     const manifestoSlides = document.querySelectorAll(".manifiesto-slide");
+    const manifestoWaveImg = document.getElementById("manifiesto-wave-img");
     let currentManifestoSlide = 0;
     let manifestoInterval;
 
@@ -534,6 +535,9 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
         manifestoSlides.forEach(slide => slide.classList.remove("active"));
         currentManifestoSlide = (index + manifestoSlides.length) % manifestoSlides.length;
         manifestoSlides[currentManifestoSlide].classList.add("active");
+        if (manifestoWaveImg) {
+            manifestoWaveImg.style.transform = `translateX(-${currentManifestoSlide * 24}%)`;
+        }
     }
 
     function nextManifestoSlide() {
