@@ -446,6 +446,12 @@ a {
     }
 }
 
+@media (max-width: 1366px) {
+    .hero-quick-divider {
+        margin-top: -13vw;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-quick-divider {
         margin-top: -12vw;
@@ -786,6 +792,12 @@ a {
 @media (max-width: 1440px) {
     .quick-section {
         margin-top: -6vw;
+    }
+}
+
+@media (max-width: 1366px) {
+    .quick-section {
+        margin-top: -5vw;
     }
 }
 
@@ -2964,9 +2976,21 @@ a {
     padding-top: 9rem;
 }
 
+@media (max-width: 1440px) {
+    .team-divider-fullwidth {
+        margin-top: -8rem;
+    }
+}
+
+@media (max-width: 1366px) {
+    .team-divider-fullwidth {
+        margin-top: -8rem;
+    }
+}
+
 @media (max-width: 1280px) {
     .team-divider-fullwidth {
-        margin-top: -16rem;
+        margin-top: -10rem;
     }
 }
 
