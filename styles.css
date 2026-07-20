@@ -777,27 +777,27 @@ a {
 
 /* --- QUICK ACTIONS BENTO --- */
 .quick-section {
-    padding: 3rem 0 6rem 0;
+    padding: 6rem 0 6rem 0;
     background-color: transparent;
-    margin-top: -16.6vw;
+    margin-top: -8vw;
 }
 
 @media (max-width: 1440px) {
     .quick-section {
-        margin-top: -13vw;
+        margin-top: -6vw;
     }
 }
 
 @media (max-width: 1024px) {
     .quick-section {
-        margin-top: -11vw;
-        padding: 2.5rem 0 5rem 0;
+        margin-top: -4vw;
+        padding: 4rem 0 5rem 0;
     }
 }
 @media (max-width: 768px) {
     .quick-section {
-        margin-top: -8vw;
-        padding: 2rem 0 4rem 0;
+        margin-top: 0;
+        padding: 3rem 0 4rem 0;
     }
 }
 
@@ -1000,6 +1000,11 @@ a {
     justify-content: space-between;
 }
 
+.sede-acc-title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .sede-acc-title {
     font-size: 1.8rem;
     font-weight: 500;
@@ -1015,23 +1020,19 @@ a {
     font-family: var(--font-sans);
     font-weight: 800;
     color: #004d4d;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 0.15rem 0.5rem;
+    padding: 0.2rem 0.6rem;
     border-radius: var(--radius-full);
     margin-left: 0.75rem;
     vertical-align: middle;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: inline-block;
-    opacity: 0;
-    transition: var(--transition-smooth);
-}
-
-.sede-acc-item:hover .sede-badge-soon,
-.sede-acc-item.active .sede-badge-soon {
     opacity: 1;
+    writing-mode: horizontal-tb;
+    transition: var(--transition-smooth);
 }
 
 /* When compressed, rotate the title so it looks like a spine of a book */
@@ -1041,6 +1042,17 @@ a {
     font-size: 1.45rem;
     opacity: 0.8;
     letter-spacing: 0.05em; /* Add slight tracking for vertical legibility */
+}
+
+/* When compressed, position the badge horizontally at the top of the card so it stays clean and non-deformed */
+.sede-acc-item:not(:hover):not(.active) .sede-badge-soon {
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sede-acc-icon {
