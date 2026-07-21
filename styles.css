@@ -1162,9 +1162,10 @@ a {
 .mision-image-fullwidth {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    margin-top: -11rem;
+    margin-top: -6.5rem;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .mision-image-fullwidth img#manifiesto-wave-img {
@@ -1180,13 +1181,15 @@ a {
 
 .manifiesto-content {
     text-align: left;
+    position: relative;
+    z-index: 2;
 }
 
 .manifiesto-rotator {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    margin-bottom: 1rem; /* Removed the massive bottom gap now that there are no stats */
+    margin-bottom: 2rem;
 }
 
 .manifiesto-slide {
@@ -2974,6 +2977,18 @@ a {
 
 .specs-section {
     padding-top: 9rem;
+}
+
+@media (min-width: 1366px) {
+    .mision-image-fullwidth {
+        margin-top: -6rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .mision-image-fullwidth {
+        margin-top: -5.5rem;
+    }
 }
 
 @media (max-width: 1440px) {
