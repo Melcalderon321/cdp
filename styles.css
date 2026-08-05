@@ -3147,18 +3147,17 @@ a {
 
 .contact-hero-tag {
     font-family: var(--font-sans);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0, 150, 136, 0.1);
-    color: var(--primary);
-    padding: 0.5rem 1.25rem;
-    border-radius: var(--radius-full);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #004d4d;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
     margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: transparent;
+    border: 1px solid #004d4d;
+    border-radius: var(--radius-full);
 }
 
 .contact-hero-title {
