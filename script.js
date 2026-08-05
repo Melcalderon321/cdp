@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             address: "San Martín 521, Godoy Cruz · Mendoza",
             hours: "Lun a Sáb · 07:30 – 20:00",
             coords: "32° 55' S · 68° 50' W",
-            image: "clinicadelpilar_webgc.png",
+            image: "assets/clinicadelpilar_webgc.png",
             mapLink: "https://maps.google.com/?q=San+Martin+521+Godoy+Cruz+Mendoza"
         },
         laboratorio: {

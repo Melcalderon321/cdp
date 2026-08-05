@@ -151,7 +151,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('texture.png');
+    background-image: url('assets/texture.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -2472,7 +2472,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('recurso-1.png'),
+    background-image: url('assets/recurso-1.png'),
                       radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0%, transparent 40%),
                       radial-gradient(circle at 0% 0%, rgba(255,255,255,0.08) 0%, transparent 40%);
     background-repeat: no-repeat, no-repeat, no-repeat;
@@ -2607,7 +2607,7 @@ a {
     left: 0;
     width: 100%;
     height: calc(100% - 50px);
-    background-image: url('recurso-3-footer.png');
+    background-image: url('assets/recurso-3-footer.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
