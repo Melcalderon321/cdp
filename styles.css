@@ -3139,7 +3139,7 @@ a {
 
 /* Contact Hero Banner */
 .contact-hero {
-    padding: 9rem 0 3.5rem 0;
+    padding: 8.5rem 0 1.5rem 0;
     background: #ffffff;
     text-align: center;
     position: relative;
@@ -3177,7 +3177,7 @@ a {
     font-size: 1.15rem;
     color: var(--text-muted-dark);
     max-width: 720px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 0.75rem auto;
     line-height: 1.6;
     font-weight: 400;
 }
@@ -3305,10 +3305,10 @@ a {
 
 /* Quick Channels Card */
 .channels-side-card {
-    background: #f8fafb;
+    background: #edf6f6;
     border-radius: 20px;
     padding: 2.5rem;
-    border: 1px solid rgba(0, 128, 128, 0.08);
+    border: 1px solid rgba(0, 128, 128, 0.12);
     display: flex;
     flex-direction: column;
     gap: 2rem;
