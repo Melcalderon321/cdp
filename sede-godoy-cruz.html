@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardiología | Clínica del Pilar Mendoza</title>
-    <meta name="description" content="Servicio de Cardiología en Clínica del Pilar Mendoza. Consultas cardiológicas, electrocardiogramas, Holter, MAPA y ergometría computarizada con profesionales altamente calificados.">
-    <meta name="keywords" content="cardiologia mendoza, cardiologos, electrocardiograma, holter, mapa, ergometria, clinica del pilar">
-    <meta name="author" content="Clínica del Pilar">
-
-    <!-- Adobe Fonts: Acumin -->
+    <title>Sede Godoy Cruz | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Sede Godoy Cruz de Clínica del Pilar Mendoza. Centro integral de Imágenes Médicas, Resonancia Magnética, Tomografía, Consultorios Externos y Laboratorio. San Martín 1867.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Adobe Fonts Typekit (Acumin Pro Extra Condensed) -->
     <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=12">
-    <!-- Lucide Icons CDN -->
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="styles.css?v=12">
+    
     <style>
-        /* ═══════════════════════════════════════════
-           HERO DE SERVICIO — idéntico a imágenes médicas
-           ═══════════════════════════════════════════ */
+        /* Estilos específicos de página de Sede (Idéntico a laboratorio.html) */
         .svc-hero {
             position: relative;
             min-height: 60vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: flex-start;
             overflow: hidden;
             background: #ffffff;
         }
@@ -34,7 +33,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: right center;
+            object-position: right top;
             opacity: 1;
         }
         .svc-hero-overlay {
@@ -73,7 +72,7 @@
             line-height: 0.88;
             letter-spacing: 0.03em;
             color: #004d4d;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.6rem;
             text-transform: uppercase;
         }
         .svc-hero-title .accent { color: var(--primary); }
@@ -82,39 +81,161 @@
             font-size: 1.1rem;
             color: #004d4d;
             margin-bottom: 2.2rem;
-            max-width: 580px;
+            max-width: 600px;
             line-height: 1.55;
         }
 
-        /* ═══════════════════════════════════════════
-           BIOBOX BANNER — tarjeta dentro de contenedor
-           ═══════════════════════════════════════════ */
+        /* Sección Ficha Técnica y Mapa */
+        .sede-info-section {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+        .sede-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 992px) {
+            .sede-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        .sede-photo-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(1,128,128,0.12);
+            border: 1px solid rgba(1,128,128,0.1);
+            background: #fafdfd;
+        }
+        .sede-photo-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .sede-details-box {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .sede-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .sede-detail-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(1,128,128,0.08);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .sede-detail-text h4 {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: #004d4d;
+            margin: 0 0 0.2rem 0;
+            text-transform: uppercase;
+        }
+        .sede-detail-text p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-muted-dark);
+            margin: 0;
+            line-height: 1.45;
+        }
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(1,128,128,0.1);
+            height: 100%;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+            flex: 1;
+        }
+        .map-action-bar {
+            background: #004d4d;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        /* Grilla de Servicios en Sede */
+        .svc-prestaciones {
+            padding: 5rem 0;
+            background: #fafdfd;
+            position: relative;
+        }
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .svc-card {
+            background: #ffffff;
+            border: 1px solid rgba(1,128,128,0.09);
+            border-radius: 16px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            box-shadow: 0 2px 12px rgba(1,128,128,0.04);
+        }
+        .svc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(1,128,128,0.1);
+            border-color: rgba(1,128,128,0.2);
+        }
+        .svc-card-num {
+            font-family: var(--font-title);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: rgba(1,128,128,0.15);
+            line-height: 1;
+        }
+        .svc-card h4 {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #004d4d;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .svc-card p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-muted-dark);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* BIOBOX STRIP BANNER */
         .biobox-strip {
             position: relative;
             background: linear-gradient(135deg, #012a2a 0%, #018080 50%, #029fa0 100%);
-            padding: 3.5rem 2rem 3.2rem 2rem;
+            padding: 3.5rem 2rem;
             border-radius: 24px;
             overflow: hidden;
             text-align: center;
             box-shadow: 0 12px 36px rgba(1,128,128,0.15);
-        }
-        .biobox-wave {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 100%;
-            line-height: 0;
-            transform: translate(-50%, -50%);
-            opacity: 0.18;
-            filter: brightness(0) invert(1);
-            pointer-events: none;
-        }
-        .biobox-wave img {
-            width: 100%; height: auto; display: block;
-        }
-        .biobox-orb {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
         }
         .biobox-strip-inner {
             position: relative;
@@ -130,16 +251,13 @@
             font-weight: 500;
             text-transform: uppercase;
             color: #ffffff;
-            line-height: 1;
-            letter-spacing: -0.01em;
             margin: 0;
         }
         .biobox-strip-desc {
             font-family: var(--font-sans);
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             max-width: 520px;
-            line-height: 1.5;
             margin: 0;
         }
         .btn-biobox {
@@ -155,70 +273,12 @@
             border-radius: 100px;
             text-decoration: none;
             transition: all 0.22s ease;
-            margin-top: 0.3rem;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
         .btn-biobox:hover {
             background: var(--primary-light);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.25);
-        }
-
-        /* ═══════════════════════════════════════════
-           GRILLA DE SERVICIOS — cards limpias
-           ═══════════════════════════════════════════ */
-        .svc-prestaciones {
-            padding: 4rem 0 3rem 0;
-            background: #fafdfd;
-            position: relative;
-            overflow: hidden;
-        }
-        .svc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.25rem;
-        }
-        .svc-card {
-            background: #ffffff;
-            border: 1px solid rgba(1,128,128,0.09);
-            border-radius: 16px;
-            padding: 2rem 1.8rem 1.8rem 1.8rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-            box-shadow: 0 2px 12px rgba(1,128,128,0.04);
-        }
-        .svc-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(1,128,128,0.1);
-            border-color: rgba(1,128,128,0.2);
-        }
-        .svc-card-num {
-            font-family: var(--font-title);
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: rgba(1,128,128,0.12);
-            line-height: 1;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-        }
-        .svc-card h4 {
-            font-family: var(--font-title);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #004d4d;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin: 0;
-        }
-        .svc-card p {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: var(--text-muted-dark);
-            line-height: 1.55;
-            margin: 0;
         }
     </style>
 </head>
@@ -238,7 +298,7 @@
 
                 <!-- Dropdown sedes -->
                 <div class="nav-item-dropdown">
-                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                    <a href="contacto.html" class="nav-link active" style="display: flex; align-items: center; gap: 4px;">
                         Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
@@ -251,7 +311,7 @@
 
                 <!-- Dropdown especialidades -->
                 <div class="nav-item-dropdown">
-                    <a href="servicios.html" class="nav-link active" style="display: flex; align-items: center; gap: 4px;">
+                    <a href="servicios.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
                         Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
@@ -264,7 +324,7 @@
                     </div>
                 </div>
 
-                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="profesionales.html" class="nav-link">Profesionales</a>
                 <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
                 <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
             </nav>
@@ -280,33 +340,31 @@
     </header>
 
     <!-- ==========================================
-       HERO
+       HERO PRINCIPAL (REPLICA FOTO SLIDER HOME)
        ========================================== -->
     <section class="svc-hero">
-        <img src="assets/cardiologia-banner.jpg" alt="Cardiología" class="svc-hero-bg">
+        <img src="assets/slide-godoy-cruz.png" alt="Sede Godoy Cruz" class="svc-hero-bg">
         <div class="svc-hero-overlay"></div>
 
-        <!-- Contenido principal -->
         <div class="svc-hero-body">
             <div class="container">
                 <div class="hero-content" style="margin-top:0; padding: 0;">
-                    <!-- Breadcrumb sobre el sobretítulo -->
                     <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb">
                         <a href="index.html">Inicio</a>
                         <span class="bc-sep">›</span>
-                        <a href="servicios.html">Servicios y Especialidades</a>
+                        <a href="contacto.html">Sedes</a>
                         <span class="bc-sep">›</span>
-                        <span class="bc-current">Cardiología</span>
+                        <span class="bc-current">Sede Godoy Cruz</span>
                     </nav>
                     <h1 class="svc-hero-title">
-                        <span class="accent">CARDIOLOGÍA</span>
+                        SEDE <span class="accent">GODOY CRUZ</span>
                     </h1>
                     <p class="svc-hero-desc">
-                        Nos dedicamos a brindar atención cardíaca integral y especializada. Contamos con un equipo de cardiólogos altamente calificados y tecnología de vanguardia para garantizar que tu salud cardiovascular esté en las mejores manos. Tu bienestar es nuestra prioridad.
+                        Infraestructura de vanguardia y alta complejidad. Centro de diagnóstico por imágenes de alta precisión y consultorios médicos especializados.
                     </p>
                     <div class="hero-actions" style="opacity:1; transform:none;">
-                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Cardiolog%C3%ADa" target="_blank" rel="noopener noreferrer" class="btn-hero-booking">
-                            Contactar
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+solicitar+un+turno+para+Sede+Godoy+Cruz" target="_blank" rel="noopener noreferrer" class="btn-hero-booking">
+                            Solicitar turno
                             <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
                         </a>
                     </div>
@@ -316,51 +374,64 @@
     </section>
 
     <!-- ==========================================
-       BIOBOX BANNER — tarjeta dentro de contenedor
+       INFORMACIÓN Y MAPA DE LA SEDE
        ========================================== -->
-    <section style="padding: 5.5rem 0 1.5rem 0; background: #ffffff;">
+    <section class="sede-info-section">
         <div class="container">
-            <div class="biobox-strip">
-                <!-- Onda decorativa única -->
-                <div class="biobox-wave">
-                    <img src="assets/recurso-1-custom.svg" alt="">
-                </div>
-                <!-- Orbs de luz -->
-                <div class="biobox-orb" style="width:400px;height:400px;background:rgba(255,255,255,0.04);top:-100px;right:10%;filter:blur(60px);"></div>
-                <div class="biobox-orb" style="width:300px;height:300px;background:rgba(2,200,200,0.08);bottom:-80px;left:5%;filter:blur(50px);"></div>
+            <div class="sede-info-grid">
+                
+                <!-- Columna Izquierda: Foto y Ficha -->
+                <div class="sede-photo-card">
+                    <img src="assets/clinicadelpilar_webgc.png" alt="Fachada Sede Godoy Cruz" class="sede-photo-img">
+                    <div class="sede-details-box">
+                        <div class="sede-detail-item">
+                            <div class="sede-detail-icon"><i data-lucide="clock"></i></div>
+                            <div class="sede-detail-text">
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 08:00 a 20:00 hs<br>Sábados: 08:00 a 13:00 hs</p>
+                            </div>
+                        </div>
 
-                <div class="biobox-strip-inner">
-                    <h2 class="biobox-strip-title">
-                        ¿Te hiciste un estudio con nuestro equipo?
-                    </h2>
-                    <p class="biobox-strip-desc">
-                        Accedé a tus estudios cardiológicos de forma rápida y segura desde el portal Biobox. Disponible las 24 horas.
-                    </p>
-                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn-biobox">
-                        <i data-lucide="monitor-check" style="width:18px;height:18px;"></i>
-                        Ver mis resultados
-                    </a>
+                        <div class="sede-detail-item">
+                            <div class="sede-detail-icon"><i data-lucide="phone"></i></div>
+                            <div class="sede-detail-text">
+                                <h4>Teléfono & WhatsApp</h4>
+                                <p>Central: (0261) 424-2054 · WhatsApp: +54 9 261 508-8277</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Columna Derecha: Mapa Interactivo -->
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=San+Martin+1867+Godoy+Cruz+Mendoza&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen title="Mapa Sede Godoy Cruz"></iframe>
+                    <div class="map-action-bar">
+                        <div>
+                            <strong style="font-size: 1rem; display: block; text-transform: uppercase;">Sede Godoy Cruz</strong>
+                            <span style="font-size: 0.85rem; opacity: 0.85;">San Martín 1867</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=San+Martin+1867,+Godoy+Cruz,+Mendoza" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white" style="border-color:#ffffff; color:#ffffff;">
+                            <i data-lucide="navigation" style="width:16px;height:16px;"></i> Cómo llegar
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-       NUESTROS SERVICIOS
+       SERVICIOS Y ESPECIALIDADES DE LA SEDE
        ========================================== -->
     <section class="svc-prestaciones">
-        <!-- Glow spots -->
-        <div class="glow-spot" style="position:absolute;top:10%;left:-5%;width:450px;height:450px;background:rgba(1,128,128,0.05);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;"></div>
-        <div class="glow-spot" style="position:absolute;bottom:5%;right:-5%;width:380px;height:380px;background:rgba(1,128,128,0.04);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;"></div>
-
-        <div class="container" style="position:relative;z-index:1;">
+        <div class="container">
             <div style="text-align:center; margin-bottom:3rem;">
-                <span class="section-tag" style="margin-bottom:0.4rem; display:inline-block;">PRESTACIONES</span>
+                <span class="section-tag" style="margin-bottom:0.4rem; display:inline-block;">CENTRO DIAGNÓSTICO</span>
                 <h2 class="section-title" style="font-size:clamp(2.8rem,5vw,4rem); margin: 0 auto 0.4rem auto; line-height: 0.95;">
-                    NUESTROS <span class="text-accent-uppercase">SERVICIOS</span>
+                    SERVICIOS EN <span class="text-accent-uppercase">SEDE GODOY CRUZ</span>
                 </h2>
-                <p style="font-family:var(--font-sans); color:var(--text-muted-dark); font-size:1rem; margin:0 auto; line-height:1.55; white-space:nowrap;">
-                    Tecnología diagnóstica y seguimiento cardiovascular de precisión.
+                <p style="font-family:var(--font-sans); color:var(--text-muted-dark); font-size:1rem; margin:0 auto; line-height:1.55;">
+                    Tecnología de última generación y diagnósticos de alta definición.
                 </p>
             </div>
 
@@ -368,32 +439,38 @@
 
                 <div class="svc-card">
                     <div class="svc-card-num">01</div>
-                    <h4>Consultas cardiológicas</h4>
-                    <p>Evaluación clínica integral y seguimiento personalizado a cargo de médicos especialistas en cardiología.</p>
+                    <h4>Resonancia Magnética</h4>
+                    <p>Equipo de resonancia magnética multislice de alto campo para estudios osteoarticulares y cerebrales.</p>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-card-num">02</div>
-                    <h4>Electrocardiogramas</h4>
-                    <p>Registro rápido y preciso de la actividad eléctrica del corazón para diagnóstico ambulatorio y preoperatorio.</p>
+                    <h4>Tomografía Computada</h4>
+                    <p>Tomografía helicoidal de rápida adquisición y reconstrucción tridimensional para diagnóstico preciso.</p>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-card-num">03</div>
-                    <h4>Holter de 24 y 48 h</h4>
-                    <p>Monitoreo continuo del ritmo cardíaco durante 24 a 48 horas para detectar arritmias y palpitaciones.</p>
+                    <h4>Ecografía & Doppler</h4>
+                    <p>Ecografía general, ginecológica, obstétrica, pediátrica y estudios vasculo-arteriales Doppler.</p>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-card-num">04</div>
-                    <h4>Monitoreo ambulatorio de presión arterial (MAPA)</h4>
-                    <p>Evaluación continua de la presión arterial en el entorno habitual del paciente durante 24 horas.</p>
+                    <h4>Laboratorio de Análisis</h4>
+                    <p>Extracciones y análisis clínicos con entregas de resultados digitales en menos de 24 horas.</p>
                 </div>
 
-                <div class="svc-card" style="grid-column: span 1;">
+                <div class="svc-card">
                     <div class="svc-card-num">05</div>
-                    <h4>Pruebas graduadas de esfuerzo (ergometría computarizada)</h4>
-                    <p>Estudio computarizado de la respuesta del corazón al ejercicio para valorar la capacidad funcional y coronaria.</p>
+                    <h4>Consultorios Externos</h4>
+                    <p>Atención médica programada en Traumatología, Cardiología, Neurología y Medicina Laboral.</p>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-card-num">06</div>
+                    <h4>Rehabilitación Kínica</h4>
+                    <p>Fisioterapia, magnetoterapia, kinesioterapia y recuperación de lesiones deportivas.</p>
                 </div>
 
             </div>
@@ -401,36 +478,45 @@
     </section>
 
     <!-- ==========================================
-       CTA FINAL — idéntico al home
+       COBERTURAS & INSURANCE (CARRUSEL RÉPLICA HOME)
        ========================================== -->
-    <section class="cta-section-new" style="background: #ffffff; padding: 3rem 0 3.5rem 0; text-align: center; position: relative; overflow: hidden;">
-        <!-- Focos difuminados -->
-        <div class="glow-spot" style="position:absolute;top:-10%;left:15%;width:350px;height:350px;background:rgba(1,128,128,0.08);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1;"></div>
-        <div class="glow-spot" style="position:absolute;bottom:0;right:10%;width:400px;height:400px;background:rgba(2,153,153,0.07);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1;"></div>
+    <section class="cobertura-section" style="padding: 0 0 7.5rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <span class="contact-hero-tag">COBERTURA</span>
+                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-title); color: #004d4d; text-transform: uppercase;">
+                    <span class="text-accent-uppercase">Obras sociales</span> y prepagas
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            </div>
+            
+            <div class="cobertura-carousel-wrapper">
+                <div class="cobertura-carousel-track">
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                </div>
+            </div>
 
-        <div class="container" style="position:relative;z-index:2;">
-            <h2 style="font-family:var(--font-title);font-size:4rem;line-height:0.95;margin-top:0;margin-bottom:2rem;text-transform:uppercase;">
-                <span class="text-accent-uppercase" style="color:var(--primary);">Tu salud merece la tranquilidad</span><br>
-                <span style="color:#004d4d;">de estar en las mejores manos.</span>
-            </h2>
-            <div style="margin-bottom:2.5rem;">
-                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Cardiolog%C3%ADa" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.75rem 2.2rem;">
-                    Solicitar turno
-                    <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
-                </a>
+            <div style="display: flex; justify-content: center; margin-top: 3rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social+en+Sede+Godoy+Cruz" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-coverage-trigger">Consultá por tu cobertura</a>
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-       FOOTER — idéntico al home
+       FOOTER INSTITUCIONAL
        ========================================== -->
-    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 1.5rem 0 4rem 0;">
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 0 0 4rem 0;">
         <div class="container">
             <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
                 <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
                     
-                    <!-- Columna 1: Logo y descripción -->
                     <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <a href="index.html" class="logo" style="display: inline-flex;">
                             <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
@@ -450,7 +536,6 @@
                         </div>
                     </div>
 
-                    <!-- Columna 2: Sedes -->
                     <div class="footer-col-new">
                         <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
@@ -473,20 +558,18 @@
                         </ul>
                     </div>
 
-                    <!-- Columna 3: Páginas -->
                     <div class="footer-col-new">
                         <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
                             <li><a href="index.html#la-clinica" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">La Clínica</a></li>
                             <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Sedes</a></li>
                             <li><a href="servicios.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Servicios / Especialidades</a></li>
-                            <li><a href="index.html#profesionales" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Profesionales</a></li>
+                            <li><a href="profesionales.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Profesionales</a></li>
                             <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Mis Estudios</a></li>
                             <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Contacto/Turnos</a></li>
                         </ul>
                     </div>
 
-                    <!-- Columna 4: Accesos -->
                     <div class="footer-col-new">
                         <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; align-items: flex-start;">
@@ -509,7 +592,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5492615000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+consultar+un+turno+en+Sede+Godoy+Cruz" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <span class="whatsapp-float-tooltip">¿Necesitás un turno?</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -519,7 +602,9 @@
     <!-- Scripts -->
     <script src="script.js?v=12"></script>
     <script>
-        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
