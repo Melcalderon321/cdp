@@ -3266,12 +3266,12 @@ a {
     font-family: var(--font-sans);
     width: auto;
     min-width: 180px;
-    padding: 0.9rem 2.5rem;
-    background: var(--primary);
+    padding: 0.75rem 2.25rem;
+    background: #004d4d;
     color: #ffffff;
     border: none;
-    border-radius: 12px;
-    font-size: 0.98rem;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -3282,9 +3282,9 @@ a {
 }
 
 .btn-contact-submit:hover {
-    background: #004d4d;
+    background: #005f5f;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 77, 77, 0.25);
 }
 
 .form-feedback-box {
