@@ -16,6 +16,82 @@
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .directory-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .spec-dir-item {
+            background: #ffffff;
+            border: 1px solid rgba(1, 128, 128, 0.1);
+            border-radius: 18px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            box-shadow: 0 4px 16px rgba(1, 128, 128, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        .spec-dir-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(1, 128, 128, 0.12);
+            border-color: rgba(1, 128, 128, 0.25);
+        }
+        .spec-dir-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        .spec-dir-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(1, 128, 128, 0.09), rgba(1, 153, 153, 0.04));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .spec-dir-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .spec-dir-category {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: rgba(1, 128, 128, 0.07);
+            border: 1px solid rgba(1, 128, 128, 0.15);
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+        }
+        .spec-dir-item h5 {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #004d4d;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin: 0.2rem 0 0 0;
+        }
+        .spec-dir-item p {
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: var(--text-muted-dark);
+            line-height: 1.5;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -50,13 +126,16 @@
                         Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
-                        <a href="#servicios-principales">Servicios Principales</a>
-                        <a href="#especialidades-destacadas">Especialidades Destacadas</a>
-                        <a href="#directorio-completo">Directorio Completo</a>
+                        <a href="imagenes-medicas.html">Imágenes médicas</a>
+                        <a href="laboratorio.html">Laboratorio</a>
+                        <a href="cardiologia.html">Cardiología</a>
+                        <a href="odontologia.html">Odontología</a>
+                        <a href="oftalmologia.html">Oftalmología</a>
+                        <a href="servicios.html" style="margin-top:0.3rem; border-top: 1px solid rgba(1,128,128,0.08); padding-top: 0.8rem; font-weight:600; color:var(--primary);">Ver todos los servicios</a>
                     </div>
                 </div>
 
-                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="profesionales.html" class="nav-link">Profesionales</a>
                 <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
                 <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
             </nav>
@@ -80,239 +159,29 @@
         <div class="glow-spot" style="position: absolute; top: 20%; right: 10%; width: 450px; height: 450px; background: rgba(0, 150, 136, 0.04); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
         
         <div class="container" style="position: relative; z-index: 2;">
-            <span class="contact-hero-tag">OFERTA CLÍNICA INTEGRAL</span>
-            <h1 class="contact-hero-title">SERVICIOS Y ESPECIALIDADES</h1>
+            <!-- Breadcrumb -->
+            <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 0.45rem; font-family: var(--font-sans); font-size: 0.8rem; color: rgba(0,77,77,0.6); margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: rgba(0,77,77,0.6); text-decoration: none;">Inicio</a>
+                <span class="bc-sep" style="opacity: 0.35;">›</span>
+                <span class="bc-current" style="color: var(--primary); font-weight: 600;">Servicios y Especialidades</span>
+            </nav>
+            <span class="contact-hero-tag" style="margin-bottom: 0.35rem; display: inline-block;">OFERTA CLÍNICA INTEGRAL</span>
+            <h1 class="contact-hero-title" style="font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-top: 0; margin-bottom: 1rem;">
+                <span class="text-accent-uppercase">SERVICIOS</span> Y ESPECIALIDADES
+            </h1>
             <p class="contact-hero-subtitle">
                 Brindamos atención médica de alta precisión, diagnóstico avanzado y cirugías con equipamiento de vanguardia en nuestras 4 sedes de Mendoza.
             </p>
         </div>
     </section>
 
-    <!-- ==========================================
-       4.1 SERVICIOS PRINCIPALES
-       ========================================== -->
-    <section id="servicios-principales" style="padding: 0 0 5rem 0; position: relative; overflow: hidden;">
-        <div class="glow-spot" style="position: absolute; top: 10%; left: -5%; width: 450px; height: 450px; background: rgba(1, 128, 128, 0.04); border-radius: 50%; filter: blur(95px); pointer-events: none; z-index: 1;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span class="contact-hero-tag">SERVICIOS PRIORITARIOS</span>
-                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">SERVICIOS PRINCIPALES</h2>
-                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem; line-height: 1.5;">Centros de diagnóstico, laboratorio de alta tecnología y quirófanos equipados para la atención integral del paciente.</p>
-            </div>
 
-            <!-- Grid de Servicios Principales -->
-            <div class="main-services-grid">
-                
-                <!-- Card 1: Imágenes Médicas -->
-                <div class="main-service-card highlight-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="scan"></i></div>
-                        <span class="service-badge-tag">Diagnóstico de Alta Precisión</span>
-                    </div>
-                    <h3>Imágenes Médicas</h3>
-                    <p class="service-card-desc">Tecnología diagnóstica de nivel internacional para diagnósticos rápidos y certeros.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> <strong>Resonancia Magnética:</strong> Alto campo para estudios articulares, cerebrales y columna.</li>
-                        <li><i data-lucide="check"></i> <strong>Tomografía Computada:</strong> Multislice de alta velocidad y máxima resolución.</li>
-                        <li><i data-lucide="check"></i> <strong>Ecografía General y Doppler:</strong> Estudios vasculares, obstétricos y partes blandas.</li>
-                        <li><i data-lucide="check"></i> <strong>Radiología Digital & Mapeo Corporal:</strong> Menor radiación y procesado digital inmediato.</li>
-                    </ul>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Im%C3%A1genes+M%C3%A9dicas" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1.5rem; align-self: flex-start;">Solicitar turno para Imágenes &rarr;</a>
-                </div>
-
-                <!-- Card 2: Laboratorio & Biodiagnóstica -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="flask-conical"></i></div>
-                        <span class="service-badge-tag">Polidiagnóstico</span>
-                    </div>
-                    <h3>Laboratorio / Biodiagnóstica</h3>
-                    <p class="service-card-desc">Análisis clínicos y biológicos con procesamiento rápido de muestras y resultados online.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> <strong>Análisis Clínicos Integrales:</strong> Hematología, bioquímica e inmunología.</li>
-                        <li><i data-lucide="check"></i> <strong>Microbiología & Biología Molecular:</strong> Detección de patógenos de alta sensibilidad.</li>
-                        <li><i data-lucide="check"></i> <strong>Perfil Hormonal & Endocrino:</strong> Evaluación metabólica y funcional.</li>
-                        <li><i data-lucide="check"></i> <strong>Resultados Online:</strong> Descarga de informes directo en el Portal Biobox.</li>
-                    </ul>
-                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 1.5rem; align-self: flex-start;">Portal de Resultados Biobox &rarr;</a>
-                </div>
-
-                <!-- Card 3: Cirugías -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="scissors"></i></div>
-                        <span class="service-badge-tag">Alta Complejidad</span>
-                    </div>
-                    <h3>Cirugías</h3>
-                    <p class="service-card-desc">Quirófanos de última generación y equipos interdisciplinarios para cirugías generales y especializadas.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> <strong>Cirugía Traumatológica & Ortopédica:</strong> Reemplazos articulares y artroscopías.</li>
-                        <li><i data-lucide="check"></i> <strong>Cirugía General & Laparoscópica:</strong> Procedimientos mínimamente invasivos.</li>
-                        <li><i data-lucide="check"></i> <strong>Cirugía Ambulatoria:</strong> Intervenciones de pronta alta y recuperación en hogar.</li>
-                    </ul>
-                    <a href="contacto.html" class="btn btn-secondary" style="margin-top: 1.5rem; align-self: flex-start;">Consultar disponibilidad quirúrgica &rarr;</a>
-                </div>
-
-                <!-- Card 4: Hospital de Día -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="bed"></i></div>
-                        <span class="service-badge-tag">Confort y Cuidado</span>
-                    </div>
-                    <h3>Hospital de Día</h3>
-                    <p class="service-card-desc">Unidades de monitoreo y recuperación acondicionadas para tratamientos ambulatorios y seguimiento ambulatorio.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> Recintos de infusión y administración medicamentosa.</li>
-                        <li><i data-lucide="check"></i> Monitoreo constante por enfermería profesional.</li>
-                        <li><i data-lucide="check"></i> Alta médica en el mismo día de intervención.</li>
-                    </ul>
-                </div>
-
-                <!-- Card 5: Chequeos Laborales y Deportivos -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="activity-heart"></i></div>
-                        <span class="service-badge-tag">Prevención Integral</span>
-                    </div>
-                    <h3>Chequeos Laborales y Deportivos</h3>
-                    <p class="service-card-desc">Exámenes médicos preventivos para deportistas de alto rendimiento y evaluaciones preocupacionales laborales.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> Aptos físicos escolares, universitarios y deportivos.</li>
-                        <li><i data-lucide="check"></i> Ergotest, electro y ecocardiograma Doppler.</li>
-                        <li><i data-lucide="check"></i> Exámenes preocupacionales y periódicos de empresa.</li>
-                    </ul>
-                </div>
-
-                <!-- Card 6: Medicina Estética -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="sparkles"></i></div>
-                        <span class="service-badge-tag">Bienestar & Dermatología</span>
-                    </div>
-                    <h3>Medicina Estética</h3>
-                    <p class="service-card-desc">Tratamientos estéticos corporales y faciales con supervisión médica cualificada y tecnología segura.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> Dermatología clínica y dermatocosmética.</li>
-                        <li><i data-lucide="check"></i> Rejuvenecimiento facial no invasivo.</li>
-                        <li><i data-lucide="check"></i> Tratamientos de regeneración y cuidado de la piel.</li>
-                    </ul>
-                </div>
-
-                <!-- Card 7: Guardia / Atención Directa -->
-                <div class="main-service-card">
-                    <div class="service-icon-header">
-                        <div class="service-icon-circle"><i data-lucide="shield-alert"></i></div>
-                        <span class="service-badge-tag">Atención Inmediata</span>
-                    </div>
-                    <h3>Guardia y Atención según Corresponda</h3>
-                    <p class="service-card-desc">Atención médica prioritaria ante lesiones agudas y consultas traumatológicas espontáneas.</p>
-                    <ul class="service-bullets-list">
-                        <li><i data-lucide="check"></i> Guardia traumatológica 24 hs en Sede Dalvian.</li>
-                        <li><i data-lucide="check"></i> Inmovilización y atención de fracturas de urgencia.</li>
-                        <li><i data-lucide="check"></i> Derivación ágil a diagnóstico por imágenes.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-       4.2 ESPECIALIDADES DESTACADAS
-       ========================================== -->
-    <section id="especialidades-destacadas" style="padding: 4rem 0 5rem 0; background: #fafdfd; position: relative; overflow: hidden;">
-        <div class="glow-spot" style="position: absolute; top: 15%; right: -5%; width: 500px; height: 500px; background: rgba(1, 128, 128, 0.05); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span class="contact-hero-tag">ATENCIÓN MÉDICA ESPECIALIZADA</span>
-                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">ESPECIALIDADES DESTACADAS</h2>
-                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem;">Un staff médico de trayectoria enfocado en áreas prioritarias de la medicina clínica y quirúrgica.</p>
-            </div>
-
-            <!-- Grid 8 Especialidades Destacadas -->
-            <div class="featured-specs-grid">
-                
-                <!-- 1. Traumatología -->
-                <div class="featured-spec-card focus-accent">
-                    <div class="spec-card-icon"><i data-lucide="bone"></i></div>
-                    <h4>Traumatología y Ortopedia</h4>
-                    <p>Especialidad insignia de la clínica. Cirugía de rodilla, cadera, hombro, columna y deportología de alto rendimiento.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Traumatologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 2. Urología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="stethoscope"></i></div>
-                    <h4>Urología</h4>
-                    <p>Diagnóstico y tratamiento de patologías urinarias y reproductoras masculinas con enfoque endoscópico y preventivo.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Urologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 3. Cardiología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="heart"></i></div>
-                    <h4>Cardiología</h4>
-                    <p>Evaluación cardiovascular integral, holter, presurometría, ergometría computarizada y ecocardiogramas.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Cardiologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 4. Oftalmología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="eye"></i></div>
-                    <h4>Oftalmología</h4>
-                    <p>Control de agudeza visual, presión intraocular, fondo de ojo y tratamiento de patologías oculares complejas.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Oftalmologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 5. Odontología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="smile"></i></div>
-                    <h4>Odontología</h4>
-                    <p>Atención odontológica preventiva, endodoncia, ortodoncia, prótesis y cirugía bucal especializada.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Odontologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 6. Flebología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="activity"></i></div>
-                    <h4>Flebología y Cirugía Vascular</h4>
-                    <p>Tratamiento médico y láser de várices, arañitas vasculares e insuficiencia venosa periférica.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Flebologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 7. Gastroenterología -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="microscope"></i></div>
-                    <h4>Gastroenterología / Endoscopía</h4>
-                    <p>Estudio de patologías digestivas, endoscopía alta y videocolonoscopía con sedación suave de alta seguridad.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Gastroenterologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
-                </div>
-
-                <!-- 8. Otras Especialidades -->
-                <div class="featured-spec-card">
-                    <div class="spec-card-icon"><i data-lucide="layers"></i></div>
-                    <h4>Otras Especialidades</h4>
-                    <p>Consultorios externos interdisciplinarios en ginecología, dermatología, neurología, nutrición y más.</p>
-                    <a href="#directorio-completo" class="btn-spec-link">Ver listado completo &darr;</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
 
     <!-- ==========================================
        4.3 RESTO DE ESPECIALIDADES (DIRECTORIO COMPLETO & FILTROS)
        ========================================== -->
-    <section id="directorio-completo" style="padding: 4rem 0 5rem 0; position: relative; overflow: hidden;">
+    <section id="directorio-completo" style="padding: 2.5rem 0 5rem 0; position: relative; overflow: hidden;">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <span class="contact-hero-tag">DIRECTORIO CLÍNICO COMPLETO</span>
-                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">TODAS NUESTRAS ESPECIALIDADES</h2>
-                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem;">Buscá la especialidad médica que necesitás o filtrá por categoría de servicio.</p>
-            </div>
-
             <!-- Buscador y Barra de Filtros -->
             <div class="directory-filter-wrapper">
                 
@@ -336,157 +205,251 @@
             <div id="directory-specs-grid" class="directory-specs-grid">
                 
                 <div class="spec-dir-item" data-category="cirugia">
-                    <span class="spec-dir-category">Cirugía</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-medical-kit-linear"><path d="M2 14C2 10.2288 2 8.34315 3.17157 7.17157C4.34315 6 6.22876 6 10 6H14C17.7712 6 19.6569 6 20.8284 7.17157C22 8.34315 22 10.2288 22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14Z" stroke="currentColor"/><path d="M16 6C16 4.11438 16 3.17157 15.4142 2.58579C14.8284 2 13.8856 2 12 2C10.1144 2 9.17157 2 8.58579 2.58579C8 3.17157 8 4.11438 8 6" stroke="currentColor"/><path d="M13.5 14H10.5M12 12.5V15.5" stroke="currentColor" stroke-linecap="round"/><circle cx="12" cy="14" r="4" stroke="currentColor"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Cirugía</span>
+                    </div>
                     <h5>Anestesiología</h5>
                     <p>Evaluación prequirúrgica y manejo del dolor intra operatorio.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="heart"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Cardiología</h5>
                     <p>Prevención y control del sistema cardiovascular.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="cirugia">
-                    <span class="spec-dir-category">Cirugía</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-dropper-2-linear"><path d="M22 10H19" stroke="currentColor" stroke-linecap="round"/><path d="M18 12.9166C18 14.0672 17.1046 14.9999 16 14.9999C14.8954 14.9999 14 14.0672 14 12.9166C14 12.1967 14.783 11.2358 15.3691 10.6174C15.7161 10.2512 16.2839 10.2512 16.6309 10.6174C17.217 11.2358 18 12.1967 18 12.9166Z" stroke="currentColor"/><path d="M22 13H20" stroke="currentColor" stroke-linecap="round"/><path d="M16 21V22" stroke="currentColor" stroke-linecap="round"/><path d="M2 22V8C2 5.17157 2 3.75736 2.87868 2.87868C3.75736 2 5.17157 2 8 2H11.8913L11.9355 2.00008C12.6224 2.00503 13.2869 2.24559 13.8178 2.68156L13.8517 2.70975C13.8926 2.74382 13.913 2.76086 13.9309 2.77532C14.5341 3.26249 15.2747 3.48035 16 3.43581M18.5 2L17.9774 2.52261C17.9398 2.56024 17.9209 2.57906 17.9044 2.59508C17.3724 3.11098 16.6932 3.39324 16 3.43581M16 2V3.43581M16 3.43581V6" stroke="currentColor" stroke-linecap="round"/><path d="M22 16.5069V10C22 8.11438 22 7.17157 21.4142 6.58579C20.8284 6 19.8856 6 18 6H14C12.1144 6 11.1716 6 10.5858 6.58579C10 7.17157 10 8.11438 10 10V16.5069C10 17.1639 10.277 17.7906 10.7629 18.2329C13.7315 20.935 18.2685 20.935 21.2371 18.2329C21.723 17.7906 22 17.1639 22 16.5069Z" stroke="currentColor" stroke-linecap="round"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Cirugía</span>
+                    </div>
                     <h5>Cirugía General & Laparoscópica</h5>
                     <p>Intervenciones generales con técnicas mínimamente invasivas.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="cirugia">
-                    <span class="spec-dir-category">Cirugía</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-bones-linear"><path d="M9.4809 2.04541V4.0606C9.4809 4.61708 9.00457 5.05911 8.52039 5.33341C7.60566 5.85162 6.96191 7.03991 6.96191 8.09098C6.96191 9.48218 8.0897 10.61 9.4809 10.61C10.8721 10.61 11.9999 9.48218 11.9999 8.09098C11.9999 9.48218 13.1277 10.61 14.5189 10.61C15.9101 10.61 17.0379 9.48218 17.0379 8.09098C17.0379 7.03991 16.3941 5.85162 15.4794 5.33341C14.9952 5.05911 14.5189 4.61708 14.5189 4.0606L14.5189 2.04541" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.51899 22V19.9848C9.51899 19.4283 9.04266 18.9863 8.55848 18.712C7.64375 18.1938 7 17.0055 7 15.9544C7 14.5632 8.12779 13.4354 9.51899 13.4354C10.9102 13.4354 12.038 14.5632 12.038 15.9544C12.038 14.5632 13.1658 13.4354 14.557 13.4354C15.9482 13.4354 17.076 14.5632 17.076 15.9544C17.076 17.0055 16.4322 18.1938 15.5175 18.712C15.0333 18.9863 14.557 19.4283 14.557 19.9848L14.557 22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="currentColor"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Cirugía</span>
+                    </div>
                     <h5>Cirugía Traumatológica</h5>
                     <p>Reparación articular, prótesis y fijación de fracturas.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-medical-kit-linear"><path d="M2 14C2 10.2288 2 8.34315 3.17157 7.17157C4.34315 6 6.22876 6 10 6H14C17.7712 6 19.6569 6 20.8284 7.17157C22 8.34315 22 10.2288 22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14Z" stroke="currentColor"/><path d="M16 6C16 4.11438 16 3.17157 15.4142 2.58579C14.8284 2 13.8856 2 12 2C10.1144 2 9.17157 2 8.58579 2.58579C8 3.17157 8 4.11438 8 6" stroke="currentColor"/><path d="M13.5 14H10.5M12 12.5V15.5" stroke="currentColor" stroke-linecap="round"/><circle cx="12" cy="14" r="4" stroke="currentColor"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Dermatología Clínica</h5>
                     <p>Diagnóstico de afecciones cutáneas, lunares y dermatología médica.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-test-tube-linear"><path d="M19 7.80374L18.1594 7.31987L9.74872 2.49415M9.74872 2.49415L2.65093 14.7455C1.31093 17.0584 2.10615 20.0159 4.42709 21.3513C6.74803 22.6867 9.7158 21.8942 11.0558 19.5813L12.5511 17.0003M9.74872 2.49415L8.91283 2M12.5511 17.0003L14.1886 14.1738L15.902 11.2163L18.1594 7.31987M15.902 11.2163L13.344 9.74451M14.1886 14.1738L9.98568 11.7556M12.5511 17.0003L9.93838 15.4971" stroke="currentColor" stroke-linecap="round"/><path d="M22 14.9166C22 16.0672 21.1046 16.9999 20 16.9999C18.8954 16.9999 18 16.0672 18 14.9166C18 14.1967 18.783 13.2358 19.3691 12.6174C19.7161 12.2512 20.2839 12.2512 20.6309 12.6174C21.217 13.2358 22 14.1967 22 14.9166Z" stroke="currentColor"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Diabetología & Endocrinología</h5>
                     <p>Control metabólico, tiroides y gestión integral de diabetes.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="diagnostico">
-                    <span class="spec-dir-category">Diagnóstico</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="scan"></i></div>
+                        <span class="spec-dir-category">Diagnóstico</span>
+                    </div>
                     <h5>Ecografía Doppler</h5>
                     <p>Ecografías abdominales, vasculares, partes blandas y ginecológicas.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="diagnostico">
-                    <span class="spec-dir-category">Diagnóstico</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="microscope"></i></div>
+                        <span class="spec-dir-category">Diagnóstico</span>
+                    </div>
                     <h5>Endoscopía Digestiva</h5>
                     <p>Videocolonoscopía y endoscopía alta de alta precisión.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="activity"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Flebología</h5>
                     <p>Tratamiento estético y funcional de patología venosa.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="stethoscope"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Gastroenterología</h5>
                     <p>Trastornos digestivos, hepáticos y de motilidad intestinal.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-user-heart-rounded-linear"><circle cx="9" cy="6" r="4" stroke="currentColor"/><ellipse cx="9" cy="17" rx="7" ry="4" stroke="currentColor"/><path d="M15 9.69973C15 11.1121 16.2058 11.8648 17.0885 12.5385C17.4 12.7762 17.7 13 18 13C18.3 13 18.6 12.7762 18.9115 12.5385C19.7942 11.8648 21 11.1121 21 9.69973C21 8.28732 19.35 7.28567 18 8.64354C16.65 7.28567 15 8.28732 15 9.69973Z" stroke="currentColor" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Ginecología & Obstetricia</h5>
                     <p>Controles anuales, papanicolau, ecografía mamaria y seguimiento.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-bone-crack-linear"><path d="M14.1374 2.73779C13.3942 3.48102 13.0092 4.77646 13.2895 5.7897C13.438 6.32603 13.4622 6.97541 13.0687 7.3689L7.3689 13.0687C6.97541 13.4622 6.32603 13.438 5.7897 13.2895C4.77646 13.0092 3.48102 13.3942 2.73779 14.1374C1.75407 15.1212 1.75407 16.7161 2.73779 17.6998C3.72152 18.6835 5.31646 18.6835 6.30018 17.6998C5.31646 18.6835 5.31646 20.2785 6.30018 21.2622C7.28391 22.2459 8.87884 22.2459 9.86257 21.2622C10.6058 20.519 10.9908 19.2235 10.7105 18.2103C10.562 17.674 10.5378 17.0246 10.9313 16.6311L16.6311 10.9313C17.0246 10.5378 17.674 10.562 18.2103 10.7105C19.2235 10.9908 20.519 10.6058 21.2622 9.86257C22.2459 8.87884 22.2459 7.28391 21.2622 6.30018C20.2785 5.31645 18.6835 5.31646 17.6998 6.30018C18.6835 5.31646 18.6835 3.72152 17.6998 2.73779C16.7161 1.75407 15.1212 1.75407 14.1374 2.73779Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2324 10.2324V12.3537L12.3537 11.6466V13.0608L14.9999 12.5001" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Kinesiología & Rehabilitación</h5>
                     <p>Fisioterapia, rehabilitación postquirúrgica y deportiva.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="diagnostico">
-                    <span class="spec-dir-category">Diagnóstico</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" class="solar solar-test-tube-minimalistic-linear"><path d="M6.8008 11.7834L8.07502 11.9256C9.09772 12.0398 9.90506 12.8507 10.0187 13.8779C10.1062 14.6689 10.6104 15.3515 11.3387 15.665L13 16.3547M13 16.3547L20.2387 9.08398L14.8635 3.68504L4.11323 14.4829C2.62892 15.9738 2.62892 18.391 4.11323 19.8818C5.59754 21.3727 8.00407 21.3727 9.48838 19.8818L13 16.3547ZM21 9.84867L14.1815 3" stroke="currentColor" stroke-linecap="round"/></svg>
+                        </div>
+                        <span class="spec-dir-category">Diagnóstico</span>
+                    </div>
                     <h5>Laboratorio de Análisis Clínicos</h5>
                     <p>Rutinas bioquímicas, microbiología e inmunología rápida.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="prevencion">
-                    <span class="spec-dir-category">Prevención</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="trophy"></i></div>
+                        <span class="spec-dir-category">Prevención</span>
+                    </div>
                     <h5>Medicina del Deporte</h5>
                     <p>Evaluación física de deportistas y asesoramiento de rendimiento.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="prevencion">
-                    <span class="spec-dir-category">Prevención</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="briefcase"></i></div>
+                        <span class="spec-dir-category">Prevención</span>
+                    </div>
                     <h5>Medicina Laboral</h5>
                     <p>Exámenes preocupacionales, periódicos y libreta sanitaria.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="brain"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Neurología</h5>
                     <p>Evaluación de cefaleas, migrañas y trastornos del sistema nervioso.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="apple"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Nutrición & Dietética</h5>
                     <p>Planes alimentarios adaptados a patologías o rendimiento deportivo.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="smile"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Odontología</h5>
                     <p>Atención odontológica integral, estética bucal y ortodoncia.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="eye"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Oftalmología</h5>
                     <p>Controles de vista, tonometría y fondo de ojo.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="ear"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Otorrinolaringología</h5>
                     <p>Estudio de oído, nariz, garganta y audiometría clínica.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="baby"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Pediatría</h5>
                     <p>Control del niño sano, vacunatorio y desarrollo infantil.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="diagnostico">
-                    <span class="spec-dir-category">Diagnóstico</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="scan-line"></i></div>
+                        <span class="spec-dir-category">Diagnóstico</span>
+                    </div>
                     <h5>Resonancia Magnética</h5>
                     <p>Resonador de alto campo para diagnósticos articulares y neurológicos.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="shield-alert"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Reumatología</h5>
                     <p>Diagnóstico de artritis, artrosis y enfermedades autoinmunes.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="diagnostico">
-                    <span class="spec-dir-category">Diagnóstico</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="disc"></i></div>
+                        <span class="spec-dir-category">Diagnóstico</span>
+                    </div>
                     <h5>Tomografía Multislice</h5>
                     <p>Tomógrafo helicoidal de alta definición diagnóstica.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="bone"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Traumatología General</h5>
                     <p>Patología ósea, muscular, articular y guardia especializada.</p>
                 </div>
 
                 <div class="spec-dir-item" data-category="consultorios">
-                    <span class="spec-dir-category">Consultorios</span>
+                    <div class="spec-dir-header">
+                        <div class="spec-dir-icon"><i data-lucide="stethoscope"></i></div>
+                        <span class="spec-dir-category">Consultorios</span>
+                    </div>
                     <h5>Urología</h5>
                     <p>Salud prostática, nefrología urológica y endourología.</p>
                 </div>
@@ -503,43 +466,40 @@
     </section>
 
     <!-- ==========================================
-       OBRAS SOCIALES Y PREPAGAS
+       COBERTURAS & INSURANCE
        ========================================== -->
-    <section style="padding: 0 0 7.5rem 0; text-align: center;">
+    <section class="cobertura-section" style="padding: 0 0 7.5rem 0;">
         <div class="container">
-            <div style="margin-bottom: 2.5rem;">
-                <span class="contact-hero-tag">COBERTURA</span>
-                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">OBRAS SOCIALES Y PREPAGAS</h2>
-                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 600px; margin: 0.5rem auto 0 auto; font-size: 1.05rem; line-height: 1.5;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            <div style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <span class="contact-hero-tag" style="margin-bottom: 1rem;">COBERTURA</span>
+                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 0.8rem; font-weight: 500;">
+                    <span class="text-accent-uppercase">Obras sociales</span> y prepagas
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            </div>
+            
+            <div class="cobertura-carousel-wrapper">
+                <div class="cobertura-carousel-track">
+                    <!-- Logos group 1 -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    
+                    <!-- Duplicate group for infinite loop -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                </div>
             </div>
 
-            <!-- Grid de Cards de Logos -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 3rem;">
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Sancor Salud" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-            </div>
-
-            <!-- Boton CTA -->
-            <div>
-                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.75rem 2.2rem;">
-                    Consultá por tu cobertura
-                </a>
+            <div style="display: flex; justify-content: center; margin-top: 3rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-coverage-trigger">Consultá por tu cobertura</a>
             </div>
         </div>
     </section>
@@ -601,7 +561,7 @@
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem;">
                             <li><a href="index.html#la-clinica" style="color: rgba(255,255,255,0.85); text-decoration: none;">La Clínica</a></li>
                             <li><a href="servicios.html" style="color: #ffffff; font-weight: 700; text-decoration: none;">Servicios y Especialidades</a></li>
-                            <li><a href="index.html#profesionales" style="color: rgba(255,255,255,0.85); text-decoration: none;">Profesionales</a></li>
+                            <li><a href="profesionales.html" style="color: rgba(255,255,255,0.85); text-decoration: none;">Profesionales</a></li>
                             <li><a href="contacto.html" style="color: rgba(255,255,255,0.85); text-decoration: none;">Contacto / Turnos</a></li>
                         </ul>
                     </div>

@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="profesionales.html" class="nav-link">Profesionales</a>
                 <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
                 <a href="contacto.html" class="nav-link active">Contacto / Turnos</a>
             </nav>
@@ -80,8 +80,15 @@
         <div class="glow-spot" style="position: absolute; top: 20%; right: 10%; width: 450px; height: 450px; background: rgba(0, 150, 136, 0.04); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
         
         <div class="container" style="position: relative; z-index: 2;">
-            <span class="contact-hero-tag">Centro de Atención</span>
-            <h1 class="contact-hero-title">Contacto</h1>
+            <!-- Breadcrumb -->
+            <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 0.45rem; font-family: var(--font-sans); font-size: 0.8rem; color: rgba(0,77,77,0.6); margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: rgba(0,77,77,0.6); text-decoration: none;">Inicio</a>
+                <span class="bc-sep" style="opacity: 0.35;">›</span>
+                <span class="bc-current" style="color: var(--primary); font-weight: 600;">Contacto</span>
+            <span class="contact-hero-tag" style="margin-bottom: 0.35rem; display: inline-block;">CENTRO DE ATENCIÓN</span>
+            <h1 class="contact-hero-title" style="font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-top: 0; margin-bottom: 1rem;">
+                <span class="text-accent-uppercase">CONTACTO</span> Y TURNOS
+            </h1>
             <p class="contact-hero-subtitle">
                 En Clínica del Pilar, estamos para escucharte y cuidar de tu salud. Si tenés preguntas no dudes en utilizar este formulario de contacto.
             </p>
@@ -230,43 +237,40 @@
     </section>
 
     <!-- ==========================================
-       OBRAS SOCIALES Y PREPAGAS (RÉPLICA EXACTA HOME)
+       COBERTURAS & INSURANCE (CARRUSEL RÉPLICA HOME)
        ========================================== -->
-    <section style="padding: 0 0 7.5rem 0; text-align: center;">
+    <section class="cobertura-section" style="padding: 0 0 7.5rem 0;">
         <div class="container">
-            <div style="margin-bottom: 2.5rem;">
-                <span class="contact-hero-tag">COBERTURA</span>
-                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">OBRAS SOCIALES Y PREPAGAS</h2>
-                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 600px; margin: 0.5rem auto 0 auto; font-size: 1.05rem; line-height: 1.5;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            <div style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <span class="contact-hero-tag" style="margin-bottom: 1rem;">COBERTURA</span>
+                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 0.8rem; font-weight: 500;">
+                    <span class="text-accent-uppercase">Obras sociales</span> y prepagas
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            </div>
+            
+            <div class="cobertura-carousel-wrapper">
+                <div class="cobertura-carousel-track">
+                    <!-- Logos group 1 -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    
+                    <!-- Duplicate group for infinite loop -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                </div>
             </div>
 
-            <!-- Grid de Cards de Logos -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 3rem;">
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Sancor Salud" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
-                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
-                </div>
-            </div>
-
-            <!-- Boton CTA -->
-            <div>
-                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.75rem 2.2rem;">
-                    Consultá por tu cobertura
-                </a>
+            <div style="display: flex; justify-content: center; margin-top: 3rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-coverage-trigger">Consultá por tu cobertura</a>
             </div>
         </div>
     </section>
@@ -329,7 +333,7 @@
                             <li><a href="index.html#la-clinica" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">La Clínica</a></li>
                             <li><a href="index.html#sedes" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Sedes</a></li>
                             <li><a href="index.html#especialidades" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Servicios / Especialidades</a></li>
-                            <li><a href="index.html#profesionales" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Profesionales</a></li>
+                            <li><a href="profesionales.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Equipo Médico</a></li>
                             <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Mis Estudios</a></li>
                             <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Contacto / Turnos</a></li>
                         </ul>

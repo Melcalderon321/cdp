@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Biodiagnóstica | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Laboratorio Biodiagnóstica en Clínica del Pilar Mendoza. Análisis clínicos de alta complejidad, hematología, química clínica e inmunología con profesionales bioquímicos de trayectoria.">
+    <meta name="keywords" content="laboratorio biodiagnostica mendoza, analisis clinicos, hematologia, quimica clinica, inmunologia, clinica del pilar">
+    <meta name="author" content="Clínica del Pilar">
+
+    <!-- Adobe Fonts: Acumin -->
+    <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=12">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ═══════════════════════════════════════════
+           HERO DE SERVICIO — igual que imágenes médicas
+           ═══════════════════════════════════════════ */
+        .svc-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .svc-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            opacity: 1;
+        }
+        .svc-hero-overlay {
+            display: none;
+        }
+        .svc-hero-body {
+            position: relative;
+            z-index: 5;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+        }
+        .svc-breadcrumb-inline {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: rgba(0,77,77,0.6);
+            margin-bottom: 2.5rem;
+        }
+        .svc-breadcrumb-inline a {
+            color: rgba(0,77,77,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .svc-breadcrumb-inline a:hover { color: #004d4d; }
+        .svc-breadcrumb-inline .bc-sep { opacity: 0.35; }
+        .svc-breadcrumb-inline .bc-current {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .svc-hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(4rem, 7vw, 6.5rem);
+            font-weight: 500;
+            line-height: 0.88;
+            letter-spacing: 0.03em;
+            color: #004d4d;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+        .svc-hero-title .accent { color: var(--primary); }
+        .svc-hero-desc {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            color: #004d4d;
+            margin-bottom: 2.2rem;
+            max-width: 600px;
+            line-height: 1.55;
+        }
+
+        /* ═══════════════════════════════════════════
+           BIOBOX BANNER — tarjeta dentro de contenedor
+           ═══════════════════════════════════════════ */
+        .biobox-strip {
+            position: relative;
+            background: linear-gradient(135deg, #012a2a 0%, #018080 50%, #029fa0 100%);
+            padding: 3.5rem 2rem 3.2rem 2rem;
+            border-radius: 24px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 12px 36px rgba(1,128,128,0.15);
+        }
+        .biobox-wave {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100%;
+            line-height: 0;
+            transform: translate(-50%, -50%);
+            opacity: 0.18;
+            filter: brightness(0) invert(1);
+            pointer-events: none;
+        }
+        .biobox-wave img {
+            width: 100%; height: auto; display: block;
+        }
+        .biobox-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .biobox-strip-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .biobox-strip-title {
+            font-family: var(--font-title);
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+        .biobox-strip-desc {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 520px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .btn-biobox {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ffffff;
+            color: #013232;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.22s ease;
+            margin-top: 0.3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .btn-biobox:hover {
+            background: var(--primary-light);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+        }
+
+        /* ═══════════════════════════════════════════
+           GRILLA & ACCORDEON DE SERVICIOS
+           ═══════════════════════════════════════════ */
+        .svc-prestaciones {
+            padding: 4rem 0 3rem 0;
+            background: #fafdfd;
+            position: relative;
+            overflow: hidden;
+        }
+        .lab-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .lab-acc-item {
+            background: #ffffff;
+            border: 1px solid rgba(1,128,128,0.12);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 4px 16px rgba(1,128,128,0.04);
+        }
+        .lab-acc-item:hover {
+            border-color: rgba(1,128,128,0.25);
+            box-shadow: 0 8px 24px rgba(1,128,128,0.08);
+        }
+        .lab-acc-header {
+            padding: 1.6rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            background: #ffffff;
+            transition: background 0.2s ease;
+        }
+        .lab-acc-header:hover {
+            background: #f7fbfb;
+        }
+        .lab-acc-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .lab-acc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(1,128,128,0.1), rgba(1,153,153,0.06));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .lab-acc-icon svg { width: 22px; height: 22px; }
+        .lab-acc-title {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #004d4d;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.01em;
+        }
+        .lab-acc-count {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-muted-dark);
+            font-weight: 500;
+        }
+        .lab-acc-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(1,128,128,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: transform 0.3s ease, background 0.2s ease;
+        }
+        .lab-acc-item.active .lab-acc-toggle {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: #ffffff;
+        }
+        .lab-acc-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            background: #fafdfd;
+            border-top: 0px solid rgba(1,128,128,0.08);
+        }
+        .lab-acc-item.active .lab-acc-content {
+            max-height: 2000px;
+            border-top-width: 1px;
+            padding: 2rem;
+        }
+        .lab-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.8rem;
+        }
+        .lab-study-pill {
+            background: #ffffff;
+            border: 1px solid rgba(1,128,128,0.08);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: #004d4d;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.2s ease;
+        }
+        .lab-study-pill:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(1,128,128,0.08);
+            transform: translateY(-1px);
+        }
+        .lab-study-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .lab-acc-header { padding: 1.2rem 1.4rem; }
+            .lab-acc-title { font-size: 1.25rem; }
+            .lab-acc-item.active .lab-acc-content { padding: 1.2rem; }
+            .lab-studies-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       HEADER & NAVEGACIÓN INSTITUCIONAL
+       ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 32px; width: auto; max-width: 100%;">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html#la-clinica" class="nav-link">La Clínica</a>
+
+                <!-- Dropdown sedes -->
+                <div class="nav-item-dropdown">
+                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contacto.html">Sede Dalvian</a>
+                        <a href="contacto.html">Sede Godoy Cruz</a>
+                        <a href="contacto.html">Sede Perú</a>
+                        <a href="contacto.html">Sede Brasil</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown especialidades -->
+                <div class="nav-item-dropdown">
+                    <a href="servicios.html" class="nav-link active" style="display: flex; align-items: center; gap: 4px;">
+                        Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="imagenes-medicas.html">Imágenes médicas</a>
+                        <a href="laboratorio.html">Laboratorio</a>
+                        <a href="cardiologia.html">Cardiología</a>
+                        <a href="odontologia.html">Odontología</a>
+                        <a href="oftalmologia.html">Oftalmología</a>
+                        <a href="servicios.html" style="margin-top:0.3rem; border-top: 1px solid rgba(1,128,128,0.08); padding-top: 0.8rem; font-weight:600; color:var(--primary);">Ver todos los servicios</a>
+                    </div>
+                </div>
+
+                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
+                <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-booking-trigger">Solicitar Turno</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       HERO
+       ========================================== -->
+    <section class="svc-hero">
+        <img src="assets/laboratorio-banner.jpg" alt="Laboratorio Biodiagnóstica" class="svc-hero-bg">
+        <div class="svc-hero-overlay"></div>
+
+        <!-- Contenido principal -->
+        <div class="svc-hero-body">
+            <div class="container">
+                <div class="hero-content" style="margin-top:0; padding: 0;">
+                    <!-- Breadcrumb sobre el sobretítulo -->
+                    <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb">
+                        <a href="index.html">Inicio</a>
+                        <span class="bc-sep">›</span>
+                        <a href="servicios.html">Servicios y Especialidades</a>
+                        <span class="bc-sep">›</span>
+                        <span class="bc-current">Laboratorio</span>
+                    </nav>
+                    <h1 class="svc-hero-title">
+                        LABORATORIO<br><span class="accent">BIODIAGNÓSTICA</span>
+                    </h1>
+                    <p class="svc-hero-desc">
+                        Tenemos una alianza con uno de los laboratorios más innovadores y completos de la provincia. Ofrecemos análisis clínicos con bioquímicos de excelente trayectoria a disposición de nuestros pacientes.
+                    </p>
+                    <div class="hero-actions" style="opacity:1; transform:none;">
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Laboratorio" target="_blank" rel="noopener noreferrer" class="btn-hero-booking">
+                            Contactar
+                            <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       BIOBOX BANNER — tarjeta dentro de contenedor
+       ========================================== -->
+    <section style="padding: 5.5rem 0 1.5rem 0; background: #ffffff;">
+        <div class="container">
+            <div class="biobox-strip">
+                <!-- Onda decorativa única -->
+                <div class="biobox-wave">
+                    <img src="assets/recurso-1-custom.svg" alt="">
+                </div>
+                <!-- Orbs de luz -->
+                <div class="biobox-orb" style="width:400px;height:400px;background:rgba(255,255,255,0.04);top:-100px;right:10%;filter:blur(60px);"></div>
+                <div class="biobox-orb" style="width:300px;height:300px;background:rgba(2,200,200,0.08);bottom:-80px;left:5%;filter:blur(50px);"></div>
+
+                <div class="biobox-strip-inner">
+                    <h2 class="biobox-strip-title">
+                        ¿Te hiciste un estudio con nuestro equipo?
+                    </h2>
+                    <p class="biobox-strip-desc">
+                        Accedé a tus resultados de análisis clínicos de forma rápida y segura desde el portal Biobox. Disponible las 24 horas.
+                    </p>
+                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn-biobox">
+                        <i data-lucide="monitor-check" style="width:18px;height:18px;"></i>
+                        Ver mis resultados
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       NUESTROS SERVICIOS
+       ========================================== -->
+    <section class="svc-prestaciones">
+        <!-- Glow spots -->
+        <div class="glow-spot" style="position:absolute;top:10%;left:-5%;width:450px;height:450px;background:rgba(1,128,128,0.05);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;"></div>
+        <div class="glow-spot" style="position:absolute;bottom:5%;right:-5%;width:380px;height:380px;background:rgba(1,128,128,0.04);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;"></div>
+
+        <div class="container" style="position:relative;z-index:1;">
+            <div style="text-align:center; margin-bottom:3.5rem;">
+                <span class="section-tag">ANÁLISIS CLÍNICOS</span>
+                <h2 class="section-title" style="font-size:clamp(2.8rem,5vw,4rem); margin: 0.5rem auto 1rem auto;">
+                    NUESTROS <span class="text-accent-uppercase">SERVICIOS</span>
+                </h2>
+                <p style="font-family:var(--font-sans); color:var(--text-muted-dark); font-size:1rem; margin:0 auto; line-height:1.55;">
+                    Desplegá cada área para consultar el listado completo de prestaciones disponibles.
+                </p>
+            </div>
+
+            <!-- ACORDEÓN DE CATEGORÍAS -->
+            <div class="lab-accordion">
+
+                <!-- 1. ALTA COMPLEJIDAD -->
+                <div class="lab-acc-item">
+                    <div class="lab-acc-header">
+                        <div class="lab-acc-title-wrap">
+                            <div class="lab-acc-icon">
+                                <i data-lucide="flask-conical"></i>
+                            </div>
+                            <div>
+                                <h3 class="lab-acc-title">Alta Complejidad</h3>
+                                <span class="lab-acc-count">Inmunoensayos, Hormonas, Marcadores y Antígenos</span>
+                            </div>
+                        </div>
+                        <div class="lab-acc-toggle">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="lab-acc-content">
+                        <div class="lab-studies-grid">
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ácido Fólico Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Tiroglobulina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Tiroglobulina - Suero</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Alfa Feto Proteínas (AFP)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Anticuerpos IgG Anti-SARS-CoV-2</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Anticuerpos IgM Anti-SARS-CoV-2</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Anticuerpos IgG-IgM Anti-SARS-CoV-2</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Anticuerpos Sars Cov-2 IgG II Quant</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Antígeno Prostático Específico (PSA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Antígeno Prostático Libre (PSAL)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Beta 2 - Microglobulina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>CA 125</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>CA 15-3</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>CA 19-9</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Carcinoembrionario Antíg. (CEA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Chagas Ac Totales</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Citomegalovirus Ac. IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Citomegalovirus Ac. IgM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Cortisol Sérico o Urinario</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Cortisol Libre Urinario</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>DHEA-Sulfato</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Epstein Barr VCA Ac. IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Epstein Barr VCA Ac. IgM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Estradiol Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Fenobarbital</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ferritina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Folículo Estimulante Hormona (FSH)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis A Ac. IgM (HAV-IgM)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis A Ac. IgG (HAV-IgG)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis B Ac. Core IgM (HBc-Ac IgM)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis B Ac. Core Total (HBc-Ac)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis B (HBsAg)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis B Anti S (HBs-Ac)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hepatitis C Ac. Totales (HCV-Ac)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>HIV I-II</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Homocisteína</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Insulina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Luteinizante Hormona (LH)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Parathormona (PTH)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Péptido Citrulinado Cíclico Ac (CCP)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Peroxidasa Tiroidea Ac (TPO)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Progesterona Hormona (PG)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Prolactina Hormona (PRL)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Relación PSA Libre / Total</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Rubéola Ac. IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Rubéola Ac. IgM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>SHBG (Globulina Ligadora)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Sub Unidad Beta-HCG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>T4 Libre</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Testosterona Total</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Testosterona Biodisponible</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Testosterona Libre</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Tirotrofina (TSH) Ac. Receptor</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Tiroxina Total (T4)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Toxoplasma Ac IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Toxoplasma Ac IgM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Triiodotironina Total (T3)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Triiodotironina Libre (T3L)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Troponina Suero</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Vitamina B12</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Vitamina D (D3 25OH)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. HEMATOLOGÍA -->
+                <div class="lab-acc-item">
+                    <div class="lab-acc-header">
+                        <div class="lab-acc-title-wrap">
+                            <div class="lab-acc-icon">
+                                <i data-lucide="droplet"></i>
+                            </div>
+                            <div>
+                                <h3 class="lab-acc-title">Hematología</h3>
+                                <span class="lab-acc-count">Recuentos, frotis y factores sanguíneos</span>
+                            </div>
+                        </div>
+                        <div class="lab-acc-toggle">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="lab-acc-content">
+                        <div class="lab-studies-grid">
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hemograma c/Frotis</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Reticulocitos Recuento</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Factor RH</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Test De Coombs Directo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. QUÍMICA CLÍNICA -->
+                <div class="lab-acc-item">
+                    <div class="lab-acc-header">
+                        <div class="lab-acc-title-wrap">
+                            <div class="lab-acc-icon">
+                                <i data-lucide="test-tube"></i>
+                            </div>
+                            <div>
+                                <h3 class="lab-acc-title">Química Clínica</h3>
+                                <span class="lab-acc-count">Metabolismo, perfil lipídico, enzimas y electrolitos</span>
+                            </div>
+                        </div>
+                        <div class="lab-acc-toggle">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="lab-acc-content">
+                        <div class="lab-studies-grid">
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>A.E.L.O.</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Amilasa Sérica</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ácido Valproico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Albúmina Sérica</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Apolipoproteína A</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Apolipoproteína B</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Bilirrubina Total</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Bilirrubina Directa</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Calcio en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Calcio en Sangre</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>CK-MB</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Colesterol LDL</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Colesterol Total</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Colesterol HDL</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Complemento C3</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Complemento C4</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Creatinina Sérica</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Creatininuria</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Creatinquinasa CPK</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Dímero D</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Factor Reumatoideo</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Fosfatasa Alcalina (FAL)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Fósforo en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Fósforo Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Fructosamina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Glucosa en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Glucosa Sérica Suero</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Glutamil Transpeptidasa Gamma (GGT)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hemoglobina Glicosilada HBA1C</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hierro Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Inmunoglobulina A</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Inmunoglobulina G</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Inmunoglobulina M</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Inmunoglobulina IgE</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ionograma Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ionograma Urinario</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>LDH (Láctico Dehidrogenasa)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Lipasa</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Litio</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Magnesio en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Magnesio Sérico</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Microalbuminuria</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>PCR (Proteína C Reactiva)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>PCR Ultrasensible</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Proteínas Totales</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Proteinuria</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Pseudocolinesterasa</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Transaminasa GOT (AST)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Transaminasa GPT (ALT)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Transferrina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Triglicéridos</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Urea en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Urea Sérica</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ácido Úrico en Orina</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ácido Úrico Sérico</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. INMUNOLOGÍA Y SEROLOGÍA -->
+                <div class="lab-acc-item">
+                    <div class="lab-acc-header">
+                        <div class="lab-acc-title-wrap">
+                            <div class="lab-acc-icon">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="lab-acc-title">Inmunología - Serología</h3>
+                                <span class="lab-acc-count">Anticuerpos, celiaquía, enfermedades autoinmunes y serologías</span>
+                            </div>
+                        </div>
+                        <div class="lab-acc-toggle">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="lab-acc-content">
+                        <div class="lab-studies-grid">
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Desoxirribonucleico (ADNA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Reticulina (ARA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Centrómero</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Beta 2 Glicoproteínas IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Beta 2 Glicoproteínas IgM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Cardiolipinas IgG (ACA-IgG)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Cardiolipinas IgM (ACA-IgM)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Cél. Parietal Gástrica (ACP)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Citop Neutrófilos C (ANCA C)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Citop Neutrófilos P (ANCA P)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Endomisio IgA (EMA-IgA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Endomisio IgG (EMA-IgG)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Factor Anti Núcleo (FAN)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Mieloperoxidasa (MPO)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Proteinasa 3 (Pr3)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Gliadinas II IgA (Deamidadas)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Gliadinas II IgG (Deamidadas)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Microsomas Hígado Riñón (LKM)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Mitocondriales (AMA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Músculo Liso (ASMA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti RNP</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti SSA (RO)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti SSB (LA)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti SM</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti SCL 70</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti JO-1</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Transglutaminasa IgA</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Ac. Anti Transglutaminasa IgG</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>ACTH Péptido C</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Hormona Antimülleriana</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Adenovirus / Rotavirus</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Células L.E.</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Sangre Oculta en Materia Fecal</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Crioglobulinas</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Proteinograma</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Huddlesson Reacción</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Mononucleosis Hemoaglutinación</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Paul-Bunnell</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Chagas HAI</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Chagas IFI</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Inmunof Test Rápido Covid-19</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Toxoplasma HAI</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>TPHA - Hemoaglutinación Treponema</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Treponema Pallidum (VDRL)</div>
+                            <div class="lab-study-pill"><span class="lab-study-bullet"></span>Widal Reacción De</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       CTA FINAL — idéntico al home
+       ========================================== -->
+    <section class="cta-section-new" style="background: #ffffff; padding: 3rem 0 3.5rem 0; text-align: center; position: relative; overflow: hidden;">
+        <!-- Focos difuminados -->
+        <div class="glow-spot" style="position:absolute;top:-10%;left:15%;width:350px;height:350px;background:rgba(1,128,128,0.08);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1;"></div>
+        <div class="glow-spot" style="position:absolute;bottom:0;right:10%;width:400px;height:400px;background:rgba(2,153,153,0.07);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1;"></div>
+
+        <div class="container" style="position:relative;z-index:2;">
+            <h2 style="font-family:var(--font-title);font-size:4rem;line-height:0.95;margin-top:0;margin-bottom:2rem;text-transform:uppercase;">
+                <span class="text-accent-uppercase" style="color:var(--primary);">Tu salud merece la tranquilidad</span><br>
+                <span style="color:#004d4d;">de estar en las mejores manos.</span>
+            </h2>
+            <div style="margin-bottom:2.5rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Laboratorio" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.75rem 2.2rem;">
+                    Solicitar turno
+                    <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER — idéntico al home
+       ========================================== -->
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 1.5rem 0 4rem 0;">
+        <div class="container">
+            <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
+                <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
+                    
+                    <!-- Columna 1: Logo y descripción -->
+                    <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="index.html" class="logo" style="display: inline-flex;">
+                            <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
+                        </a>
+                        <strong style="font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.3;">Clínica de Traumatología y Rehabilitación</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                            Atención médica integral en Mendoza.<br>
+                            Cuatro sedes, profesionales de primer nivel.
+                        </p>
+                        <div class="footer-social-links" style="display: flex; gap: 0.8rem; align-items: center; margin-top: 0.5rem;">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Instagram">
+                                <img src="assets/instagram-icon.svg" alt="Instagram" style="width: 31px; height: 31px; filter: brightness(0) invert(1);">
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Facebook">
+                                <img src="assets/facebook-icon.svg" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2: Sedes -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
+                            <li style="line-height: 1.3;">
+                                <strong>Dalvian</strong><br>
+                                <span style="opacity: 0.75;">Av. 7 Colores 2015, Local 42</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Godoy Cruz</strong><br>
+                                <span style="opacity: 0.75;">San Martín 1867</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Capital</strong><br>
+                                <span style="opacity: 0.75;">Av. Perú 1717</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Capital</strong><br>
+                                <span style="opacity: 0.75;">Brasil 308</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 3: Páginas -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                            <li><a href="index.html#la-clinica" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">La Clínica</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Sedes</a></li>
+                            <li><a href="servicios.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Servicios / Especialidades</a></li>
+                            <li><a href="index.html#profesionales" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Profesionales</a></li>
+                            <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Mis Estudios</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Contacto/Turnos</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 4: Accesos -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; align-items: flex-start;">
+                            <li>
+                                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid #ffffff; border-radius: var(--radius-full); padding: 0.35rem 1.25rem; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s;" onmouseover="this.style.background='#ffffff'; this.style.color='var(--primary)'" onmouseout="this.style.background='transparent'; this.style.color='#ffffff'">Geclisa</a>
+                            </li>
+                            <li><a href="#" class="btn-coverage-trigger" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Obras Sociales</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Trabajá con nosotros</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="footer-bottom-new" style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.85);">
+                <p style="margin-bottom: 0.5rem; font-weight: 600;">Propiedad de Clínica de Traumatología y Rehabilitación</p>
+                <p>Diseño web en Argentina tehuentec.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5492615000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-float-tooltip">¿Necesitás un turno?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js?v=12"></script>
+    <script>
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+        // Logic for Laboratory Accordion
+        document.querySelectorAll('.lab-acc-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

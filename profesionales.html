@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo Médico y Profesionales | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Conocé a todo el equipo de profesionales y especialistas de Clínica del Pilar. Filtrá por especialidad, sede o nombre y solicitá tu turno médico.">
+
+    <!-- Adobe Fonts: Acumin Pro Extra Condensed -->
+    <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
+    
+    <!-- Stylesheets & Scripts -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilos específicos de la página Profesionales */
+        .pro-hero-section {
+            background: linear-gradient(180deg, #f0f7f7 0%, #ffffff 100%);
+            padding: 3rem 0 2.5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .pro-filter-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.75rem 2rem;
+            box-shadow: 0 10px 35px rgba(0, 128, 128, 0.08);
+            border: 1px solid rgba(1, 128, 128, 0.12);
+            margin-bottom: 2.5rem;
+        }
+
+        .pro-filter-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .pro-filter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pro-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .pro-input-wrapper i,
+        .pro-input-wrapper svg {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #004d4d !important;
+            stroke: #004d4d !important;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .pro-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.8rem;
+            border-radius: 12px;
+            border: 1px solid rgba(1, 128, 128, 0.2);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: #004d4d;
+            background: #fcfefe;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .pro-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(1, 128, 128, 0.1);
+            background: #ffffff;
+        }
+
+        .pro-select-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .pro-select-wrapper i,
+        .pro-select-wrapper svg {
+            position: absolute;
+            right: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #004d4d !important;
+            stroke: #004d4d !important;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .pro-select {
+            width: 100%;
+            padding: 0.85rem 2.8rem 0.85rem 1.1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(1, 128, 128, 0.2);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: #004d4d;
+            background: #fcfefe;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            transition: all 0.25s ease;
+        }
+
+        .pro-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(1, 128, 128, 0.1);
+            background: #ffffff;
+        }
+
+        .pro-pills-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(1, 128, 128, 0.08);
+        }
+
+        .pro-pill {
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            background: #f0f7f7;
+            color: #005f5f;
+            border: 1px solid rgba(1, 128, 128, 0.15);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .pro-pill:hover, .pro-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .pro-counter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.75rem;
+            font-family: var(--font-sans);
+        }
+
+        .pro-counter-text {
+            font-size: 0.95rem;
+            color: var(--text-muted-dark);
+        }
+
+        .pro-counter-text strong {
+            color: #004d4d;
+        }
+
+        .profesionales-grid {
+            display: grid !important;
+            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+            gap: 1.25rem !important;
+            width: 100% !important;
+        }
+
+        @media (max-width: 1300px) {
+            .profesionales-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .profesionales-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profesionales-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profesionales-grid {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+        }
+
+        .profesionales-grid .doc-card {
+            flex: none !important;
+            min-width: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .profesionales-grid .doc-card-name {
+            font-family: var(--font-title) !important;
+            font-size: 1.4rem !important;
+            font-weight: 300 !important;
+            color: #004d4d !important;
+            line-height: 1.05 !important;
+            margin: 0 !important;
+            text-transform: uppercase !important;
+            text-align: center !important;
+        }
+
+        .profesionales-grid .doc-card-spec {
+            font-family: var(--font-sans) !important;
+            font-size: 0.75rem !important;
+            font-weight: 500 !important;
+            color: var(--primary) !important;
+            text-align: center !important;
+        }
+
+        .doc-card-sede {
+            display: none !important;
+        }
+
+        .doc-card-sede i {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Estilos de Paginación Centrada */
+        .pro-pagination-wrapper {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3.5rem auto 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .pro-page-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: 1px solid rgba(1, 128, 128, 0.18);
+            background: #ffffff;
+            color: #004d4d;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .pro-page-btn:hover {
+            background: #e6f4f4;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .pro-page-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(1, 128, 128, 0.25);
+        }
+
+        .pro-page-nav {
+            padding: 0 1.1rem;
+            height: 42px;
+            border-radius: 12px;
+            border: 1px solid rgba(1, 128, 128, 0.18);
+            background: #ffffff;
+            color: #004d4d;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.25s ease;
+        }
+
+        .pro-page-nav:hover:not(:disabled) {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .pro-page-nav:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       HEADER & NAVEGACIÓN INSTITUCIONAL
+       ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 32px; width: auto; max-width: 100%;">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html#la-clinica" class="nav-link">La Clínica</a>
+                
+                <!-- Dropdown sedes -->
+                <div class="nav-item-dropdown">
+                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contacto.html">Sede Dalvian</a>
+                        <a href="contacto.html">Sede Godoy Cruz</a>
+                        <a href="contacto.html">Sede Perú</a>
+                        <a href="contacto.html">Sede Brasil</a>
+                    </div>
+                </div>
+                
+                <!-- Dropdown especialidades -->
+                <div class="nav-item-dropdown">
+                    <a href="servicios.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="imagenes-medicas.html">Imágenes médicas</a>
+                        <a href="laboratorio.html">Laboratorio</a>
+                        <a href="cardiologia.html">Cardiología</a>
+                        <a href="odontologia.html">Odontología</a>
+                        <a href="oftalmologia.html">Oftalmología</a>
+                        <a href="servicios.html" style="margin-top:0.3rem; border-top: 1px solid rgba(1,128,128,0.08); padding-top: 0.8rem; font-weight:600; color:var(--primary);">Ver todos los servicios</a>
+                    </div>
+                </div>
+
+                <a href="profesionales.html" class="nav-link active">Profesionales</a>
+                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
+                <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary btn-booking-trigger">
+                    Solicitar turno
+                </a>
+            </div>
+
+            <!-- Hamburger Button -->
+            <button class="hamburger-btn" id="hamburger-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       HERO PROFESIONALES BANNER
+       ========================================== -->
+    <section class="contact-hero">
+        <!-- Diffused light-blue glow spots (focos celestes difuminados) -->
+        <div class="glow-spot" style="position: absolute; top: -10%; left: 15%; width: 400px; height: 400px; background: rgba(1, 128, 128, 0.05); border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 1;"></div>
+        <div class="glow-spot" style="position: absolute; top: 20%; right: 10%; width: 450px; height: 450px; background: rgba(0, 150, 136, 0.04); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <!-- Breadcrumb inline exactamente como servicios.html -->
+            <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 0.45rem; font-family: var(--font-sans); font-size: 0.8rem; color: rgba(0,77,77,0.6); margin-bottom: 1.5rem;">
+                <a href="index.html" style="color: rgba(0,77,77,0.6); text-decoration: none;">Inicio</a>
+                <span class="bc-sep" style="opacity: 0.35;">›</span>
+                <span class="bc-current" style="color: var(--primary); font-weight: 600;">Equipo Médico</span>
+            </nav>
+            <span class="contact-hero-tag" style="margin-bottom: 0.35rem; display: inline-block;">EQUIPO MÉDICO</span>
+            <h1 class="contact-hero-title" style="font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-top: 0; margin-bottom: 1rem;">
+                <span class="text-accent-uppercase">NUESTROS</span> PROFESIONALES
+            </h1>
+            <p class="contact-hero-subtitle">
+                Conocé a los especialistas dedicados a tu salud. Filtrá por nombre, especialidad o sede médica para encontrar al profesional adecuado.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FILTROS Y GRILLA DE PROFESIONALES
+       ========================================== -->
+    <section style="padding: 1.5rem 0 6rem 0;">
+        <div class="container">
+            
+            <!-- Caja de Filtros Interactivas -->
+            <div class="pro-filter-box">
+                <div class="pro-filter-grid">
+                    
+                    <!-- Búsqueda por Nombre -->
+                    <div class="pro-input-wrapper">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="pro-search-input" class="pro-input" placeholder="Buscar profesional por nombre o especialidad...">
+                    </div>
+
+                    <!-- Filtro Especialidad -->
+                    <div class="pro-select-wrapper">
+                        <select id="pro-filter-specialty" class="pro-select">
+                            <option value="">Todas las especialidades</option>
+                            <option value="Anestesiología">Anestesiología</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Cirugía General">Cirugía General & Laparoscópica</option>
+                            <option value="Cirugía Traumatológica">Cirugía Traumatológica</option>
+                            <option value="Dermatología">Dermatología Clínica</option>
+                            <option value="Diabetología">Diabetología & Endocrinología</option>
+                            <option value="Ecografía">Ecografía Doppler</option>
+                            <option value="Endoscopía">Endoscopía Digestiva</option>
+                            <option value="Flebología">Flebología</option>
+                            <option value="Gastroenterología">Gastroenterología</option>
+                            <option value="Ginecología">Ginecología & Obstetricia</option>
+                            <option value="Kinesiología">Kinesiología & Rehabilitación</option>
+                            <option value="Laboratorio">Laboratorio de Análisis Clínicos</option>
+                            <option value="Medicina del Deporte">Medicina del Deporte</option>
+                            <option value="Medicina Laboral">Medicina Laboral</option>
+                            <option value="Neurología">Neurología</option>
+                            <option value="Nutrición">Nutrición & Dietética</option>
+                            <option value="Odontología">Odontología</option>
+                            <option value="Oftalmología">Oftalmología</option>
+                            <option value="Otorrinolaringología">Otorrinolaringología</option>
+                            <option value="Pediatría">Pediatría</option>
+                            <option value="Resonancia">Resonancia Magnética</option>
+                            <option value="Reumatología">Reumatología</option>
+                            <option value="Tomografía">Tomografía Multislice</option>
+                            <option value="Traumatología">Traumatología General</option>
+                            <option value="Urología">Urología</option>
+                        </select>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+
+                    <!-- Filtro Sede -->
+                    <div class="pro-select-wrapper">
+                        <select id="pro-filter-sede" class="pro-select">
+                            <option value="">Todas las sedes</option>
+                            <option value="Dalvian">Sede Dalvian</option>
+                            <option value="Perú">Sede Perú</option>
+                            <option value="Godoy Cruz">Sede Godoy Cruz</option>
+                            <option value="Brasil">Sede Brasil - Próximamente</option>
+                        </select>
+                        <i data-lucide="map-pin"></i>
+                    </div>
+
+                </div>
+
+                <!-- Pills Rápidas -->
+                <div class="pro-pills-bar">
+                    <span style="font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; color: #004d4d; margin-right: 0.3rem;">Filtros rápidos:</span>
+                    <button class="pro-pill active" data-pill-spec="">Todos</button>
+                    <button class="pro-pill" data-pill-spec="Cardiología">Cardiología</button>
+                    <button class="pro-pill" data-pill-spec="Traumatología">Traumatología</button>
+                    <button class="pro-pill" data-pill-spec="Cirugía">Cirugía</button>
+                    <button class="pro-pill" data-pill-spec="Pediatría">Pediatría</button>
+                    <button class="pro-pill" data-pill-spec="Oftalmología">Oftalmología</button>
+                    <button class="pro-pill" data-pill-spec="Ginecología">Ginecología</button>
+                    <button class="pro-pill" data-pill-spec="Laboratorio">Laboratorio</button>
+                </div>
+            </div>
+
+            <!-- Bar de Contador y Reset -->
+            <div class="pro-counter-bar">
+                <span class="pro-counter-text" id="pro-counter-text">Mostrando <strong>26 profesionales</strong></span>
+                <button id="pro-reset-btn" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem; display: none;">Limpiar filtros</button>
+            </div>
+
+            <!-- Grilla Dinámica de Cards -->
+            <div id="profesionales-grid" class="profesionales-grid">
+                
+                <!-- Card 1 -->
+                <div class="doc-card" data-name="Dr. Darío Biancotti" data-spec="Cardiología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Darío Biancotti">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Darío Biancotti</h4>
+                            <span class="doc-card-spec">Cardiología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Dar%C3%ADo+Biancotti+(Cardiolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="doc-card" data-name="Dra. Eliana Fehlmann" data-spec="Pediatría" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. Eliana Fehlmann">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. Eliana Fehlmann</h4>
+                            <span class="doc-card-spec">Pediatría</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Eliana+Fehlmann+(Pediatr%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="doc-card" data-name="Dr. Facundo Bertarini" data-spec="Cirugía General" data-sede="Perú">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Facundo Bertarini">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Facundo Bertarini</h4>
+                            <span class="doc-card-spec">Cirugía General & Laparoscópica</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Perú</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Facundo+Bertarini+(Cirug%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="doc-card" data-name="Dr. Pablo Bernasconi" data-spec="Cardiología" data-sede="Godoy Cruz">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Pablo Bernasconi">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Pablo Bernasconi</h4>
+                            <span class="doc-card-spec">Cardiología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Godoy Cruz</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Pablo+Bernasconi+(Cardiolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="doc-card" data-name="Dr. Javier Parra" data-spec="Traumatología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Javier Parra">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Javier Parra</h4>
+                            <span class="doc-card-spec">Traumatología General</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Javier+Parra+(Traumatolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="doc-card" data-name="Dra. María Victoria Gómez" data-spec="Dermatología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. María Victoria Gómez">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. María Victoria Gómez</h4>
+                            <span class="doc-card-spec">Dermatología Clínica</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Mar%C3%ADa+Victoria+G%C3%B3mez+(Dermatolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="doc-card" data-name="Dr. Alejandro Rossi" data-spec="Oftalmología" data-sede="Perú">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Alejandro Rossi">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Alejandro Rossi</h4>
+                            <span class="doc-card-spec">Oftalmología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Perú</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Alejandro+Rossi+(Oftalmolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="doc-card" data-name="Dra. Sofía Martínez" data-spec="Ginecología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. Sofía Martínez">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. Sofía Martínez</h4>
+                            <span class="doc-card-spec">Ginecología & Obstetricia</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Sof%C3%ADa+Mart%C3%ADnez+(Ginecolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="doc-card" data-name="Dr. Martín Álvarez" data-spec="Gastroenterología" data-sede="Godoy Cruz">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Martín Álvarez">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Martín Álvarez</h4>
+                            <span class="doc-card-spec">Gastroenterología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Godoy Cruz</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Mart%C3%ADn+%C3%81lvarez+(Gastroenterolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="doc-card" data-name="Dra. Lucía Fernández" data-spec="Nutrición" data-sede="Perú">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. Lucía Fernández">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. Lucía Fernández</h4>
+                            <span class="doc-card-spec">Nutrición & Dietética</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Perú</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Luc%C3%ADa+Fern%C3%A1ndez+(Nutrici%C3%B3n)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="doc-card" data-name="Dr. Gabriel Benítez" data-spec="Kinesiología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Gabriel Benítez">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Gabriel Benítez</h4>
+                            <span class="doc-card-spec">Kinesiología & Rehabilitación</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Gabriel+Ben%C3%ADtez+(Kinesiolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="doc-card" data-name="Dra. Carolina Díaz" data-spec="Neurología" data-sede="Godoy Cruz">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. Carolina Díaz">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. Carolina Díaz</h4>
+                            <span class="doc-card-spec">Neurología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Godoy Cruz</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Carolina+D%C3%ADaz+(Neurolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="doc-card" data-name="Dr. Gonzalo Peralta" data-spec="Urología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Gonzalo Peralta">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Gonzalo Peralta</h4>
+                            <span class="doc-card-spec">Urología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Gonzalo+Peralta+(Urolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="doc-card" data-name="Dra. Mariana López" data-spec="Otorrinolaringología" data-sede="Perú">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dra. Mariana López">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dra. Mariana López</h4>
+                            <span class="doc-card-spec">Otorrinolaringología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Perú</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+la+Dra.+Mariana+L%C3%B3pez+(Otorrino)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="doc-card" data-name="Dr. Esteban Romero" data-spec="Odontología" data-sede="Dalvian">
+                    <div class="doc-card-photo">
+                        <img src="assets/doctor-portrait-all.png" alt="Dr. Esteban Romero">
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="doc-card-rest">
+                            <h4 class="doc-card-name">Dr. Esteban Romero</h4>
+                            <span class="doc-card-spec">Odontología</span>
+                            <span class="doc-card-sede"><i data-lucide="map-pin"></i> Sede Dalvian</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+un+turno+con+el+Dr.+Esteban+Romero+(Odontolog%C3%ADa)" target="_blank" rel="noopener noreferrer" class="doc-turno-btn">
+                            Pedir turno
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Contenedor de Paginación Centrada -->
+            <div id="pro-pagination-container" class="pro-pagination-wrapper"></div>
+
+            <!-- Feedback de Búsqueda sin Resultados -->
+            <div id="no-profesionales-results" style="display: none; text-align: center; padding: 4rem 1rem;">
+                <i data-lucide="user-x" style="width: 48px; height: 48px; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="font-family: var(--font-title); color: #004d4d; font-size: 1.6rem; margin: 0 0 0.5rem 0;">No encontramos profesionales con los criterios seleccionados</h3>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); font-size: 1rem; max-width: 500px; margin: 0 auto 1.5rem auto;">Probá modificando los términos de búsqueda o limpiá los filtros activados.</p>
+                <button id="reset-no-results-btn" class="btn btn-primary">Ver todos los profesionales</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+       COBERTURAS & INSURANCE (CARRUSEL RÉPLICA HOME)
+       ========================================== -->
+    <section class="cobertura-section" style="padding: 0 0 7.5rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <span class="contact-hero-tag" style="margin-bottom: 1rem;">COBERTURA</span>
+                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-title); color: #004d4d; text-transform: uppercase;">
+                    <span class="text-accent-uppercase">Obras sociales</span> y prepagas
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            </div>
+            
+            <div class="cobertura-carousel-wrapper">
+                <div class="cobertura-carousel-track">
+                    <!-- Logos group 1 -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    
+                    <!-- Duplicate group for infinite loop -->
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
+                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: 3rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-coverage-trigger">Consultá por tu cobertura</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER INSTITUCIONAL
+       ========================================== -->
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 0 0 4rem 0;">
+        <div class="container">
+            <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
+                <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
+                    
+                    <!-- Columna 1: Logo y descripción -->
+                    <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="index.html" class="logo" style="display: inline-flex;">
+                            <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
+                        </a>
+                        <strong style="font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.3;">Clínica de Traumatología y Rehabilitación</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                            Atención médica integral en Mendoza.<br>
+                            Cuatro sedes, profesionales de primer nivel.
+                        </p>
+                        <div class="footer-social-links" style="display: flex; gap: 0.8rem; align-items: center; margin-top: 0.5rem;">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Instagram">
+                                <img src="assets/instagram-icon.svg" alt="Instagram" style="width: 31px; height: 31px; filter: brightness(0) invert(1);">
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Facebook">
+                                <img src="assets/facebook-icon.svg" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2: Sedes -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
+                            <li style="line-height: 1.3;">
+                                <strong>Dalvian</strong><br>
+                                <span style="opacity: 0.75;">Av. 7 Colores 2015, Local 42</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Godoy Cruz</strong><br>
+                                <span style="opacity: 0.75;">San Martín 1867</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Capital</strong><br>
+                                <span style="opacity: 0.75;">Av. Perú 1717</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Capital</strong><br>
+                                <span style="opacity: 0.75;">Brasil 308</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 3: Páginas -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                            <li><a href="index.html#la-clinica" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">La Clínica</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Sedes</a></li>
+                            <li><a href="servicios.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Servicios / Especialidades</a></li>
+                            <li><a href="profesionales.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Profesionales</a></li>
+                            <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Mis Estudios</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Contacto/Turnos</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 4: Accesos -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; align-items: flex-start;">
+                            <li>
+                                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid #ffffff; border-radius: var(--radius-full); padding: 0.35rem 1.25rem; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s;" onmouseover="this.style.background='#ffffff'; this.style.color='var(--primary)'" onmouseout="this.style.background='transparent'; this.style.color='#ffffff'">Geclisa</a>
+                            </li>
+                            <li><a href="#" class="btn-coverage-trigger" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Obras Sociales</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Trabajá con nosotros</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="footer-bottom-new" style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.85);">
+                <p style="margin-bottom: 0.5rem; font-weight: 600;">Propiedad de Clínica de Traumatología y Rehabilitación</p>
+                <p>Diseño web en Argentina tehuentec.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+       MODALS DE TURNO
+       ========================================== -->
+    <div class="modal-overlay" id="modal-booking">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Solicitar Turno Médico</h3>
+                <button class="modal-close" aria-label="Cerrar modal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="appointment-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="booking-name">Nombre y Apellido *</label>
+                        <input type="text" id="booking-name" required placeholder="Ingresá tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-phone">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="booking-phone" required placeholder="Ej: 261 5088277">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-sede">Sede *</label>
+                        <select id="booking-sede" required>
+                            <option value="">Seleccionar Sede</option>
+                            <option value="dalvian">Sede Dalvian (Principal)</option>
+                            <option value="peru">Sede Perú (Consultorios Externos)</option>
+                            <option value="godoycruz">Sede Godoy Cruz (Imágenes)</option>
+                            <option value="brasil">Sede Brasil (Próximamente)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-service">Especialidad de Interés *</label>
+                        <select id="booking-service" required>
+                            <option value="">Seleccionar Especialidad</option>
+                            <option value="cardiologia">Cardiología</option>
+                            <option value="traumatologia">Traumatología</option>
+                            <option value="cirugia">Cirugía General</option>
+                            <option value="imagenes">Imágenes Médicas</option>
+                            <option value="laboratorio">Laboratorio</option>
+                            <option value="oftalmologia">Oftalmología</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline modal-close-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar Solicitud</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+consultar+un+turno+en+Cl%C3%ADnica+del+Pilar" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-float-tooltip">¿Necesitás un turno?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Global Scripts -->
+    <script src="script.js"></script>
+
+    <!-- Script de Filtro en Vivo y Paginación de Profesionales -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('pro-search-input');
+            const selectSpecialty = document.getElementById('pro-filter-specialty');
+            const selectSede = document.getElementById('pro-filter-sede');
+            const pills = document.querySelectorAll('.pro-pill');
+            const cards = Array.from(document.querySelectorAll('#profesionales-grid .doc-card'));
+            const counterText = document.getElementById('pro-counter-text');
+            const resetBtn = document.getElementById('pro-reset-btn');
+            const noResults = document.getElementById('no-profesionales-results');
+            const resetNoResultsBtn = document.getElementById('reset-no-results-btn');
+            const paginationContainer = document.getElementById('pro-pagination-container');
+
+            const ITEMS_PER_PAGE = 10; // EXACTAMENTE 2 FILAS DE 5 TARJETAS
+            let currentPage = 1;
+            let selectedPillSpec = '';
+
+            function filterProfessionals(resetPage = true) {
+                if (resetPage) {
+                    currentPage = 1;
+                }
+
+                const searchVal = searchInput.value.toLowerCase().trim();
+                const specVal = (selectedPillSpec || selectSpecialty.value).toLowerCase().trim();
+                const sedeVal = selectSede.value.toLowerCase().trim();
+
+                // Filtrar elementos coincidentes
+                const matchingCards = cards.filter(card => {
+                    const name = card.getAttribute('data-name').toLowerCase();
+                    const spec = card.getAttribute('data-spec').toLowerCase();
+                    const sede = card.getAttribute('data-sede').toLowerCase();
+
+                    const matchesSearch = !searchVal || name.includes(searchVal) || spec.includes(searchVal);
+                    const matchesSpec = !specVal || spec.includes(specVal);
+                    const matchesSede = !sedeVal || sede.includes(sedeVal);
+
+                    return matchesSearch && matchesSpec && matchesSede;
+                });
+
+                const totalItems = matchingCards.length;
+                const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+                if (currentPage > totalPages && totalPages > 0) {
+                    currentPage = totalPages;
+                }
+
+                // Ocultar todas las tarjetas
+                cards.forEach(card => card.style.display = 'none');
+
+                // Mostrar solo las de la página actual (2 filas de 5 tarjetas)
+                const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+                const endIndex = startIndex + ITEMS_PER_PAGE;
+                const pageCards = matchingCards.slice(startIndex, endIndex);
+
+                pageCards.forEach(card => card.style.display = 'flex');
+
+                // Actualizar texto contador
+                if (totalItems > 0) {
+                    const fromNum = startIndex + 1;
+                    const toNum = Math.min(endIndex, totalItems);
+                    counterText.innerHTML = `Mostrando <strong>${fromNum} - ${toNum}</strong> de <strong>${totalItems} profesional${totalItems !== 1 ? 'es' : ''}</strong>`;
+                } else {
+                    counterText.innerHTML = `Mostrando <strong>0 profesionales</strong>`;
+                }
+
+                // Mostrar / ocultar botón limpiar
+                if (searchVal || specVal || sedeVal || selectedPillSpec) {
+                    resetBtn.style.display = 'inline-block';
+                } else {
+                    resetBtn.style.display = 'none';
+                }
+
+                // Estado sin resultados
+                if (totalItems === 0) {
+                    noResults.style.display = 'block';
+                    if (paginationContainer) {
+                        paginationContainer.style.display = 'none';
+                        paginationContainer.innerHTML = '';
+                    }
+                } else {
+                    noResults.style.display = 'none';
+                    renderPagination(totalPages);
+                }
+            }
+
+            function renderPagination(totalPages) {
+                if (!paginationContainer) return;
+
+                if (totalPages <= 1) {
+                    paginationContainer.innerHTML = '';
+                    paginationContainer.style.display = 'none';
+                    return;
+                }
+
+                paginationContainer.style.display = 'flex';
+                let html = `<button class="pro-page-nav" id="pro-prev-page" ${currentPage === 1 ? 'disabled' : ''}>
+                                <i data-lucide="chevron-left" style="width:16px;height:16px;"></i> Anterior
+                            </button>`;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button class="pro-page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+                }
+
+                html += `<button class="pro-page-nav" id="pro-next-page" ${currentPage === totalPages ? 'disabled' : ''}>
+                            Siguiente <i data-lucide="chevron-right" style="width:16px;height:16px;"></i>
+                        </button>`;
+
+                paginationContainer.innerHTML = html;
+
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+
+                // Listeners de número de página
+                paginationContainer.querySelectorAll('.pro-page-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        currentPage = parseInt(btn.getAttribute('data-page'));
+                        filterProfessionals(false);
+                        scrollToGridTop();
+                    });
+                });
+
+                // Anterior / Siguiente
+                const prevBtn = paginationContainer.querySelector('#pro-prev-page');
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            filterProfessionals(false);
+                            scrollToGridTop();
+                        }
+                    });
+                }
+
+                const nextBtn = paginationContainer.querySelector('#pro-next-page');
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            filterProfessionals(false);
+                            scrollToGridTop();
+                        }
+                    });
+                }
+            }
+
+            function scrollToGridTop() {
+                const filterBox = document.querySelector('.pro-filter-box');
+                if (filterBox) {
+                    filterBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Event Listeners
+            searchInput.addEventListener('input', () => filterProfessionals(true));
+            
+            selectSpecialty.addEventListener('change', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                const allPill = document.querySelector('.pro-pill[data-pill-spec=""]');
+                if (allPill) allPill.classList.add('active');
+                selectedPillSpec = '';
+                filterProfessionals(true);
+            });
+
+            selectSede.addEventListener('change', () => filterProfessionals(true));
+
+            pills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    pills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    selectedPillSpec = pill.getAttribute('data-pill-spec');
+                    selectSpecialty.value = '';
+                    filterProfessionals(true);
+                });
+            });
+
+            function resetFilters() {
+                searchInput.value = '';
+                selectSpecialty.value = '';
+                selectSede.value = '';
+                selectedPillSpec = '';
+                pills.forEach(p => p.classList.remove('active'));
+                const allPill = document.querySelector('.pro-pill[data-pill-spec=""]');
+                if (allPill) allPill.classList.add('active');
+                filterProfessionals(true);
+            }
+
+            resetBtn.addEventListener('click', resetFilters);
+            if (resetNoResultsBtn) {
+                resetNoResultsBtn.addEventListener('click', resetFilters);
+            }
+
+            // Inicialización primera carga
+            filterProfessionals(true);
+        });
+    </script>
+</body>
+</html>
