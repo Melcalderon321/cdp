@@ -648,5 +648,68 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
             }, 1200);
         });
     }
+
+    /* ==========================================================================
+       14. SERVICIOS & ESPECIALIDADES DIRECTORY FILTERING (servicios.html)
+       ========================================================================== */
+    const specSearchInput = document.getElementById("spec-search-input");
+    const filterPillBtns = document.querySelectorAll(".filter-pill-btn");
+    const specDirItems = document.querySelectorAll(".spec-dir-item");
+    const noSpecResults = document.getElementById("no-spec-results");
+    const resetSpecSearchBtn = document.getElementById("reset-spec-search");
+
+    if (specDirItems.length > 0) {
+        let currentFilter = "all";
+        let currentQuery = "";
+
+        function filterDirectory() {
+            let visibleCount = 0;
+            specDirItems.forEach(item => {
+                const category = item.getAttribute("data-category") || "";
+                const titleText = item.querySelector("h5") ? item.querySelector("h5").textContent.toLowerCase() : "";
+                const descText = item.querySelector("p") ? item.querySelector("p").textContent.toLowerCase() : "";
+                const matchesCategory = (currentFilter === "all" || category === currentFilter);
+                const matchesSearch = (!currentQuery || titleText.includes(currentQuery) || descText.includes(currentQuery));
+
+                if (matchesCategory && matchesSearch) {
+                    item.style.display = "block";
+                    visibleCount++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            if (noSpecResults) {
+                noSpecResults.style.display = (visibleCount === 0) ? "block" : "none";
+            }
+        }
+
+        if (specSearchInput) {
+            specSearchInput.addEventListener("input", (e) => {
+                currentQuery = e.target.value.toLowerCase().trim();
+                filterDirectory();
+            });
+        }
+
+        filterPillBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterPillBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                currentFilter = btn.getAttribute("data-filter") || "all";
+                filterDirectory();
+            });
+        });
+
+        if (resetSpecSearchBtn) {
+            resetSpecSearchBtn.addEventListener("click", () => {
+                if (specSearchInput) specSearchInput.value = "";
+                currentQuery = "";
+                currentFilter = "all";
+                filterPillBtns.forEach(b => b.classList.remove("active"));
+                if (filterPillBtns[0]) filterPillBtns[0].classList.add("active");
+                filterDirectory();
+            });
+        }
+    }
 });
 

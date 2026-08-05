@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios y Especialidades | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Oferta clínica e integral en Clínica del Pilar Mendoza. Imágenes médicas, laboratorio, cirugías, traumatología, urología, cardiología y especialidades de vanguardia.">
+    <meta name="keywords" content="Servicios médicos, especialidades médicas, traumatología, imágenes médicas, laboratorio, cirugías, urología, cardiología, clínica del pilar mendoza">
+    <meta name="author" content="Clínica del Pilar">
+    
+    <!-- Adobe Fonts: Acumin -->
+    <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=12">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ==========================================
+       HEADER & NAVEGACIÓN INSTITUCIONAL
+       ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 32px; width: auto; max-width: 100%;">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html#la-clinica" class="nav-link">La Clínica</a>
+                
+                <!-- Dropdown sedes -->
+                <div class="nav-item-dropdown">
+                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contacto.html">Sede Dalvian</a>
+                        <a href="contacto.html">Sede Godoy Cruz</a>
+                        <a href="contacto.html">Sede Perú</a>
+                        <a href="contacto.html">Sede Brasil</a>
+                    </div>
+                </div>
+                
+                <!-- Dropdown especialidades -->
+                <div class="nav-item-dropdown">
+                    <a href="servicios.html" class="nav-link active" style="display: flex; align-items: center; gap: 4px;">
+                        Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#servicios-principales">Servicios Principales</a>
+                        <a href="#especialidades-destacadas">Especialidades Destacadas</a>
+                        <a href="#directorio-completo">Directorio Completo</a>
+                    </div>
+                </div>
+
+                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
+                <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-booking-trigger">Solicitar Turno</a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       HERO SERVICIOS BANNER
+       ========================================== -->
+    <section class="contact-hero">
+        <!-- Diffused light-blue glow spots (focos celestes difuminados) -->
+        <div class="glow-spot" style="position: absolute; top: -10%; left: 15%; width: 400px; height: 400px; background: rgba(1, 128, 128, 0.05); border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 1;"></div>
+        <div class="glow-spot" style="position: absolute; top: 20%; right: 10%; width: 450px; height: 450px; background: rgba(0, 150, 136, 0.04); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <span class="contact-hero-tag">OFERTA CLÍNICA INTEGRAL</span>
+            <h1 class="contact-hero-title">SERVICIOS Y ESPECIALIDADES</h1>
+            <p class="contact-hero-subtitle">
+                Brindamos atención médica de alta precisión, diagnóstico avanzado y cirugías con equipamiento de vanguardia en nuestras 4 sedes de Mendoza.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       4.1 SERVICIOS PRINCIPALES
+       ========================================== -->
+    <section id="servicios-principales" style="padding: 0 0 5rem 0; position: relative; overflow: hidden;">
+        <div class="glow-spot" style="position: absolute; top: 10%; left: -5%; width: 450px; height: 450px; background: rgba(1, 128, 128, 0.04); border-radius: 50%; filter: blur(95px); pointer-events: none; z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="contact-hero-tag">SERVICIOS PRIORITARIOS</span>
+                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">SERVICIOS PRINCIPALES</h2>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem; line-height: 1.5;">Centros de diagnóstico, laboratorio de alta tecnología y quirófanos equipados para la atención integral del paciente.</p>
+            </div>
+
+            <!-- Grid de Servicios Principales -->
+            <div class="main-services-grid">
+                
+                <!-- Card 1: Imágenes Médicas -->
+                <div class="main-service-card highlight-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="scan"></i></div>
+                        <span class="service-badge-tag">Diagnóstico de Alta Precisión</span>
+                    </div>
+                    <h3>Imágenes Médicas</h3>
+                    <p class="service-card-desc">Tecnología diagnóstica de nivel internacional para diagnósticos rápidos y certeros.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> <strong>Resonancia Magnética:</strong> Alto campo para estudios articulares, cerebrales y columna.</li>
+                        <li><i data-lucide="check"></i> <strong>Tomografía Computada:</strong> Multislice de alta velocidad y máxima resolución.</li>
+                        <li><i data-lucide="check"></i> <strong>Ecografía General y Doppler:</strong> Estudios vasculares, obstétricos y partes blandas.</li>
+                        <li><i data-lucide="check"></i> <strong>Radiología Digital & Mapeo Corporal:</strong> Menor radiación y procesado digital inmediato.</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno+para+Im%C3%A1genes+M%C3%A9dicas" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1.5rem; align-self: flex-start;">Solicitar turno para Imágenes &rarr;</a>
+                </div>
+
+                <!-- Card 2: Laboratorio & Biodiagnóstica -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="flask-conical"></i></div>
+                        <span class="service-badge-tag">Polidiagnóstico</span>
+                    </div>
+                    <h3>Laboratorio / Biodiagnóstica</h3>
+                    <p class="service-card-desc">Análisis clínicos y biológicos con procesamiento rápido de muestras y resultados online.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> <strong>Análisis Clínicos Integrales:</strong> Hematología, bioquímica e inmunología.</li>
+                        <li><i data-lucide="check"></i> <strong>Microbiología & Biología Molecular:</strong> Detección de patógenos de alta sensibilidad.</li>
+                        <li><i data-lucide="check"></i> <strong>Perfil Hormonal & Endocrino:</strong> Evaluación metabólica y funcional.</li>
+                        <li><i data-lucide="check"></i> <strong>Resultados Online:</strong> Descarga de informes directo en el Portal Biobox.</li>
+                    </ul>
+                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 1.5rem; align-self: flex-start;">Portal de Resultados Biobox &rarr;</a>
+                </div>
+
+                <!-- Card 3: Cirugías -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="scissors"></i></div>
+                        <span class="service-badge-tag">Alta Complejidad</span>
+                    </div>
+                    <h3>Cirugías</h3>
+                    <p class="service-card-desc">Quirófanos de última generación y equipos interdisciplinarios para cirugías generales y especializadas.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> <strong>Cirugía Traumatológica & Ortopédica:</strong> Reemplazos articulares y artroscopías.</li>
+                        <li><i data-lucide="check"></i> <strong>Cirugía General & Laparoscópica:</strong> Procedimientos mínimamente invasivos.</li>
+                        <li><i data-lucide="check"></i> <strong>Cirugía Ambulatoria:</strong> Intervenciones de pronta alta y recuperación en hogar.</li>
+                    </ul>
+                    <a href="contacto.html" class="btn btn-secondary" style="margin-top: 1.5rem; align-self: flex-start;">Consultar disponibilidad quirúrgica &rarr;</a>
+                </div>
+
+                <!-- Card 4: Hospital de Día -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="bed"></i></div>
+                        <span class="service-badge-tag">Confort y Cuidado</span>
+                    </div>
+                    <h3>Hospital de Día</h3>
+                    <p class="service-card-desc">Unidades de monitoreo y recuperación acondicionadas para tratamientos ambulatorios y seguimiento ambulatorio.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> Recintos de infusión y administración medicamentosa.</li>
+                        <li><i data-lucide="check"></i> Monitoreo constante por enfermería profesional.</li>
+                        <li><i data-lucide="check"></i> Alta médica en el mismo día de intervención.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Chequeos Laborales y Deportivos -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="activity-heart"></i></div>
+                        <span class="service-badge-tag">Prevención Integral</span>
+                    </div>
+                    <h3>Chequeos Laborales y Deportivos</h3>
+                    <p class="service-card-desc">Exámenes médicos preventivos para deportistas de alto rendimiento y evaluaciones preocupacionales laborales.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> Aptos físicos escolares, universitarios y deportivos.</li>
+                        <li><i data-lucide="check"></i> Ergotest, electro y ecocardiograma Doppler.</li>
+                        <li><i data-lucide="check"></i> Exámenes preocupacionales y periódicos de empresa.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Medicina Estética -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="sparkles"></i></div>
+                        <span class="service-badge-tag">Bienestar & Dermatología</span>
+                    </div>
+                    <h3>Medicina Estética</h3>
+                    <p class="service-card-desc">Tratamientos estéticos corporales y faciales con supervisión médica cualificada y tecnología segura.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> Dermatología clínica y dermatocosmética.</li>
+                        <li><i data-lucide="check"></i> Rejuvenecimiento facial no invasivo.</li>
+                        <li><i data-lucide="check"></i> Tratamientos de regeneración y cuidado de la piel.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 7: Guardia / Atención Directa -->
+                <div class="main-service-card">
+                    <div class="service-icon-header">
+                        <div class="service-icon-circle"><i data-lucide="shield-alert"></i></div>
+                        <span class="service-badge-tag">Atención Inmediata</span>
+                    </div>
+                    <h3>Guardia y Atención según Corresponda</h3>
+                    <p class="service-card-desc">Atención médica prioritaria ante lesiones agudas y consultas traumatológicas espontáneas.</p>
+                    <ul class="service-bullets-list">
+                        <li><i data-lucide="check"></i> Guardia traumatológica 24 hs en Sede Dalvian.</li>
+                        <li><i data-lucide="check"></i> Inmovilización y atención de fracturas de urgencia.</li>
+                        <li><i data-lucide="check"></i> Derivación ágil a diagnóstico por imágenes.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       4.2 ESPECIALIDADES DESTACADAS
+       ========================================== -->
+    <section id="especialidades-destacadas" style="padding: 4rem 0 5rem 0; background: #fafdfd; position: relative; overflow: hidden;">
+        <div class="glow-spot" style="position: absolute; top: 15%; right: -5%; width: 500px; height: 500px; background: rgba(1, 128, 128, 0.05); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="contact-hero-tag">ATENCIÓN MÉDICA ESPECIALIZADA</span>
+                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">ESPECIALIDADES DESTACADAS</h2>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem;">Un staff médico de trayectoria enfocado en áreas prioritarias de la medicina clínica y quirúrgica.</p>
+            </div>
+
+            <!-- Grid 8 Especialidades Destacadas -->
+            <div class="featured-specs-grid">
+                
+                <!-- 1. Traumatología -->
+                <div class="featured-spec-card focus-accent">
+                    <div class="spec-card-icon"><i data-lucide="bone"></i></div>
+                    <h4>Traumatología y Ortopedia</h4>
+                    <p>Especialidad insignia de la clínica. Cirugía de rodilla, cadera, hombro, columna y deportología de alto rendimiento.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Traumatologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 2. Urología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="stethoscope"></i></div>
+                    <h4>Urología</h4>
+                    <p>Diagnóstico y tratamiento de patologías urinarias y reproductoras masculinas con enfoque endoscópico y preventivo.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Urologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 3. Cardiología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="heart"></i></div>
+                    <h4>Cardiología</h4>
+                    <p>Evaluación cardiovascular integral, holter, presurometría, ergometría computarizada y ecocardiogramas.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Cardiologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 4. Oftalmología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="eye"></i></div>
+                    <h4>Oftalmología</h4>
+                    <p>Control de agudeza visual, presión intraocular, fondo de ojo y tratamiento de patologías oculares complejas.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Oftalmologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 5. Odontología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="smile"></i></div>
+                    <h4>Odontología</h4>
+                    <p>Atención odontológica preventiva, endodoncia, ortodoncia, prótesis y cirugía bucal especializada.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Odontologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 6. Flebología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="activity"></i></div>
+                    <h4>Flebología y Cirugía Vascular</h4>
+                    <p>Tratamiento médico y láser de várices, arañitas vasculares e insuficiencia venosa periférica.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Flebologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 7. Gastroenterología -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="microscope"></i></div>
+                    <h4>Gastroenterología / Endoscopía</h4>
+                    <p>Estudio de patologías digestivas, endoscopía alta y videocolonoscopía con sedación suave de alta seguridad.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Turno+Gastroenterologia" target="_blank" rel="noopener noreferrer" class="btn-spec-link">Pedir turno &rarr;</a>
+                </div>
+
+                <!-- 8. Otras Especialidades -->
+                <div class="featured-spec-card">
+                    <div class="spec-card-icon"><i data-lucide="layers"></i></div>
+                    <h4>Otras Especialidades</h4>
+                    <p>Consultorios externos interdisciplinarios en ginecología, dermatología, neurología, nutrición y más.</p>
+                    <a href="#directorio-completo" class="btn-spec-link">Ver listado completo &darr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       4.3 RESTO DE ESPECIALIDADES (DIRECTORIO COMPLETO & FILTROS)
+       ========================================== -->
+    <section id="directorio-completo" style="padding: 4rem 0 5rem 0; position: relative; overflow: hidden;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="contact-hero-tag">DIRECTORIO CLÍNICO COMPLETO</span>
+                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">TODAS NUESTRAS ESPECIALIDADES</h2>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 650px; margin: 0.5rem auto 0 auto; font-size: 1.05rem;">Buscá la especialidad médica que necesitás o filtrá por categoría de servicio.</p>
+            </div>
+
+            <!-- Buscador y Barra de Filtros -->
+            <div class="directory-filter-wrapper">
+                
+                <!-- Input de Búsqueda -->
+                <div class="search-box-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="spec-search-input" class="search-spec-input" placeholder="Buscá una especialidad (Ej: Kinesiología, Nutrición, Pediatría...)" aria-label="Buscador de especialidades">
+                </div>
+
+                <!-- Filtros por Categoría -->
+                <div class="filter-pills-bar">
+                    <button class="filter-pill-btn active" data-filter="all">Todas</button>
+                    <button class="filter-pill-btn" data-filter="consultorios">Consultorios</button>
+                    <button class="filter-pill-btn" data-filter="diagnostico">Diagnóstico</button>
+                    <button class="filter-pill-btn" data-filter="cirugia">Cirugía</button>
+                    <button class="filter-pill-btn" data-filter="prevencion">Prevención & Salud</button>
+                </div>
+            </div>
+
+            <!-- Listado de Especialidades (Grid Dinámico) -->
+            <div id="directory-specs-grid" class="directory-specs-grid">
+                
+                <div class="spec-dir-item" data-category="cirugia">
+                    <span class="spec-dir-category">Cirugía</span>
+                    <h5>Anestesiología</h5>
+                    <p>Evaluación prequirúrgica y manejo del dolor intra operatorio.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Cardiología</h5>
+                    <p>Prevención y control del sistema cardiovascular.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="cirugia">
+                    <span class="spec-dir-category">Cirugía</span>
+                    <h5>Cirugía General & Laparoscópica</h5>
+                    <p>Intervenciones generales con técnicas mínimamente invasivas.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="cirugia">
+                    <span class="spec-dir-category">Cirugía</span>
+                    <h5>Cirugía Traumatológica</h5>
+                    <p>Reparación articular, prótesis y fijación de fracturas.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Dermatología Clínica</h5>
+                    <p>Diagnóstico de afecciones cutáneas, lunares y dermatología médica.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Diabetología & Endocrinología</h5>
+                    <p>Control metabólico, tiroides y gestión integral de diabetes.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="diagnostico">
+                    <span class="spec-dir-category">Diagnóstico</span>
+                    <h5>Ecografía Doppler</h5>
+                    <p>Ecografías abdominales, vasculares, partes blandas y ginecológicas.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="diagnostico">
+                    <span class="spec-dir-category">Diagnóstico</span>
+                    <h5>Endoscopía Digestiva</h5>
+                    <p>Videocolonoscopía y endoscopía alta de alta precisión.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Flebología</h5>
+                    <p>Tratamiento estético y funcional de patología venosa.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Gastroenterología</h5>
+                    <p>Trastornos digestivos, hepáticos y de motilidad intestinal.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Ginecología & Obstetricia</h5>
+                    <p>Controles anuales, papanicolau, ecografía mamaria y seguimiento.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Kinesiología & Rehabilitación</h5>
+                    <p>Fisioterapia, rehabilitación postquirúrgica y deportiva.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="diagnostico">
+                    <span class="spec-dir-category">Diagnóstico</span>
+                    <h5>Laboratorio de Análisis Clínicos</h5>
+                    <p>Rutinas bioquímicas, microbiología e inmunología rápida.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="prevencion">
+                    <span class="spec-dir-category">Prevención</span>
+                    <h5>Medicina del Deporte</h5>
+                    <p>Evaluación física de deportistas y asesoramiento de rendimiento.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="prevencion">
+                    <span class="spec-dir-category">Prevención</span>
+                    <h5>Medicina Laboral</h5>
+                    <p>Exámenes preocupacionales, periódicos y libreta sanitaria.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Neurología</h5>
+                    <p>Evaluación de cefaleas, migrañas y trastornos del sistema nervioso.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Nutrición & Dietética</h5>
+                    <p>Planes alimentarios adaptados a patologías o rendimiento deportivo.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Odontología</h5>
+                    <p>Atención odontológica integral, estética bucal y ortodoncia.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Oftalmología</h5>
+                    <p>Controles de vista, tonometría y fondo de ojo.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Otorrinolaringología</h5>
+                    <p>Estudio de oído, nariz, garganta y audiometría clínica.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Pediatría</h5>
+                    <p>Control del niño sano, vacunatorio y desarrollo infantil.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="diagnostico">
+                    <span class="spec-dir-category">Diagnóstico</span>
+                    <h5>Resonancia Magnética</h5>
+                    <p>Resonador de alto campo para diagnósticos articulares y neurológicos.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Reumatología</h5>
+                    <p>Diagnóstico de artritis, artrosis y enfermedades autoinmunes.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="diagnostico">
+                    <span class="spec-dir-category">Diagnóstico</span>
+                    <h5>Tomografía Multislice</h5>
+                    <p>Tomógrafo helicoidal de alta definición diagnóstica.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Traumatología General</h5>
+                    <p>Patología ósea, muscular, articular y guardia especializada.</p>
+                </div>
+
+                <div class="spec-dir-item" data-category="consultorios">
+                    <span class="spec-dir-category">Consultorios</span>
+                    <h5>Urología</h5>
+                    <p>Salud prostática, nefrología urológica y endourología.</p>
+                </div>
+
+            </div>
+
+            <!-- Feedback de Búsqueda sin Resultados -->
+            <div id="no-spec-results" style="display: none; text-align: center; padding: 3rem 1rem;">
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); font-size: 1.1rem;">No se encontraron especialidades que coincidan con tu búsqueda.</p>
+                <button id="reset-spec-search" class="btn btn-secondary" style="margin-top: 1rem;">Ver todas las especialidades</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+       OBRAS SOCIALES Y PREPAGAS
+       ========================================== -->
+    <section style="padding: 0 0 7.5rem 0; text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: 2.5rem;">
+                <span class="contact-hero-tag">COBERTURA</span>
+                <h2 style="font-family: var(--font-title); font-size: 3.2rem; text-transform: uppercase; font-weight: 500; color: #004d4d; margin-top: 0.5rem; letter-spacing: -0.01em;">OBRAS SOCIALES Y PREPAGAS</h2>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 600px; margin: 0.5rem auto 0 auto; font-size: 1.05rem; line-height: 1.5;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
+            </div>
+
+            <!-- Grid de Cards de Logos -->
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 3rem;">
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-prepaga.jpg" alt="Sancor Salud" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-prepaga.jpg" alt="Galeno" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+                <div style="background: #ffffff; border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,128,128,0.08); display: flex; align-items: center; justify-content: center; width: 170px; height: 90px;">
+                    <img src="assets/logo-osde.webp" alt="OSDE" style="max-height: 42px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Boton CTA -->
+            <div>
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.75rem 2.2rem;">
+                    Consultá por tu cobertura
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER INSTITUCIONAL RÉPLICA
+       ========================================== -->
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 2.5rem 0 4rem 0;">
+        <div class="container">
+            <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
+                <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
+                    
+                    <!-- Columna 1: Logo y descripción -->
+                    <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="index.html" class="logo" style="display: inline-flex;">
+                            <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
+                        </a>
+                        <strong style="font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.3;">Clínica de Traumatología y Rehabilitación</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                            Atención médica integral en Mendoza.<br>
+                            Cuatro sedes, profesionales de primer nivel.
+                        </p>
+                        <div class="footer-social-links" style="display: flex; gap: 0.8rem; align-items: center; margin-top: 0.5rem;">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Instagram">
+                                <img src="assets/instagram-icon.svg" alt="Instagram" style="width: 31px; height: 31px; filter: brightness(0) invert(1);">
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Facebook">
+                                <img src="assets/facebook-icon.svg" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2: Sedes -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
+                            <li style="line-height: 1.3;">
+                                <strong>Dalvian</strong><br>
+                                <span style="opacity: 0.75;">Av. 7 Colores 2015, Local 42</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Godoy Cruz</strong><br>
+                                <span style="opacity: 0.75;">San Martín 1867</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Perú</strong><br>
+                                <span style="opacity: 0.75;">Av. Perú 1717</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Brasil</strong> <span style="font-size:0.7rem; background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:10px;">Próximamente</span><br>
+                                <span style="opacity: 0.75;">Brasil 308</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 3: Enlaces Rápidos -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem;">
+                            <li><a href="index.html#la-clinica" style="color: rgba(255,255,255,0.85); text-decoration: none;">La Clínica</a></li>
+                            <li><a href="servicios.html" style="color: #ffffff; font-weight: 700; text-decoration: none;">Servicios y Especialidades</a></li>
+                            <li><a href="index.html#profesionales" style="color: rgba(255,255,255,0.85); text-decoration: none;">Profesionales</a></li>
+                            <li><a href="contacto.html" style="color: rgba(255,255,255,0.85); text-decoration: none;">Contacto / Turnos</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 4: Accesos Rápidos -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem;">
+                            <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: none;">Portal de Estudios (Biobox)</a></li>
+                            <li><a href="https://api.whatsapp.com/send/?phone=5492615088277" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: none;">Turnos por WhatsApp</a></li>
+                            <li><a href="tel:+542614242054" style="color: rgba(255,255,255,0.85); text-decoration: none;">Central: 261 4242054</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.15); margin-top: 3rem; padding-top: 1.5rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.7);">
+                    &copy; 2026 Clínica del Pilar. Todos los derechos reservados. | Mendoza, Argentina.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492615088277" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Contacto por WhatsApp">
+        <img src="assets/whatsapp-icon.webp" alt="WhatsApp">
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js?v=12"></script>
+    <script>
+        // Lucide Icons Init
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
