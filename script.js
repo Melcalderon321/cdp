@@ -548,4 +548,105 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
         showManifestoSlide(0);
         manifestoInterval = setInterval(nextManifestoSlide, 6000);
     }
+
+    /* ==========================================================================
+       12. INTERACTIVE MAP FOR 4 SEDES (contacto.html)
+       ========================================================================== */
+    const mapTabBtns = document.querySelectorAll(".map-tab-btn");
+    const mapSedeTag = document.getElementById("map-sede-tag");
+    const mapSedeTitle = document.getElementById("map-sede-title");
+    const mapSedeAddress = document.getElementById("map-sede-address");
+    const mapSedePhone = document.getElementById("map-sede-phone");
+    const mapSedeHours = document.getElementById("map-sede-hours");
+    const mapSedeLink = document.getElementById("map-sede-link");
+    const mapIframe = document.getElementById("map-iframe");
+
+    const mapSedesData = {
+        peru: {
+            tag: "Consultorios Externos",
+            title: "Sede Perú",
+            address: "Av. Perú 1717, Ciudad · Mendoza",
+            phone: "261 4242054",
+            hours: "Lunes a Viernes de 08:00 a 21:00 hs",
+            mapUrl: "https://maps.google.com/maps?q=Av.+Peru+1717,+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed",
+            link: "https://maps.google.com/?q=Av.+Peru+1717,+Mendoza"
+        },
+        dalvian: {
+            tag: "Sede Principal",
+            title: "Sede Dalvian",
+            address: "Av. 7 Colores 2015, Local 42, Dalvian · Mendoza",
+            phone: "261 4242054",
+            hours: "Lunes a Viernes de 08:00 a 20:00 hs",
+            mapUrl: "https://maps.google.com/maps?q=Av.+7+Colores+2015+Dalvian+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed",
+            link: "https://maps.google.com/?q=Av.+7+Colores+2015+Dalvian+Mendoza"
+        },
+        brasil: {
+            tag: "Próximamente · Alta Complejidad",
+            title: "Sede Brasil (Próximamente)",
+            address: "Brasil 308, Ciudad · Mendoza",
+            phone: "261 4242054",
+            hours: "Próximamente Apertura",
+            mapUrl: "https://maps.google.com/maps?q=Brasil+308,+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed",
+            link: "https://maps.google.com/?q=Brasil+308,+Mendoza"
+        },
+        godoycruz: {
+            tag: "Imágenes Médicas",
+            title: "Sede Godoy Cruz",
+            address: "San Martín 1867, Godoy Cruz · Mendoza",
+            phone: "261 4242054",
+            hours: "Lunes a Sábado de 07:30 a 20:00 hs",
+            mapUrl: "https://maps.google.com/maps?q=San+Martin+1867+Godoy+Cruz+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed",
+            link: "https://maps.google.com/?q=San+Martin+1867+Godoy+Cruz+Mendoza"
+        }
+    };
+
+    if (mapTabBtns.length > 0 && mapIframe) {
+        mapTabBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                mapTabBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                const key = btn.getAttribute("data-map-sede");
+                const data = mapSedesData[key];
+                if (data) {
+                    if (mapSedeTitle) mapSedeTitle.textContent = data.title;
+                    if (mapSedeAddress) mapSedeAddress.innerHTML = `<i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> ${data.address}`;
+                    if (mapSedePhone) mapSedePhone.innerHTML = `<i data-lucide="phone" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Teléfono:</strong> <a href="tel:+54${data.phone}" style="color: var(--primary); text-decoration: none; font-weight: 700;">${data.phone}</a>`;
+                    if (mapSedeHours) mapSedeHours.innerHTML = `<i data-lucide="clock" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Horario:</strong> ${data.hours}`;
+                    if (mapSedeLink) mapSedeLink.href = data.link;
+                    mapIframe.src = data.mapUrl;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
+            });
+        });
+    }
+
+    /* ==========================================================================
+       13. CONTACT FORM INTERACTION (contacto.html)
+       ========================================================================== */
+    const mainContactForm = document.getElementById("main-contact-form");
+    const contactFormFeedback = document.getElementById("contact-form-feedback");
+
+    if (mainContactForm && contactFormFeedback) {
+        mainContactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const submitBtn = mainContactForm.querySelector(".btn-contact-submit");
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<i data-lucide="loader-2" class="spin" style="width: 18px; height: 18px;"></i> Enviando...`;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+
+            setTimeout(() => {
+                mainContactForm.reset();
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<i data-lucide="send" style="width: 18px; height: 18px;"></i> Enviar Consulta`;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
+                contactFormFeedback.classList.add("success");
+                contactFormFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1200);
+        });
+    }
 });
+

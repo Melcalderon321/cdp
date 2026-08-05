@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Atención al Paciente | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Contacto directo con Clínica del Pilar en Mendoza. Atención prioritaria por WhatsApp, teléfonos por sede, horarios de atención, mapa interactivo y formulario de consultas.">
+    <meta name="keywords" content="Contacto clínica del pilar, teléfono clínica del pilar mendoza, whatsapp turnos clínica del pilar, sedes dalvian godoy cruz peru, laboratorio polidiagnostico">
+    <meta name="author" content="Clínica del Pilar">
+    
+    <!-- Adobe Fonts: Acumin -->
+    <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
+    
+    <!-- Premium Stylesheet Links -->
+    <link rel="stylesheet" href="styles.css?v=11">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 32px; width: auto; max-width: 100%;">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html#la-Clínica" class="nav-link">La Clínica</a>
+                
+                <!-- Dropdown sedes -->
+                <div class="nav-item-dropdown">
+                    <a href="index.html#sedes" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="index.html#sedes">Sede Dalvian</a>
+                        <a href="index.html#sedes">Sede Godoy Cruz</a>
+                        <a href="index.html#sedes">Sede Perú</a>
+                        <a href="index.html#sedes">Polidiagnóstico</a>
+                    </div>
+                </div>
+                
+                <!-- Dropdown especialidades -->
+                <div class="nav-item-dropdown">
+                    <a href="index.html#especialidades" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="index.html#cardiología">Cardiología</a>
+                        <a href="index.html#traumatología">Traumatología</a>
+                        <a href="index.html#ginecologia">Ginecología</a>
+                        <a href="index.html#pediatria">Pediatría</a>
+                        <a href="index.html#IMÁGENES">Imágenes Médicas</a>
+                        <a href="index.html#laboratorio">Laboratorio</a>
+                        <a href="index.html#especialidades" style="color: var(--primary); text-align: center; margin-top: 8px;">Ver todas</a>
+                    </div>
+                </div>
+
+                <a href="index.html#profesionales" class="nav-link">Profesionales</a>
+                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
+                <a href="contacto.html" class="nav-link active">Contacto / Turnos</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="#" class="btn btn-primary btn-booking-trigger">Solicitar Turno</a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       HERO CONTACT BANNER
+       ========================================== -->
+    <section class="contact-hero">
+        <div class="container">
+            <span class="contact-hero-tag"><i data-lucide="headset" style="width: 16px; height: 16px;"></i> Centro de Atención</span>
+            <h1 class="contact-hero-title">Contacto</h1>
+            <p class="contact-hero-subtitle">
+                En Clínica del Pilar, estamos para escucharte y cuidar de tu salud. Si tenés preguntas no dudes en utilizar este formulario de contacto.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       GRID FORMULARIO DE CONSULTA & CANALES
+       ========================================== -->
+    <section style="padding: 0 0 4rem 0;">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Columna Izquierda: Formulario -->
+                <div class="contact-form-card">
+                    <h2 class="contact-form-title">Formulario de Consulta</h2>
+                    <p class="contact-form-desc">Completá tus datos y nuestro equipo administrativo o médico te responderá a la brevedad.</p>
+                    
+                    <form id="main-contact-form">
+                        <div class="form-row-2col" style="margin-bottom: 1.25rem;">
+                            <div class="form-group" style="margin:0;">
+                                <label for="contact-name" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem; display: block; color: var(--text-dark);">Nombre y Apellido *</label>
+                                <input type="text" id="contact-name" class="contact-input" placeholder="Nombre y Apellido *" required>
+                            </div>
+                            <div class="form-group" style="margin:0;">
+                                <label for="contact-email" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem; display: block; color: var(--text-dark);">E-mail *</label>
+                                <input type="email" id="contact-email" class="contact-input" placeholder="E-mail *" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.25rem;">
+                            <label for="contact-service" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem; display: block; color: var(--text-dark);">Consulta sobre *</label>
+                            <select id="contact-service" class="contact-select" required>
+                                <option value="">Consulta sobre</option>
+                                <option value="Imágenes médicas">Imágenes médicas</option>
+                                <option value="Laboratorio">Laboratorio</option>
+                                <option value="Cardiología">Cardiología</option>
+                                <option value="Odontología">Odontología</option>
+                                <option value="Oftalmología">Oftalmología</option>
+                                <option value="Otras consultas">Otras consultas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="contact-message" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem; display: block; color: var(--text-dark);">Mensaje (opcional)</label>
+                            <textarea id="contact-message" class="contact-textarea" rows="4" placeholder="Mensaje"></textarea>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <button type="submit" class="btn-contact-submit">
+                                <i data-lucide="send" style="width: 18px; height: 18px;"></i> Enviar
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="contact-form-feedback" class="form-feedback-box">
+                        <strong>¡Mensaje recibido con éxito!</strong> Nos comunicaremos con vos a la brevedad.
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Canales Directos -->
+                <div class="channels-side-card">
+                    <h2 class="contact-form-title">Otros Canales Directos</h2>
+                    <p class="contact-form-desc">Líneas telefónicas y vías de contacto administrativo o de atención digital.</p>
+                    
+                    <div class="channel-item">
+                        <div class="channel-icon-box"><i data-lucide="phone"></i></div>
+                        <div class="channel-info">
+                            <h4>Central Telefónica</h4>
+                            <p>Llamados generales y recepción</p>
+                            <a href="tel:+542614242054" class="channel-link">261 4242054</a>
+                        </div>
+                    </div>
+
+                    <div class="channel-item">
+                        <div class="channel-icon-box"><i data-lucide="mail"></i></div>
+                        <div class="channel-info">
+                            <h4>E-mail Institucional</h4>
+                            <p>Consultas y administrativas</p>
+                            <a href="mailto:info@clinicadelpilarmendoza.com.ar" class="channel-link">info@clinicadelpilarmendoza.com.ar</a>
+                        </div>
+                    </div>
+
+                    <div class="channel-item">
+                        <div class="channel-icon-box"><i data-lucide="file-text"></i></div>
+                        <div class="channel-info">
+                            <h4>Portal de Estudios e Imágenes</h4>
+                            <p>Consultá tus resultados online</p>
+                            <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="channel-link">Acceder al Portal Biobox &rarr;</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       MAPA INTERACTIVO Y RED DE ATENCIÓN (4 SEDES)
+       ========================================== -->
+    <section style="padding: 0 0 5rem 0;">
+        <div class="container">
+            <div class="map-interactive-section">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <span class="contact-hero-tag"><i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Red de Atención</span>
+                    <h2 style="font-family: var(--font-title); font-size: 2.5rem; text-transform: uppercase; font-weight: 500; color: var(--primary); margin-top: 0.5rem; letter-spacing: -0.01em;">Teléfonos y Horarios por Sede</h2>
+                    <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 600px; margin: 0.5rem auto 0 auto; font-size: 1.05rem;">Contamos con 4 centros estratégicos equipados con tecnología <br>médica de alta precisión.</p>
+                </div>
+
+                <!-- Tab Buttons (Orden exacto: Dalvian, Godoy Cruz, Perú, Brasil) -->
+                <div class="map-tabs-wrapper">
+                    <button class="map-tab-btn active" data-map-sede="dalvian">
+                        <i data-lucide="building-2" style="width: 16px; height: 16px;"></i> Sede Dalvian
+                    </button>
+                    <button class="map-tab-btn" data-map-sede="godoycruz">
+                        <i data-lucide="building-2" style="width: 16px; height: 16px;"></i> Sede Godoy Cruz
+                    </button>
+                    <button class="map-tab-btn" data-map-sede="peru">
+                        <i data-lucide="building-2" style="width: 16px; height: 16px;"></i> Sede Perú
+                    </button>
+                    <button class="map-tab-btn" data-map-sede="brasil">
+                        <i data-lucide="building-2" style="width: 16px; height: 16px;"></i> Sede Brasil <span style="background: rgba(212, 175, 55, 0.15); color: #b8860b; border: 1px solid rgba(212, 175, 55, 0.4); font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 999px; margin-left: 4px; text-transform: uppercase;">Próximamente</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Display -->
+                <div class="map-display-grid">
+                    <div class="map-info-panel">
+                        <h3 id="map-sede-title">Sede Dalvian</h3>
+                        <p id="map-sede-address"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> Av. 7 Colores 2015, Local 42, Dalvian · Mendoza</p>
+                        <p id="map-sede-phone" style="margin-bottom: 0.5rem;"><i data-lucide="phone" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Teléfono:</strong> <a href="tel:+542614242054" style="color: var(--primary); text-decoration: none; font-weight: 700;">261 4242054</a></p>
+                        <p id="map-sede-hours" style="margin-bottom: 1.25rem;"><i data-lucide="clock" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Horario:</strong> Lunes a Viernes de 08:00 a 20:00 hs</p>
+                        <a id="map-sede-link" href="https://maps.google.com/?q=Av.+7+Colores+2015+Dalvian+Mendoza" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1rem; align-self: flex-start;">Abrir en Google Maps &rarr;</a>
+                    </div>
+                    <div style="background: #eef5f5; position: relative;">
+                        <iframe id="map-iframe" class="map-iframe-box" src="https://maps.google.com/maps?q=Av.+7+Colores+2015+Dalvian+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       OBRAS SOCIALES Y PREPAGAS FOCO
+       ========================================== -->
+    <section style="padding: 0 0 5rem 0;">
+        <div class="container">
+            <div class="focus-coberturas-card">
+                <span class="contact-hero-tag"><i data-lucide="shield-check" style="width: 16px; height: 16px;"></i> Convenios y Coberturas</span>
+                <h2 style="font-family: var(--font-title); font-size: 2.4rem; text-transform: uppercase; font-weight: 500; color: var(--primary); margin-top: 0.5rem; letter-spacing: -0.01em;">Obras Sociales y Prepagas Aceptadas</h2>
+                <p style="font-family: var(--font-sans); color: var(--text-muted-dark); max-width: 680px; margin: 0.75rem auto 0 auto; font-size: 1rem; line-height: 1.6;">
+                    Brindamos atención médica y servicio de imágenes diagnósticas con las principales obras sociales y empresas de medicina prepaga del país.
+                </p>
+
+                <!-- Badges Foco -->
+                <div class="focus-prepagas-badges">
+                    <div class="prepaga-badge-item">
+                        <img src="assets/logo-prepaga.jpg" alt="Sancor Salud" style="height: 36px; width: auto;">
+                        <div style="text-align: left;">
+                            <strong>Sancor Salud</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin:0;">Cobertura Directa e Integral</p>
+                        </div>
+                    </div>
+
+                    <div class="prepaga-badge-item">
+                        <img src="assets/logo-prepaga.jpg" alt="Galeno" style="height: 36px; width: auto;">
+                        <div style="text-align: left;">
+                            <strong>Galeno</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin:0;">Todos los Planes Médicos</p>
+                        </div>
+                    </div>
+
+                    <div class="prepaga-badge-item">
+                        <img src="assets/logo-osde.webp" alt="OSDE" style="height: 36px; width: auto;">
+                        <div style="text-align: left;">
+                            <strong>OSDE</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin:0;">Binomio Médico Certificado</p>
+                        </div>
+                    </div>
+
+                    <div class="prepaga-badge-item">
+                        <i data-lucide="award" style="width: 32px; height: 32px; color: var(--primary);"></i>
+                        <div style="text-align: left;">
+                            <strong>Prepagas Privadas</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin:0;">Swiss Medical, Medicus, OSEP y más</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <button class="btn btn-primary btn-coverage-trigger">Consultar mi Obra Social</button>
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Consultar Cobertura por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER
+       ========================================== -->
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 0 0 4rem 0;">
+        <div class="container">
+            <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
+                <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
+                    
+                    <!-- Columna 1: Logo y descripción -->
+                    <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="index.html" class="logo" style="display: inline-flex;">
+                            <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
+                        </a>
+                        <strong style="font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.3;">Clínica de Traumatología y Rehabilitación</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                            Atención médica integral en Mendoza.<br>
+                            Cuatro sedes, profesionales de primer nivel.
+                        </p>
+                        <div class="footer-social-links" style="display: flex; gap: 0.8rem; align-items: center; margin-top: 0.5rem;">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Instagram">
+                                <img src="assets/instagram-icon.svg" alt="Instagram" style="width: 31px; height: 31px; filter: brightness(0) invert(1);">
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Facebook">
+                                <img src="assets/facebook-icon.svg" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2: Sedes -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
+                            <li style="line-height: 1.3;">
+                                <strong>Dalvian</strong><br>
+                                <span style="opacity: 0.75;">Av. 7 Colores 2015, Local 42</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Godoy Cruz</strong><br>
+                                <span style="opacity: 0.75;">San Martín 521 / 1867</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Capital (Perú)</strong><br>
+                                <span style="opacity: 0.75;">Av. Perú 1140 / 1717</span>
+                            </li>
+                            <li style="line-height: 1.3;">
+                                <strong>Laboratorio</strong><br>
+                                <span style="opacity: 0.75;">9 de Julio 1247</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 3: Páginas -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                            <li><a href="index.html#la-clinica" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">La Clínica</a></li>
+                            <li><a href="index.html#sedes" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Sedes</a></li>
+                            <li><a href="index.html#especialidades" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Servicios / Especialidades</a></li>
+                            <li><a href="index.html#profesionales" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Profesionales</a></li>
+                            <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Mis Estudios</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Contacto / Turnos</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 4: Accesos -->
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; align-items: flex-start;">
+                            <li>
+                                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid #ffffff; border-radius: var(--radius-full); padding: 0.35rem 1.25rem; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s;">Geclisa / Biobox</a>
+                            </li>
+                            <li><a href="#" class="btn-coverage-trigger" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Obras Sociales</a></li>
+                            <li><a href="mailto:rrhh@clinicadelpilarmendoza.com.ar" style="color: #ffffff; text-decoration: none; opacity: 0.9; transition: opacity 0.2s;">Trabajá con nosotros</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="footer-bottom-new" style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.85);">
+                <p style="margin-bottom: 0.5rem; font-weight: 600;">Propiedad de Clínica de Traumatología y Rehabilitación</p>
+                <p>Diseño web en Argentina tehuentec.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+       MODALS
+       ========================================== -->
+    <div class="modal-overlay" id="modal-booking">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Solicitar Turno Médico</h3>
+                <button class="modal-close" aria-label="Cerrar modal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="appointment-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="booking-name">Nombre y Apellido *</label>
+                        <input type="text" id="booking-name" required placeholder="Ingresá tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-phone">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="booking-phone" required placeholder="Ej: 261 5088277">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-sede">Sede *</label>
+                        <select id="booking-sede" required>
+                            <option value="">Seleccionar Sede</option>
+                            <option value="dalvian">Sede Dalvian (Principal)</option>
+                            <option value="peru">Sede Perú (Consultorios Externos)</option>
+                            <option value="godoycruz">Sede Godoy Cruz (Imágenes)</option>
+                            <option value="laboratorio">Polidiagnóstico (Laboratorio)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-service">Especialidad de Interés *</label>
+                        <select id="booking-service" required>
+                            <option value="">Seleccionar Especialidad</option>
+                            <option value="cardiologia">Cardiología</option>
+                            <option value="traumatologia">Traumatología</option>
+                            <option value="imagenes">Imágenes Médicas</option>
+                            <option value="laboratorio">Laboratorio</option>
+                            <option value="oftalmologia">Oftalmología</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline modal-close-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar Solicitud</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+consultar+un+turno+en+Cl%C3%ADnica+del+Pilar" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-float-tooltip">¿Necesitás un turno?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Main Logic Script -->
+    <script src="script.js?v=6"></script>
+</body>
+</html>

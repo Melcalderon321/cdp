@@ -3132,3 +3132,492 @@ a {
 .manifiesto-section {
     background: linear-gradient(135deg, rgba(0, 160, 150, 0.04) 0%, transparent 50%) !important;
 }
+
+/* =============================================
+   CONTACT PAGE STYLES (contacto.html)
+   ============================================= */
+
+/* Contact Hero Banner */
+.contact-hero {
+    padding: 9rem 0 3.5rem 0;
+    background: linear-gradient(135deg, rgba(0, 95, 95, 0.05) 0%, rgba(219, 242, 242, 0.25) 50%, #ffffff 100%);
+    text-align: center;
+    position: relative;
+}
+
+.contact-hero-tag {
+    font-family: var(--font-sans);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 150, 136, 0.1);
+    color: var(--primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.contact-hero-title {
+    font-family: var(--font-title);
+    font-size: 3.25rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+.contact-hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    color: var(--text-muted-dark);
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Contact Grid & Form Card */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-form-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 128, 128, 0.08);
+}
+
+.contact-form-title {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.contact-form-desc {
+    font-family: var(--font-sans);
+    color: var(--text-muted-dark);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+@media (max-width: 576px) {
+    .form-row-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-form-card label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.contact-input, .contact-select, .contact-textarea {
+    font-family: var(--font-sans);
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    border: 1px solid #d0e4e4;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: #fcfdfe;
+    transition: all 0.2s ease;
+}
+
+.contact-input:focus, .contact-select:focus, .contact-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 128, 128, 0.1);
+}
+
+.btn-contact-submit {
+    font-family: var(--font-sans);
+    width: auto;
+    min-width: 180px;
+    padding: 0.9rem 2.5rem;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-contact-submit:hover {
+    background: #004d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.25);
+}
+
+.form-feedback-box {
+    font-family: var(--font-sans);
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.form-feedback-box.success {
+    display: block;
+    background-color: #e8f8f5;
+    color: #0e6251;
+    border: 1px solid #a3e4d7;
+}
+
+/* Quick Channels Card */
+.channels-side-card {
+    background: #f8fafb;
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(0, 128, 128, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.channels-side-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.channel-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.channel-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(0, 150, 136, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.channel-info h4 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+    text-transform: none;
+}
+
+.channel-info p {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-muted-dark);
+    margin-bottom: 0.5rem;
+}
+
+.channel-link {
+    font-family: var(--font-sans);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.channel-link:hover {
+    text-decoration: underline;
+}
+
+/* Sedes Cards Grid */
+.sedes-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+@media (max-width: 1200px) {
+    .sedes-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .sedes-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sede-contact-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(0, 128, 128, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sede-contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 128, 128, 0.12);
+    border-color: var(--primary);
+}
+
+.sede-contact-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.sede-badge-tag {
+    font-family: var(--font-sans);
+    display: inline-block;
+    background: rgba(0, 150, 136, 0.08);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.sede-detail-list {
+    font-family: var(--font-sans);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    font-size: 0.88rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sede-detail-list li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    color: var(--text-muted-dark);
+}
+
+.sede-detail-list li i {
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Interactive Map Container */
+.map-interactive-section {
+    background: #f4faf9;
+    border-radius: 24px;
+    padding: 3.5rem;
+    margin-bottom: 5rem;
+    border: 1px solid rgba(0, 128, 128, 0.1);
+}
+
+.map-interactive-section h2 {
+    font-family: var(--font-title);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.map-interactive-section p {
+    font-family: var(--font-sans);
+    color: var(--text-muted-dark);
+    font-size: 0.95rem;
+}
+
+.map-tabs-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.map-tab-btn {
+    font-family: var(--font-sans);
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-full);
+    border: 1px solid #c2e0df;
+    background: #ffffff;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-tab-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.map-tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 6px 15px rgba(0, 128, 128, 0.25);
+}
+
+.map-display-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+    .map-display-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.map-info-panel {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.map-info-panel h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.map-info-panel p {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-muted-dark);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.map-iframe-box {
+    width: 100%;
+    min-height: 380px;
+    height: 100%;
+    border: none;
+}
+
+/* Obras Sociales Focus Section */
+.focus-coberturas-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f4fbfb 100%);
+    border-radius: 20px;
+    padding: 3.5rem;
+    border: 1px solid rgba(0, 128, 128, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.focus-coberturas-card h2 {
+    font-family: var(--font-title);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+.focus-coberturas-card p {
+    font-family: var(--font-sans);
+    color: var(--text-muted-dark);
+    max-width: 680px;
+    margin: 0.75rem auto 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.focus-prepagas-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2.5rem 0 2rem 0;
+}
+
+.prepaga-badge-item {
+    background: #ffffff;
+    border: 1px solid #d4eceb;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.06);
+    transition: transform 0.25s ease;
+}
+
+.prepaga-badge-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+}
+
+.prepaga-badge-item strong {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+
