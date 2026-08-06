@@ -4006,4 +4006,242 @@ a {
     line-height: 1.4;
 }
 
+/* ═══════════════════════════════════════════
+   SECCIÓN LA CLÍNICA — INSTITUCIONAL & FOTOGRÁFICO
+   ═══════════════════════════════════════════ */
+
+/* Sticky Sub-nav Bar */
+.inst-subnav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(1, 128, 128, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 77, 77, 0.04);
+    transition: all 0.3s ease;
+}
+
+.inst-subnav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+.inst-subnav::-webkit-scrollbar { display: none; }
+
+.inst-subnav-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #004d4d;
+    text-decoration: none;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.inst-subnav-link:hover,
+.inst-subnav-link.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(1, 128, 128, 0.2);
+}
+
+/* Photo Cards & Image Effects */
+.photo-card-zoom {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(1, 128, 128, 0.12);
+    background: #003333;
+}
+
+.photo-card-zoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    display: block;
+}
+
+.photo-card-zoom:hover img {
+    transform: scale(1.05);
+}
+
+.photo-badge-overlay {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    background: rgba(0, 51, 51, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* Timeline Fotográfico */
+.timeline-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.timeline-photo-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(1, 128, 128, 0.1);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(1, 128, 128, 0.06);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-photo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(1, 128, 128, 0.14);
+    border-color: rgba(1, 128, 128, 0.25);
+}
+
+.timeline-card-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.timeline-card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.timeline-photo-card:hover .timeline-card-header img {
+    transform: scale(1.06);
+}
+
+.timeline-year-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary);
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.03em;
+}
+
+.timeline-card-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-card-body h3 {
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #004d4d;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.timeline-card-body p {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--text-muted-dark);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Feature & Safety Pills */
+.safety-pill-card {
+    background: #ffffff;
+    border: 1px solid rgba(1, 128, 128, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.safety-pill-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), #6ee7e7);
+    border-radius: 3px 3px 0 0;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.safety-pill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(1, 128, 128, 0.12);
+    border-color: rgba(1, 128, 128, 0.25);
+}
+
+.safety-pill-card:hover::after {
+    opacity: 1;
+}
+
+.safety-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(1, 128, 128, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+}
+
+/* Quality Stepper & Trust Card */
+.trust-quote-card {
+    background: linear-gradient(135deg, #004d4d 0%, #003333 100%);
+    border-radius: 24px;
+    padding: 3.5rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 4rem;
+    box-shadow: 0 20px 50px rgba(0, 77, 77, 0.2);
+}
+
+.trust-quote-card::before {
+    content: '"';
+    position: absolute;
+    right: 2rem;
+    bottom: -2rem;
+    font-family: Georgia, serif;
+    font-size: 18rem;
+    color: rgba(255, 255, 255, 0.04);
+    line-height: 1;
+    pointer-events: none;
+}
+
+
 

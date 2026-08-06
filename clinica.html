@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Clínica | Clínica del Pilar Mendoza</title>
+    <meta name="description" content="Conocé a Clínica del Pilar: historia, misión, valores, tecnología de vanguardia, seguridad del paciente y calidad de atención en Mendoza. Más de 30 años cuidando tu salud.">
+    <meta name="keywords" content="clinica del pilar mendoza, quienes somos, historia clinica del pilar, mision vision valores, tecnologia medica mendoza, seguridad paciente, calidad atencion medica, sedes mendoza">
+    <meta name="author" content="Clínica del Pilar">
+
+    <!-- Adobe Fonts: Acumin & Google Font: Red Hat Display -->
+    <link rel="stylesheet" href="https://use.typekit.net/lxq6acz.css">
+    <!-- Stylesheet principal -->
+    <link rel="stylesheet" href="styles.css?v=13">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilos específicos de La Clínica — Mismo Hero que laboratorio.html */
+        .svc-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .svc-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            opacity: 1;
+        }
+        .svc-hero-overlay {
+            display: none;
+        }
+        .svc-hero-body {
+            position: relative;
+            z-index: 5;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+        }
+        .svc-breadcrumb-inline {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: rgba(0,77,77,0.6);
+            margin-bottom: 2.5rem;
+        }
+        .svc-breadcrumb-inline a { color: rgba(0,77,77,0.6); text-decoration: none; transition: color 0.2s; }
+        .svc-breadcrumb-inline a:hover { color: #004d4d; }
+        .svc-breadcrumb-inline .bc-sep { opacity: 0.35; }
+        .svc-breadcrumb-inline .bc-current { color: var(--primary); font-weight: 600; }
+
+        .svc-hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(4rem, 7vw, 6.5rem);
+            font-weight: 500;
+            line-height: 0.88;
+            letter-spacing: 0.03em;
+            color: #004d4d;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        .svc-hero-title .accent { color: var(--primary); }
+        
+        .svc-hero-desc {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            color: #004d4d;
+            margin-bottom: 2.2rem;
+            max-width: 560px;
+            line-height: 1.55;
+        }
+
+        /* Stats Ribbon Hero */
+        .hero-stats-ribbon {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .hs-item { display: flex; flex-direction: column; text-align: center; }
+        .hs-num {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #6ee7e7;
+            line-height: 1;
+        }
+        .hs-label {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.85);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 0.35rem;
+            font-weight: 600;
+        }
+
+        /* Secciones & Titulares */
+        .inst-section {
+            padding: 7rem 0;
+            scroll-margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .inst-section-alt {
+            background: #f7fafa;
+        }
+        .section-tag-light {
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .section-title {
+            font-family: var(--font-title);
+            font-size: clamp(2.5rem, 4.2vw, 3.8rem);
+            font-weight: 500;
+            color: #004d4d;
+            text-transform: uppercase;
+            line-height: 0.95;
+            margin-bottom: 1.2rem;
+        }
+        .section-title-light { color: #ffffff; }
+        .section-subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            color: var(--text-muted-dark);
+            line-height: 1.65;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Mosaic Grid Quiénes Somos */
+        .quienes-mosaic {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .mosaic-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            position: relative;
+        }
+        .mosaic-img-main {
+            grid-column: span 2;
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(1,128,128,0.12);
+        }
+        .mosaic-img-main img { width: 100%; height: 100%; object-fit: cover; }
+        .mosaic-img-sub {
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(1,128,128,0.08);
+        }
+        .mosaic-img-sub img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+        /* Stepper Calidad */
+        .quality-stepper {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-top: 4rem;
+        }
+        .qs-step {
+            background: #ffffff;
+            border: 1px solid rgba(1,128,128,0.1);
+            border-radius: 18px;
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .qs-step:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 32px rgba(1,128,128,0.1);
+        }
+        .qs-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(1,128,128,0.08);
+            color: var(--primary);
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            transition: all 0.3s ease;
+        }
+        .qs-step:hover .qs-num {
+            background: var(--primary);
+            color: #ffffff;
+        }
+        .qs-title {
+            font-family: var(--font-title);
+            font-size: 1.15rem;
+            color: #004d4d;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .qs-desc {
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: var(--text-muted-dark);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-stats-ribbon { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+            .quienes-mosaic { grid-template-columns: 1fr; gap: 2.5rem; }
+            .quality-stepper { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       HEADER & NAVEGACIÓN INSTITUCIONAL
+       ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 32px; width: auto; max-width: 100%;">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="clinica.html" class="nav-link active">La Clínica</a>
+
+                <div class="nav-item-dropdown">
+                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="sede-dalvian.html">Sede Dalvian</a>
+                        <a href="sede-godoy-cruz.html">Sede Godoy Cruz</a>
+                        <a href="sede-peru.html">Sede Perú</a>
+                        <a href="sede-brasil.html">Sede Brasil - Próximamente</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-dropdown">
+                    <a href="servicios.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                        Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="imagenes-medicas.html">Imágenes médicas</a>
+                        <a href="laboratorio.html">Laboratorio</a>
+                        <a href="cardiologia.html">Cardiología</a>
+                        <a href="odontologia.html">Odontología</a>
+                        <a href="oftalmologia.html">Oftalmología</a>
+                        <a href="servicios.html" style="margin-top:0.3rem; border-top: 1px solid rgba(1,128,128,0.08); padding-top: 0.8rem; font-weight:600; color:var(--primary);">Ver todos los servicios</a>
+                    </div>
+                </div>
+
+                <a href="profesionales.html" class="nav-link">Profesionales</a>
+                <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="nav-link">Mis Estudios</a>
+                <a href="contacto.html" class="nav-link">Contacto / Turnos</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-booking-trigger">Solicitar Turno</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       HERO FOTOGRÁFICO INSTITUCIONAL
+       ========================================== -->
+    <section class="svc-hero" id="hero">
+        <img src="assets/slide-dalvian.jpg" alt="Clínica del Pilar Mendoza" class="svc-hero-bg">
+        <div class="svc-hero-overlay"></div>
+
+        <div class="svc-hero-body">
+            <div class="container">
+                <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb">
+                    <a href="index.html">Inicio</a>
+                    <span class="bc-sep">›</span>
+                    <span class="bc-current">La Clínica</span>
+                </nav>
+
+                <h1 class="svc-hero-title">
+                    CLÍNICA<br><span class="accent">DEL PILAR</span>
+                </h1>
+
+                <p class="svc-hero-desc">
+                    Más de 30 años liderando la atención médica integral en Mendoza. Cuatro sedes estratégicas, tecnología de vanguardia y un equipo de profesionales comprometidos con la excelencia y la seguridad de tu salud.
+                </p>
+                <div class="hero-actions" style="opacity:1; transform:none;">
+                    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+turno" target="_blank" rel="noopener noreferrer" class="btn-hero-booking">
+                        Solicitar turno
+                        <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 1: QUIÉNES SOMOS
+       ========================================== -->
+    <section class="inst-section" id="quienes-somos" style="background: #ffffff;">
+        <div class="glow-spot" style="position:absolute; top:5%; left:-5%; width:450px; height:450px; background:rgba(1,128,128,0.06); border-radius:50%; filter:blur(95px); pointer-events:none; z-index:0;"></div>
+        <div class="glow-spot" style="position:absolute; bottom:5%; right:-5%; width:480px; height:480px; background:rgba(2,153,153,0.05); border-radius:50%; filter:blur(100px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <div class="quienes-mosaic">
+                <div class="quienes-text-col">
+                    <span class="section-tag">CONOCÉ CLÍNICA DEL PILAR</span>
+                    <h2 class="section-title">Una institución médica de vanguardia con <span style="color:var(--primary);">impronta humana</span></h2>
+                    <p style="font-family:var(--font-sans); font-size:1.05rem; color:var(--text-dark); line-height:1.7; margin-bottom:1.25rem; font-weight:500;">
+                        Nacimos con la convicción de que cada paciente merece una atención médica de alta complejidad, accesible, personalizada y guiada por la empatía.
+                    </p>
+                    <p style="font-family:var(--font-sans); font-size:0.98rem; color:var(--text-muted-dark); line-height:1.7; margin-bottom:2rem;">
+                        A lo largo de más de tres décadas, Clínica del Pilar ha evolucionado desde un centro ambulatorio especializado en traumatología hacia una red de salud médica integral en la provincia de Mendoza. Hoy contamos con 4 sedes interconectadas (Dalvian, Godoy Cruz, Capital Perú y la nueva Sede Brasil), más de 200 especialistas y centros de diagnóstico propio con estándares internacionales de calidad.
+                    </p>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:2rem;">
+                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.08);">
+                            <i data-lucide="map-pin" style="color:var(--primary); width:24px; height:24px; margin-bottom:0.6rem;"></i>
+                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.05rem;">Red de 4 Sedes</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted-dark); margin:0;">Cobertura geográfica estratégica en el Gran Mendoza para tu comodidad.</p>
+                        </div>
+                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.08);">
+                            <i data-lucide="activity" style="color:var(--primary); width:24px; height:24px; margin-bottom:0.6rem;"></i>
+                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.05rem;">Atención Multidisciplinaria</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted-dark); margin:0;">Más de 20 especialidades conectadas con diagnóstico inmediato.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mosaic-gallery">
+                    <div class="mosaic-img-main photo-card-zoom">
+                        <img src="assets/sede-dalvian-nueva.jpg" alt="Sede Dalvian Clínica del Pilar">
+                    </div>
+                    <div class="mosaic-img-sub photo-card-zoom">
+                        <img src="assets/doctor-female.jpg" alt="Profesionales Médicos" style="object-position: top center;">
+                    </div>
+                    <div class="mosaic-img-sub photo-card-zoom">
+                        <img src="assets/clinicadelpilar_webgc.png" alt="Sede Godoy Cruz Diagnóstico">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 2: HISTORIA & TRAYECTORIA
+       ========================================== -->
+    <section class="inst-section inst-section-alt" id="historia">
+        <div class="glow-spot" style="position:absolute; top:10%; right:-5%; width:500px; height:500px; background:rgba(1,128,128,0.05); border-radius:50%; filter:blur(100px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <div style="text-align:center; max-width:650px; margin:0 auto 3rem auto;">
+                <span class="section-tag">NUESTRO RECORRIDO</span>
+                <h2 class="section-title"><span style="color:var(--primary);">Tres décadas</span> transformando la salud en Mendoza</h2>
+                <p class="section-subtitle">
+                    Cada hito en nuestra historia refleja el compromiso constante con la innovación, la ampliación de especialidades y la confianza de miles de familias mendocinas.
+                </p>
+            </div>
+
+            <div class="timeline-photo-grid">
+                <!-- Milestone 1993 -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/galeria-1.jpg" alt="Fundación 1993">
+                        <span class="timeline-year-tag">1993</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Los Inicios en Dalvian</h3>
+                        <p>Apertura del centro original enfocado en Traumatología, Ortopedia y Rehabilitación Física. Nace el compromiso de atención ágil y humana.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2002 -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/galeria-2.jpg" alt="Expansión 2002">
+                        <span class="timeline-year-tag">2002</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Expansión Multidisciplinaria</h3>
+                        <p>Incorporación de especialidades clave: Cardiología, Pediatría, Odontología y Guardia médica traumatológica continuada.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2010 -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/slide-godoy-cruz.jpg" alt="Sede Godoy Cruz 2010">
+                        <span class="timeline-year-tag">2010</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Centro Diagnóstico Godoy Cruz</h3>
+                        <p>Inauguración de la Sede Godoy Cruz especializada en diagnóstico por imágenes de alta complejidad: Tomografía de 64 pistas y Resonancia Magnética.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2016 -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/slide-peru.jpg" alt="Sede Perú 2016">
+                        <span class="timeline-year-tag">2016</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Consolidación Capital — Sede Perú</h3>
+                        <p>Apertura de la sede en Av. Perú, Capital. Centro multidisciplinario de salud integral con centro quirúrgico ambulatorio y múltiples consultorios.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2021 -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/galeria-5.jpg" alt="Portal Biobox 2021">
+                        <span class="timeline-year-tag">2021</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Transformación Digital — Portal Biobox</h3>
+                        <p>Lanzamiento de la plataforma en la nube Biobox, permitiendo acceso online rápido e inmediato a informes de laboratorio y estudios radiológicos.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2026+ -->
+                <div class="timeline-photo-card">
+                    <div class="timeline-card-header">
+                        <img src="assets/sede-brasil-nueva.jpg" alt="Nueva Sede Brasil">
+                        <span class="timeline-year-tag" style="background:#005f5f;">2026+</span>
+                    </div>
+                    <div class="timeline-card-body">
+                        <h3>Nueva Sede Brasil — Crecimiento Continuo</h3>
+                        <p>Construcción y apertura de la nueva sede en Av. Brasil, amplificando la cobertura prestacional e infraestructura médica del grupo en la provincia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 3: MISIÓN, VISIÓN Y VALORES
+       ========================================== -->
+    <section class="inst-section" id="mision-valores" style="background: linear-gradient(135deg, #004d4d 0%, #003333 100%); color: #ffffff; position: relative; overflow: hidden;">
+        <!-- Curva decorativa Recurso 1.svg -->
+        <div style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.15; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="assets/recurso-1.svg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0) invert(1);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
+                <span class="section-tag section-tag-light">IDENTIDAD INSTITUCIONAL</span>
+                <h2 class="section-title section-title-light">Misión, Visión y Valores</h2>
+                <p style="font-family:var(--font-sans); font-size:1.05rem; color:rgba(255,255,255,0.8); margin:0;">
+                    El propósito y los principios éticos que orientan nuestro trabajo diario con cada paciente y sus familias.
+                </p>
+            </div>
+
+            <!-- Misión y Visión Cards -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:4rem;">
+                <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:3rem 2.5rem; backdrop-filter:blur(10px);">
+                    <div style="width:54px; height:54px; border-radius:16px; background:rgba(110,231,231,0.15); display:flex; align-items:center; justify-content:center; color:#6ee7e7; margin-bottom:1.5rem;">
+                        <i data-lucide="target" style="width:28px; height:28px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.8rem; color:#ffffff; text-transform:uppercase; margin-bottom:1rem;">Nuestra Misión</h3>
+                    <p style="font-family:var(--font-sans); font-size:1rem; color:rgba(255,255,255,0.85); line-height:1.7; margin:0;">
+                        Brindar atención médica integral, accesible y de alta calidad técnica a la comunidad mendocina, combinando el talento de un equipo profesional comprometido, tecnología diagnóstica de avanzada y un enfoque verdaderamente centrado en las personas.
+                    </p>
+                </div>
+
+                <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:3rem 2.5rem; backdrop-filter:blur(10px);">
+                    <div style="width:54px; height:54px; border-radius:16px; background:rgba(110,231,231,0.15); display:flex; align-items:center; justify-content:center; color:#6ee7e7; margin-bottom:1.5rem;">
+                        <i data-lucide="eye" style="width:28px; height:28px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.8rem; color:#ffffff; text-transform:uppercase; margin-bottom:1rem;">Nuestra Visión</h3>
+                    <p style="font-family:var(--font-sans); font-size:1rem; color:rgba(255,255,255,0.85); line-height:1.7; margin:0;">
+                        Ser el centro médico multidisciplinario de referencia indiscutida en la región de Cuyo, distinguido por la excelencia asistencial, la bioseguridad, el espíritu de innovación tecnológica continua y la calidez humana en cada interacción.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Valores Cards Grid -->
+            <div style="text-align:center; margin-bottom:2rem;">
+                <h4 style="font-family:var(--font-title); font-size:1.4rem; color:#6ee7e7; text-transform:uppercase; letter-spacing:0.05em;">Valores Institucionales</h4>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                    <i data-lucide="heart" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
+                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Empatía y Calidez</h5>
+                    <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Entendemos que detrás de cada consulta hay una persona que busca contención y tranquilidad.</p>
+                </div>
+
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                    <i data-lucide="award" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
+                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Excelencia Médica</h5>
+                    <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Rigor profesional y formación médica continua orientada a los mejores resultados.</p>
+                </div>
+
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                    <i data-lucide="shield-check" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
+                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Integridad y Ética</h5>
+                    <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Honestidad, confidencialidad médica y transparencia en cada recomendación diagnóstica.</p>
+                </div>
+
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                    <i data-lucide="cpu" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
+                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Innovación Tecnológica</h5>
+                    <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Incorporación constante de equipamiento médico moderno y plataformas digitales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 4: TECNOLOGÍA E INFRAESTRUCTURA
+       ========================================== -->
+    <section class="inst-section" id="tecnologia" style="background: #ffffff;">
+        <div class="glow-spot" style="position:absolute; top:10%; left:-5%; width:450px; height:450px; background:rgba(1,128,128,0.06); border-radius:50%; filter:blur(95px); pointer-events:none; z-index:0;"></div>
+        <div class="glow-spot" style="position:absolute; bottom:5%; right:-5%; width:480px; height:480px; background:rgba(2,153,153,0.05); border-radius:50%; filter:blur(100px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
+                <span class="section-tag">EQUIPAMIENTO DE VANGUARDIA</span>
+                <h2 class="section-title">Tecnología e Infraestructura Médica</h2>
+                <p class="section-subtitle">
+                    Invertimos de forma sostenida en tecnología diagnóstica y quirúrgica de nivel internacional, garantizando la máxima precisión en cada estudio.
+                </p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3.5rem; align-items:center;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+                    <!-- Tech Item 1 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="scan" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Tomografía 64 Pistas</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Equipo multicorte de alta velocidad para estudios vasculares, traumatológicos y oncológicos.</p>
+                    </div>
+
+                    <!-- Tech Item 2 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="activity" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Resonancia 1.5 Tesla</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Resonancia magnética de alta definición para diagnóstico cerebral, articular y abdominal.</p>
+                    </div>
+
+                    <!-- Tech Item 3 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="microscope" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Laboratorio Biodiagnóstica</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Procesadores automáticos con más de 300 determinaciones clínicas y trazabilidad digital.</p>
+                    </div>
+
+                    <!-- Tech Item 4 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="heart-pulse" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Ecocardiografía 4D</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Ultrasonido cardíaco no invasivo de resolución avanzada para evaluación cardiovascular completa.</p>
+                    </div>
+
+                    <!-- Tech Item 5 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="eye" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Oftalmología Láser</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Equipamiento para retinografía, topografía corneal y tomografía de coherencia óptica (OCT).</p>
+                    </div>
+
+                    <!-- Tech Item 6 -->
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
+                            <i data-lucide="cloud-check" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Portal Digital Biobox</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Acceso 24/7 en la nube para visualizar imágenes médicas y resultados de análisis al instante.</p>
+                    </div>
+                </div>
+
+                <div class="photo-card-zoom" style="height: 480px;">
+                    <img src="assets/clinicadelpilar_webgc.png" alt="Equipamiento Médico Clínica del Pilar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 5: SEGURIDAD DEL PACIENTE
+       ========================================== -->
+    <section class="inst-section inst-section-alt" id="seguridad-paciente">
+        <div class="glow-spot" style="position:absolute; top:5%; right:-5%; width:480px; height:480px; background:rgba(1,128,128,0.05); border-radius:50%; filter:blur(95px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
+                <span class="section-tag">EJE FUNDAMENTAL DE CONFIANZA</span>
+                <h2 class="section-title">Seguridad del Paciente</h2>
+                <p class="section-subtitle">
+                    Priorizamos tu tranquilidad implementando protocolos internacionales de bioseguridad, verificación y prevención de riesgos en cada etapa de la atención.
+                </p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem;">
+                <!-- Card 1 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="shield-check" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Identificación Correcta</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Protocolo estricto de doble verificación de identidad (nombre completo y DNI) antes de cualquier estudio, análisis clínico o procedimiento.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="sparkles" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Higiene y Control de Asepsia</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Programas permanentes de esterilización de instrumental médico, desinfección de salas y protocolos de bioseguridad según normas internacionales.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="pill" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Gestión Segura de Medicamentos</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Sistema informatizado de trazabilidad farmacéutica para la prescripción y administración de medicamentos sin margen de error.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="clipboard-check" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Verificación Quirúrgica OMS</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Aplicación rigurosa de la lista de verificación quirúrgica recomendada por la Organización Mundial de la Salud para intervenciones ambulatorias.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="user-check" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Prevención de Caídas y Riesgos</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Evaluación continua del riesgo del paciente, infraestructura accesible sin barreras y señalización clara en todas las sedes.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="safety-pill-card">
+                    <div class="safety-icon-wrapper">
+                        <i data-lucide="message-square-plus" style="width:26px; height:26px;"></i>
+                    </div>
+                    <h3 style="font-family:var(--font-title); font-size:1.25rem; color:#004d4d; text-transform:uppercase; margin-bottom:0.6rem;">Comunicación Efectiva Médica</h3>
+                    <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--text-muted-dark); line-height:1.6; margin:0;">
+                        Historia clínica unificada y protocolos de traspaso estandarizado de información entre los equipos de especialistas e interconsultas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 6: CALIDAD DE ATENCIÓN
+       ========================================== -->
+    <section class="inst-section" id="calidad-atencion" style="background: #ffffff;">
+        <div class="glow-spot" style="position:absolute; top:10%; left:-5%; width:450px; height:450px; background:rgba(1,128,128,0.06); border-radius:50%; filter:blur(95px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <!-- Editorial Trust Card -->
+            <div class="trust-quote-card" style="position: relative; overflow: hidden;">
+                <!-- Curva decorativa Recurso 1.svg -->
+                <div style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.18; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/recurso-1.svg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0) invert(1);">
+                </div>
+
+                <div style="position:relative; z-index:2; max-width:800px;">
+                    <span style="font-family:var(--font-sans); font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#6ee7e7; display:block; margin-bottom:1rem;">COMPROMISO CON LA COMUNIDAD</span>
+                    <h3 style="font-family:var(--font-title); font-size:clamp(1.8rem, 3vw, 2.5rem); font-weight:500; line-height:1.2; margin-bottom:1.5rem;">
+                        "Combinamos la máxima precisión tecnológica con la calidez humana. En Clínica del Pilar entendemos la medicina como el arte de acompañar a cada persona con respeto y empatía."
+                    </h3>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; border:2px solid #6ee7e7;">
+                            <img src="assets/doctor-female.jpg" alt="Directorio Médico" style="width:100%; height:100%; object-fit:cover; object-position: top center;">
+                        </div>
+                        <div>
+                            <strong style="font-family:var(--font-sans); font-size:1rem; color:#ffffff; display:block;">Equipo de Dirección Médica</strong>
+                            <span style="font-size:0.85rem; color:rgba(255,255,255,0.75);">Clínica del Pilar Mendoza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SUBSECCIÓN 7: GALERÍA DE FOTOS & INSTALACIONES
+       ========================================== -->
+    <section class="inst-section inst-section-alt" id="instalaciones">
+        <div class="glow-spot" style="position:absolute; top:10%; right:-5%; width:500px; height:500px; background:rgba(1,128,128,0.05); border-radius:50%; filter:blur(100px); pointer-events:none; z-index:0;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <div style="text-align:center; max-width:650px; margin:0 auto 3rem auto;">
+                <span class="section-tag">RECORRIDO VISUAL</span>
+                <h2 class="section-title">Nuestras Instalaciones</h2>
+                <p class="section-subtitle">
+                    Espacios modernos, confortables y diseñados para brindarte la mejor atención médica en Mendoza.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="assets/galeria-1.jpg" alt="Instalaciones Clínica del Pilar 1"></div>
+                <div class="gallery-item"><img src="assets/galeria-2.jpg" alt="Instalaciones Clínica del Pilar 2"></div>
+                <div class="gallery-item"><img src="assets/galeria-3.jpg" alt="Instalaciones Clínica del Pilar 3"></div>
+                <div class="gallery-item"><img src="assets/galeria-4.jpg" alt="Instalaciones Clínica del Pilar 4"></div>
+                <div class="gallery-item"><img src="assets/galeria-5.jpg" alt="Instalaciones Clínica del Pilar 5"></div>
+                <div class="gallery-item"><img src="assets/galeria-6.jpg" alt="Instalaciones Clínica del Pilar 6"></div>
+                <div class="gallery-item"><img src="assets/galeria-7.jpg" alt="Instalaciones Clínica del Pilar 7"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery-CTA Divider -->
+    <div class="gallery-cta-divider">
+        <img src="assets/gallery-cta-divider.svg" alt="Divider" style="width:100%; height:auto; display:block;">
+    </div>
+
+    <!-- ==========================================
+       CTA FINAL
+       ========================================== -->
+    <section class="cta-section-new" style="background: #ffffff; padding: 4rem 0 4.5rem 0; text-align: center; position: relative; overflow: hidden;">
+        <div class="glow-spot" style="position:absolute;top:-10%;left:15%;width:350px;height:350px;background:rgba(1,128,128,0.08);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1;"></div>
+        <div class="glow-spot" style="position:absolute;bottom:0;right:10%;width:400px;height:400px;background:rgba(2,153,153,0.07);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1;"></div>
+        <div class="container" style="position:relative;z-index:2;">
+            <h2 style="font-family:var(--font-title);font-size:clamp(2.5rem, 4.5vw, 4rem);line-height:0.95;margin-top:0;margin-bottom:2rem;text-transform:uppercase;">
+                <span class="text-accent-uppercase" style="color:var(--primary);">Tu salud merece la tranquilidad</span><br>
+                <span style="color:#004d4d;">de estar en las mejores manos.</span>
+            </h2>
+            <div style="margin-bottom:2.5rem;">
+                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+un+turno" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.85rem 2.5rem; font-size:1.05rem;">
+                    Solicitar turno por WhatsApp
+                    <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER
+       ========================================== -->
+    <footer class="footer-new" style="background: linear-gradient(to top, #005f5f 0%, #dbf2f2 60%, #ffffff 100%); padding: 1.5rem 0 4rem 0;">
+        <div class="container">
+            <div class="footer-card" style="background: var(--primary); border-radius: 24px; padding: 3.5rem 4rem; color: #ffffff; box-shadow: 0 10px 30px rgba(0,128,128,0.12);">
+                <div class="footer-grid-new" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;">
+                    <div class="footer-logo-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="index.html" class="logo" style="display: inline-flex;">
+                            <img src="assets/Grupo406.png" alt="Clínica del Pilar" style="height: 44px; width: auto; max-width: 100%; filter: brightness(0) invert(1);">
+                        </a>
+                        <strong style="font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.3;">Clínica de Traumatología y Salud Integral</strong>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin: 0;">Atención médica integral en Mendoza.<br>Cuatro sedes, profesionales de primer nivel.</p>
+                        <div class="footer-social-links" style="display: flex; gap: 0.8rem; align-items: center; margin-top: 0.5rem;">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Instagram">
+                                <img src="assets/instagram-icon.svg" alt="Instagram" style="width: 31px; height: 31px; filter: brightness(0) invert(1);">
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'" aria-label="Facebook">
+                                <img src="assets/facebook-icon.svg" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Sedes</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem;">
+                            <li style="line-height: 1.3;"><strong>Dalvian</strong><br><span style="opacity: 0.75;">Av. 7 Colores 2015, Local 42</span></li>
+                            <li style="line-height: 1.3;"><strong>Godoy Cruz</strong><br><span style="opacity: 0.75;">San Martín 1867</span></li>
+                            <li style="line-height: 1.3;"><strong>Capital</strong><br><span style="opacity: 0.75;">Av. Perú 1717</span></li>
+                            <li style="line-height: 1.3;"><strong>Capital</strong><br><span style="opacity: 0.75;">Brasil 308</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Páginas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                            <li><a href="clinica.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">La Clínica</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Sedes</a></li>
+                            <li><a href="servicios.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Servicios / Especialidades</a></li>
+                            <li><a href="profesionales.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Profesionales</a></li>
+                            <li><a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Mis Estudios</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Contacto/Turnos</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-new">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">Accesos</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; align-items: flex-start;">
+                            <li><a href="#" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid #ffffff; border-radius: var(--radius-full); padding: 0.35rem 1.25rem; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s;" onmouseover="this.style.background='#ffffff'; this.style.color='var(--primary)'" onmouseout="this.style.background='transparent'; this.style.color='#ffffff'">Geclisa</a></li>
+                            <li><a href="#" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Obras Sociales</a></li>
+                            <li><a href="contacto.html" style="color: #ffffff; text-decoration: none; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">Trabajá con nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-new" style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.85);">
+                <p style="margin-bottom: 0.5rem; font-weight: 600;">Propiedad de Clínica de Traumatología y Rehabilitación</p>
+                <p>Diseño web en Argentina tehuentec.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+solicitar+un+turno" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-float-tooltip">¿Necesitás un turno?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js?v=13"></script>
+    <script>
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+        // Active link highlight for Sticky Sub-nav
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.inst-subnav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
