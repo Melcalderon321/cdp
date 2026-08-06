@@ -4234,13 +4234,14 @@ a {
 .trust-quote-card::before {
     content: '"';
     position: absolute;
-    right: 2rem;
-    bottom: -2rem;
+    right: 2.5rem;
+    top: -1rem;
     font-family: Georgia, serif;
     font-size: 18rem;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.06);
     line-height: 1;
     pointer-events: none;
+    z-index: 1;
 }
 
 
