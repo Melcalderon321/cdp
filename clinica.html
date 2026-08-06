@@ -226,11 +226,67 @@
             margin: 0;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-stats-ribbon { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-            .quienes-mosaic { grid-template-columns: 1fr; gap: 2.5rem; }
-            .quality-stepper { grid-template-columns: 1fr; }
+        /* Responsive Optimizations (1366px, Laptop, Tablet & Mobile) */
+        @media (max-width: 1366px) {
+            .container {
+                max-width: 1240px;
+            }
+            .section-title {
+                font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+            }
+            .quienes-mosaic {
+                gap: 2.5rem;
+            }
+            .tec-grid {
+                gap: 2.5rem !important;
+            }
+        }
+        @media (max-width: 1100px) {
+            .timeline-visual-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .mv-grid {
+                gap: 1.5rem !important;
+            }
+            .tec-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .tec-grid > .photo-card-zoom {
+                height: 380px !important;
+            }
+        }
+        @media (max-width: 900px) {
+            .quienes-mosaic {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .mv-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .inst-section {
+                padding: 4.5rem 0;
+            }
+            .timeline-visual-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .tec-items-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .mosaic-gallery {
+                grid-template-columns: 1fr;
+            }
+            .mosaic-img-main {
+                grid-column: span 1;
+                height: 240px;
+            }
+            .mosaic-img-sub {
+                height: 180px;
+            }
+            .trust-quote-card {
+                padding: 2.2rem 1.5rem !important;
+            }
         }
     </style>
 </head>
@@ -477,7 +533,7 @@
             </div>
 
             <!-- Misión y Visión Cards -->
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:4rem;">
+            <div class="mv-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:4rem;">
                 <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:3rem 2.5rem; backdrop-filter:blur(10px);">
                     <div style="width:54px; height:54px; border-radius:16px; background:rgba(110,231,231,0.15); display:flex; align-items:center; justify-content:center; color:#6ee7e7; margin-bottom:1.5rem;">
                         <i data-lucide="target" style="width:28px; height:28px;"></i>
@@ -547,8 +603,8 @@
                 </p>
             </div>
 
-            <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3.5rem; align-items:center;">
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+            <div class="tec-grid" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3.5rem; align-items:center;">
+                <div class="tec-items-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
                     <!-- Tech Item 1 -->
                     <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
