@@ -66,24 +66,38 @@
             color: var(--primary);
             font-weight: 600;
         }
-        .svc-hero-title {
+                .svc-hero-title {
             font-family: var(--font-title);
-            font-size: clamp(4rem, 7vw, 6.5rem);
+            font-size: 5.2rem;
             font-weight: 500;
             line-height: 0.88;
             letter-spacing: 0.03em;
             color: #004d4d;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
         }
+        @media (max-width: 1440px) {
+            .svc-hero-title {
+                font-size: 3.8rem;
+                line-height: 0.92;
+            }
+        }
+        @media (max-width: 1200px) {
+            .svc-hero-title {
+                font-size: 3.2rem;
+                line-height: 0.95;
+            }
+        }
         .svc-hero-title .accent { color: var(--primary); }
+        
         .svc-hero-desc {
             font-family: var(--font-sans);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #004d4d;
-            margin-bottom: 2.2rem;
-            max-width: 580px;
-            line-height: 1.55;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.4;
+            letter-spacing: 0.01em;
         }
 
         /* ═══════════════════════════════════════════
@@ -91,7 +105,8 @@
            ═══════════════════════════════════════════ */
         .biobox-strip {
             position: relative;
-            background: linear-gradient(135deg, #012a2a 0%, #018080 50%, #029fa0 100%);
+            background: url('assets/biobox-texture.svg') center/cover no-repeat, linear-gradient(135deg, #012a2a 0%, #018080 50%, #029fa0 100%);
+            background-blend-mode: soft-light;
             padding: 3.5rem 2rem 3.2rem 2rem;
             border-radius: 24px;
             overflow: hidden;
@@ -181,19 +196,19 @@
         }
         .svc-card {
             background: #ffffff;
-            border: 1px solid rgba(1,128,128,0.09);
+            border: 1px solid rgba(110,231,231,0.15);
             border-radius: 16px;
             padding: 2rem 1.8rem 1.8rem 1.8rem;
             display: flex;
             flex-direction: column;
             gap: 0.7rem;
             transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-            box-shadow: 0 2px 12px rgba(1,128,128,0.04);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02), 0 0 15px rgba(110,231,231,0.05);
         }
         .svc-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(1,128,128,0.1);
-            border-color: rgba(1,128,128,0.2);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.04), 0 0 25px rgba(110,231,231,0.1);
+            border-color: rgba(110,231,231,0.3);
         }
         .svc-card-num {
             font-family: var(--font-title);
@@ -316,36 +331,6 @@
     </section>
 
     <!-- ==========================================
-       BIOBOX BANNER — tarjeta dentro de contenedor
-       ========================================== -->
-    <section style="padding: 5.5rem 0 1.5rem 0; background: #ffffff;">
-        <div class="container">
-            <div class="biobox-strip">
-                <!-- Onda decorativa única -->
-                <div class="biobox-wave">
-                    <img src="assets/recurso-1-custom.svg" alt="">
-                </div>
-                <!-- Orbs de luz -->
-                <div class="biobox-orb" style="width:400px;height:400px;background:rgba(255,255,255,0.04);top:-100px;right:10%;filter:blur(60px);"></div>
-                <div class="biobox-orb" style="width:300px;height:300px;background:rgba(2,200,200,0.08);bottom:-80px;left:5%;filter:blur(50px);"></div>
-
-                <div class="biobox-strip-inner">
-                    <h2 class="biobox-strip-title">
-                        ¿Te hiciste un estudio con nuestro equipo?
-                    </h2>
-                    <p class="biobox-strip-desc">
-                        Accedé a tus fichas y estudios odontológicos de forma rápida y segura desde el portal Biobox. Disponible las 24 horas.
-                    </p>
-                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn-biobox">
-                        <i data-lucide="monitor-check" style="width:18px;height:18px;"></i>
-                        Ver mis resultados
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
        NUESTROS SERVICIOS
        ========================================== -->
     <section class="svc-prestaciones">
@@ -449,9 +434,41 @@
     </section>
 
     <!-- ==========================================
+       BIOBOX BANNER — tarjeta dentro de contenedor
+       ========================================== -->
+    <section style="padding: 5.5rem 0 1.5rem 0; background: #ffffff;">
+        <div class="container">
+            <div class="biobox-strip">
+                <!-- Onda decorativa única -->
+                <!-- Orbs de luz -->
+                <div class="biobox-orb" style="width:400px;height:400px;background:rgba(255,255,255,0.04);top:-100px;right:10%;filter:blur(60px);"></div>
+                <div class="biobox-orb" style="width:300px;height:300px;background:rgba(2,200,200,0.08);bottom:-80px;left:5%;filter:blur(50px);"></div>
+
+                <div class="biobox-strip-inner">
+                    <h2 class="biobox-strip-title">
+                        ¿Te hiciste un estudio con nuestro equipo?
+                    </h2>
+                    <p class="biobox-strip-desc">
+                        Accedé a tus fichas y estudios odontológicos de forma rápida y segura desde el portal Biobox. Disponible las 24 horas.
+                    </p>
+                    <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn-biobox">
+                        <i data-lucide="monitor-check" style="width:18px;height:18px;"></i>
+                        Ver mis resultados
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
        CTA FINAL — idéntico al home
        ========================================== -->
-    <section class="cta-section-new" style="background: #ffffff; padding: 3rem 0 3.5rem 0; text-align: center; position: relative; overflow: hidden;">
+        
+    <!-- Curve Divider -->
+    <div style="width: 100%; line-height: 0; background-color: transparent; overflow: hidden; position: relative; z-index: 2; margin-bottom: -2px;">
+        <img src="assets/recurso-1.svg" alt="Divider" style="width: 100%; height: auto; display: block; transform: scaleX(-1);">
+    </div>
+<section class="cta-section-new" style="background: #ffffff; padding: 3rem 0 3.5rem 0; text-align: center; position: relative; overflow: hidden;">
         <!-- Focos difuminados -->
         <div class="glow-spot" style="position:absolute;top:-10%;left:15%;width:350px;height:350px;background:rgba(1,128,128,0.08);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1;"></div>
         <div class="glow-spot" style="position:absolute;bottom:0;right:10%;width:400px;height:400px;background:rgba(2,153,153,0.07);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1;"></div>

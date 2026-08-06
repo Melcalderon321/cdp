@@ -65,24 +65,38 @@
             color: var(--primary);
             font-weight: 600;
         }
-        .svc-hero-title {
+                .svc-hero-title {
             font-family: var(--font-title);
-            font-size: clamp(4rem, 7vw, 6.5rem);
+            font-size: 5.2rem;
             font-weight: 500;
             line-height: 0.88;
             letter-spacing: 0.03em;
             color: #004d4d;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
         }
+        @media (max-width: 1440px) {
+            .svc-hero-title {
+                font-size: 3.8rem;
+                line-height: 0.92;
+            }
+        }
+        @media (max-width: 1200px) {
+            .svc-hero-title {
+                font-size: 3.2rem;
+                line-height: 0.95;
+            }
+        }
         .svc-hero-title .accent { color: var(--primary); }
+        
         .svc-hero-desc {
             font-family: var(--font-sans);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #004d4d;
-            margin-bottom: 2.2rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
-            line-height: 1.55;
+            line-height: 1.4;
+            letter-spacing: 0.01em;
         }
 
         /* Sección Ficha Técnica y Mapa */
@@ -139,7 +153,8 @@
         }
         .sede-detail-text h4 {
             font-family: var(--font-title);
-            font-size: 1.1rem;
+            font-size: 1.35rem;
+            letter-spacing: 0.03em;
             color: #004d4d;
             margin: 0 0 0.2rem 0;
             text-transform: uppercase;
@@ -190,19 +205,19 @@
         }
         .svc-card {
             background: #ffffff;
-            border: 1px solid rgba(1,128,128,0.09);
+            border: 1px solid rgba(110,231,231,0.15);
             border-radius: 16px;
             padding: 1.8rem;
             display: flex;
             flex-direction: column;
             gap: 0.7rem;
-            transition: transform 0.22s ease, box-shadow 0.22s ease;
-            box-shadow: 0 2px 12px rgba(1,128,128,0.04);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02), 0 0 15px rgba(110,231,231,0.05);
         }
         .svc-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(1,128,128,0.1);
-            border-color: rgba(1,128,128,0.2);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.04), 0 0 25px rgba(110,231,231,0.1);
+            border-color: rgba(110,231,231,0.3);
         }
         .svc-card-num {
             font-family: var(--font-title);
@@ -471,6 +486,18 @@
                     <div class="svc-card-num">06</div>
                     <h4>Rehabilitación Kínica</h4>
                     <p>Fisioterapia, magnetoterapia, kinesioterapia y recuperación de lesiones deportivas.</p>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-card-num">07</div>
+                    <h4>Diagnóstico por Imágenes</h4>
+                    <p>Radiología digital, ecografías y equipamiento de última generación para estudios rápidos y precisos.</p>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-card-num">08</div>
+                    <h4>Laboratorio de Análisis</h4>
+                    <p>Análisis clínicos automatizados, extracciones a domicilio y estudios de alta complejidad con entrega online.</p>
                 </div>
 
             </div>

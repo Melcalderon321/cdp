@@ -60,7 +60,7 @@
 
         .svc-hero-title {
             font-family: var(--font-title);
-            font-size: clamp(4rem, 7vw, 6.5rem);
+            font-size: 5.2rem;
             font-weight: 500;
             line-height: 0.88;
             letter-spacing: 0.03em;
@@ -68,15 +68,28 @@
             margin-bottom: 0.8rem;
             text-transform: uppercase;
         }
+        @media (max-width: 1440px) {
+            .svc-hero-title {
+                font-size: 3.8rem;
+                line-height: 0.92;
+            }
+        }
+        @media (max-width: 1200px) {
+            .svc-hero-title {
+                font-size: 3.2rem;
+                line-height: 0.95;
+            }
+        }
         .svc-hero-title .accent { color: var(--primary); }
         
         .svc-hero-desc {
             font-family: var(--font-sans);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #004d4d;
-            margin-bottom: 2.2rem;
-            max-width: 560px;
-            line-height: 1.55;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.4;
+            letter-spacing: 0.01em;
         }
 
         /* Stats Ribbon Hero */
@@ -387,7 +400,7 @@
             <div class="quienes-mosaic">
                 <div class="quienes-text-col">
                     <span class="section-tag">CONOCÉ CLÍNICA DEL PILAR</span>
-                    <h2 class="section-title">Una institución médica de vanguardia con <span style="color:var(--primary);">impronta humana</span></h2>
+                    <h2 class="section-title">Medicina de vanguardia con <br><span style="color:var(--primary);">calidad humana</span>.</h2>
                     <p style="font-family:var(--font-sans); font-size:1.05rem; color:var(--text-dark); line-height:1.7; margin-bottom:1.25rem; font-weight:500;">
                         Nacimos con la convicción de que cada paciente merece una atención médica de alta complejidad, accesible, personalizada y guiada por la empatía.
                     </p>
@@ -396,28 +409,28 @@
                     </p>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:2rem;">
-                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                             <i data-lucide="map-pin" style="color:var(--primary); width:24px; height:24px; margin-bottom:0.6rem;"></i>
-                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.05rem;">Red de 4 Sedes</h4>
+                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.35rem; letter-spacing:0.03em;">Red de 4 Sedes</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted-dark); margin:0;">Cobertura geográfica estratégica en el Gran Mendoza para tu comodidad.</p>
                         </div>
-                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.08);">
+                        <div style="background:#f7fafa; border-radius:14px; padding:1.25rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                             <i data-lucide="activity" style="color:var(--primary); width:24px; height:24px; margin-bottom:0.6rem;"></i>
-                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.05rem;">Atención Multidisciplinaria</h4>
+                            <h4 style="font-family:var(--font-title); color:#004d4d; margin-bottom:0.25rem; font-size:1.35rem; letter-spacing:0.03em;">Atención Multidisciplinaria</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted-dark); margin:0;">Más de 20 especialidades conectadas con diagnóstico inmediato.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="mosaic-gallery">
-                    <div class="mosaic-img-main photo-card-zoom">
-                        <img src="assets/sede-dalvian-nueva.jpg" alt="Sede Dalvian Clínica del Pilar">
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem; height:550px;">
+                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                        <img src="assets/clinica-del-pilar-134.jpg" alt="Sede Dalvian Clínica del Pilar" style="width:100%; height:100%; object-fit:cover;">
                     </div>
-                    <div class="mosaic-img-sub photo-card-zoom">
-                        <img src="assets/doctor-female.jpg" alt="Profesionales Médicos" style="object-position: top center;">
+                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                        <img src="assets/doctor-female.jpg" alt="Profesionales Médicos" style="width:100%; height:100%; object-fit:cover; object-position: top center;">
                     </div>
-                    <div class="mosaic-img-sub photo-card-zoom">
-                        <img src="assets/clinicadelpilar_webgc.png" alt="Sede Godoy Cruz Diagnóstico">
+                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                        <img src="assets/clinica-del-pilar-126.jpg" alt="Sede Godoy Cruz Diagnóstico" style="width:100%; height:100%; object-fit:cover;">
                     </div>
                 </div>
             </div>
@@ -519,10 +532,6 @@
        ========================================== -->
     <section class="inst-section" id="mision-valores" style="background: linear-gradient(135deg, #004d4d 0%, #003333 100%); color: #ffffff; position: relative; overflow: hidden;">
         <!-- Curva decorativa Recurso 1.svg -->
-        <div style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.15; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/recurso-1.svg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0) invert(1);">
-        </div>
-
         <div class="container" style="position: relative; z-index: 2;">
             <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
                 <span class="section-tag section-tag-light">IDENTIDAD INSTITUCIONAL</span>
@@ -557,31 +566,31 @@
 
             <!-- Valores Cards Grid -->
             <div style="text-align:center; margin-bottom:2rem;">
-                <h4 style="font-family:var(--font-title); font-size:1.4rem; color:#6ee7e7; text-transform:uppercase; letter-spacing:0.05em;">Valores Institucionales</h4>
+                <h4 style="font-family:var(--font-title); font-size:1.65rem; color:#6ee7e7; text-transform:uppercase; letter-spacing:0.05em;">Valores Institucionales</h4>
             </div>
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                <div style="background:rgba(255,255,255,0.06); backdrop-filter:blur(10px); border:1px solid rgba(110,231,231,0.1); border-radius:18px; padding:1.5rem; transition:all 0.3s; box-shadow:0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02);" onmouseover="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(110,231,231,0.25)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.2), 0 0 25px rgba(110,231,231,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(110,231,231,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02)'">
                     <i data-lucide="heart" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
-                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Empatía y Calidez</h5>
+                    <h5 style="font-family:var(--font-title); font-size:1.3rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.05em;">Empatía y Calidez</h5>
                     <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Entendemos que detrás de cada consulta hay una persona que busca contención y tranquilidad.</p>
                 </div>
 
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                <div style="background:rgba(255,255,255,0.06); backdrop-filter:blur(10px); border:1px solid rgba(110,231,231,0.1); border-radius:18px; padding:1.5rem; transition:all 0.3s; box-shadow:0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02);" onmouseover="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(110,231,231,0.25)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.2), 0 0 25px rgba(110,231,231,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(110,231,231,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02)'">
                     <i data-lucide="award" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
-                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Excelencia Médica</h5>
+                    <h5 style="font-family:var(--font-title); font-size:1.3rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.05em;">Excelencia Médica</h5>
                     <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Rigor profesional y formación médica continua orientada a los mejores resultados.</p>
                 </div>
 
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                <div style="background:rgba(255,255,255,0.06); backdrop-filter:blur(10px); border:1px solid rgba(110,231,231,0.1); border-radius:18px; padding:1.5rem; transition:all 0.3s; box-shadow:0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02);" onmouseover="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(110,231,231,0.25)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.2), 0 0 25px rgba(110,231,231,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(110,231,231,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02)'">
                     <i data-lucide="shield-check" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
-                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Integridad y Ética</h5>
+                    <h5 style="font-family:var(--font-title); font-size:1.3rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.05em;">Integridad y Ética</h5>
                     <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Honestidad, confidencialidad médica y transparencia en cada recomendación diagnóstica.</p>
                 </div>
 
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:1.5rem; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+                <div style="background:rgba(255,255,255,0.06); backdrop-filter:blur(10px); border:1px solid rgba(110,231,231,0.1); border-radius:18px; padding:1.5rem; transition:all 0.3s; box-shadow:0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02);" onmouseover="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(110,231,231,0.25)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.2), 0 0 25px rgba(110,231,231,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(110,231,231,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.15), 0 0 15px rgba(110,231,231,0.02)'">
                     <i data-lucide="cpu" style="color:#6ee7e7; width:22px; height:22px; margin-bottom:0.75rem;"></i>
-                    <h5 style="font-family:var(--font-title); font-size:1.15rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase;">Innovación Tecnológica</h5>
+                    <h5 style="font-family:var(--font-title); font-size:1.3rem; color:#ffffff; margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.05em;">Innovación Tecnológica</h5>
                     <p style="font-size:0.88rem; color:rgba(255,255,255,0.75); margin:0; line-height:1.5;">Incorporación constante de equipamiento médico moderno y plataformas digitales.</p>
                 </div>
             </div>
@@ -597,71 +606,73 @@
         <div class="container" style="position:relative; z-index:2;">
             <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
                 <span class="section-tag">EQUIPAMIENTO DE VANGUARDIA</span>
-                <h2 class="section-title">Tecnología e Infraestructura Médica</h2>
+                <h2 class="section-title"><span style="color:var(--primary);">Tecnología e Infraestructura</span> Médica</h2>
                 <p class="section-subtitle">
                     Invertimos de forma sostenida en tecnología diagnóstica y quirúrgica de nivel internacional, garantizando la máxima precisión en cada estudio.
                 </p>
             </div>
 
-            <div class="tec-grid" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3.5rem; align-items:center;">
+            <div class="tec-grid" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3.5rem; align-items:stretch;">
                 <div class="tec-items-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
                     <!-- Tech Item 1 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
                             <i data-lucide="scan" style="width:22px; height:22px;"></i>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Tomografía 64 Pistas</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Tomografía 64 Pistas</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Equipo multicorte de alta velocidad para estudios vasculares, traumatológicos y oncológicos.</p>
                     </div>
 
                     <!-- Tech Item 2 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
                             <i data-lucide="activity" style="width:22px; height:22px;"></i>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Resonancia 1.5 Tesla</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Resonancia 1.5 Tesla</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Resonancia magnética de alta definición para diagnóstico cerebral, articular y abdominal.</p>
                     </div>
 
                     <!-- Tech Item 3 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
                             <i data-lucide="microscope" style="width:22px; height:22px;"></i>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Laboratorio Biodiagnóstica</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Laboratorio Biodiagnóstica</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Procesadores automáticos con más de 300 determinaciones clínicas y trazabilidad digital.</p>
                     </div>
 
                     <!-- Tech Item 4 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
                             <i data-lucide="heart-pulse" style="width:22px; height:22px;"></i>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Ecocardiografía 4D</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Ecocardiografía 4D</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Ultrasonido cardíaco no invasivo de resolución avanzada para evaluación cardiovascular completa.</p>
                     </div>
 
                     <!-- Tech Item 5 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
                             <i data-lucide="eye" style="width:22px; height:22px;"></i>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Oftalmología Láser</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Oftalmología Láser</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Equipamiento para retinografía, topografía corneal y tomografía de coherencia óptica (OCT).</p>
                     </div>
 
                     <!-- Tech Item 6 -->
-                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.08);">
+                    <div style="background:#f7fafa; border-radius:18px; padding:1.5rem; border:1px solid rgba(1,128,128,0.1); box-shadow:0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02); transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(1,128,128,0.2)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(1,128,128,0.08), 0 0 20px rgba(1,128,128,0.04)'" onmouseout="this.style.borderColor='rgba(1,128,128,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(1,128,128,0.05), 0 0 15px rgba(1,128,128,0.02)'">
                         <div style="width:42px; height:42px; border-radius:12px; background:rgba(1,128,128,0.08); display:flex; align-items:center; justify-content:center; color:var(--primary); margin-bottom:1rem;">
-                            <i data-lucide="cloud-check" style="width:22px; height:22px;"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:22px; height:22px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                            </svg>
                         </div>
-                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.1rem; margin-bottom:0.4rem;">Portal Digital Biobox</h4>
+                        <h4 style="font-family:var(--font-title); color:#004d4d; font-size:1.35rem; margin-bottom:0.4rem; letter-spacing:0.03em;">Portal Digital Biobox</h4>
                         <p style="font-size:0.88rem; color:var(--text-muted-dark); margin:0; line-height:1.5;">Acceso 24/7 en la nube para visualizar imágenes médicas y resultados de análisis al instante.</p>
                     </div>
                 </div>
 
-                <div class="photo-card-zoom" style="height: 480px;">
-                    <img src="assets/clinicadelpilar_webgc.png" alt="Equipamiento Médico Clínica del Pilar">
+                <div class="photo-card-zoom" style="height: 100%; border-radius: 18px; overflow: hidden;">
+                    <img src="assets/clinica-del-pilar-25.jpg" alt="Equipamiento Médico Clínica del Pilar" style="width:100%; height:100%; object-fit:cover;">
                 </div>
             </div>
         </div>
@@ -675,7 +686,7 @@
         <div class="container" style="position:relative; z-index:2;">
             <div style="text-align:center; max-width:650px; margin:0 auto 4rem auto;">
                 <span class="section-tag">CALIDAD Y SEGURIDAD</span>
-                <h2 class="section-title">Seguridad del Paciente</h2>
+                <h2 class="section-title"><span style="color:var(--primary);">Seguridad</span> del Paciente</h2>
                 <p class="section-subtitle">
                     Priorizamos tu tranquilidad implementando protocolos internacionales de bioseguridad, verificación y prevención de riesgos en cada etapa de la atención.
                 </p>
@@ -760,10 +771,6 @@
             <!-- Editorial Trust Card -->
             <div class="trust-quote-card" style="position: relative; overflow: hidden;">
                 <!-- Curva decorativa Recurso 1.svg -->
-                <div style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.18; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                    <img src="assets/recurso-1.svg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0) invert(1);">
-                </div>
-
                 <div style="position:relative; z-index:2; max-width:800px;">
                     <span style="font-family:var(--font-sans); font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#6ee7e7; display:block; margin-bottom:1rem;">COMPROMISO CON LA COMUNIDAD</span>
                     <h3 style="font-family:var(--font-title); font-size:clamp(1.8rem, 3vw, 2.5rem); font-weight:500; line-height:1.2; margin-bottom:1.5rem;">
@@ -817,7 +824,7 @@
     <!-- ==========================================
        CTA FINAL
        ========================================== -->
-    <section class="cta-section-new" style="background: #ffffff; padding: 4rem 0 4.5rem 0; text-align: center; position: relative; overflow: hidden;">
+        <section class="cta-section-new" style="background: #ffffff; padding: 4rem 0 4.5rem 0; text-align: center; position: relative; overflow: hidden;">
         <div class="glow-spot" style="position:absolute;top:-10%;left:15%;width:350px;height:350px;background:rgba(1,128,128,0.08);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:1;"></div>
         <div class="glow-spot" style="position:absolute;bottom:0;right:10%;width:400px;height:400px;background:rgba(2,153,153,0.07);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1;"></div>
         <div class="container" style="position:relative;z-index:2;">
