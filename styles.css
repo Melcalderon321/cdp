@@ -563,6 +563,23 @@ a {
     transform: scaleY(-1) scaleX(-1); /* Mirrored vertically and horizontally */
 }
 
+/* Curve divider above footer */
+.footer-wave-divider {
+    width: 100%;
+    line-height: 0;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-bottom: -1px;
+}
+
+.footer-wave-divider img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .hero-slide::before {
     display: none;
 }
