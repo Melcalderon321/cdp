@@ -711,5 +711,35 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
             });
         }
     }
+
+    /* ==========================================================================
+       NAV DROPDOWN CLICK/TOGGLE LOGIC
+       ========================================================================== */
+    const dropdownItems = document.querySelectorAll(".nav-item-dropdown");
+    dropdownItems.forEach(item => {
+        const toggleLink = item.querySelector("a");
+        if (toggleLink) {
+            toggleLink.addEventListener("click", (e) => {
+                const href = toggleLink.getAttribute("href");
+                if (!href || href === "javascript:void(0);" || href === "javascript:void(0)" || href === "#" || href === "#sedes" || href.includes("contacto.html")) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const wasActive = item.classList.contains("active");
+                    dropdownItems.forEach(other => other.classList.remove("active"));
+                    if (!wasActive) {
+                        item.classList.add("active");
+                    }
+                }
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav-item-dropdown")) {
+            dropdownItems.forEach(item => item.classList.remove("active"));
+        }
+    });
 });
+
 

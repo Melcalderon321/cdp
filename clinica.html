@@ -162,6 +162,29 @@
             gap: 4rem;
             align-items: center;
         }
+        .quienes-photos-container {
+            display: flex;
+            gap: 1.25rem;
+            height: 550px;
+            width: 100%;
+        }
+        .quienes-photos-container .photo-card-zoom {
+            flex: 1;
+            border-radius: 18px;
+            overflow: hidden;
+            height: 100%;
+            transition: flex 0.5s cubic-bezier(0.25, 1, 0.4, 1), transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+        .quienes-photos-container:hover .photo-card-zoom {
+            flex: 0.6;
+            filter: brightness(0.85);
+        }
+        .quienes-photos-container .photo-card-zoom:hover {
+            flex: 2.2;
+            filter: brightness(1.05);
+            box-shadow: 0 20px 40px rgba(1, 128, 128, 0.2);
+        }
         .mosaic-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -318,7 +341,7 @@
                 <a href="clinica.html" class="nav-link active">La Clínica</a>
 
                 <div class="nav-item-dropdown">
-                    <a href="contacto.html" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                    <a href="javascript:void(0);" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
                         Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
@@ -422,14 +445,14 @@
                     </div>
                 </div>
 
-                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem; height:550px;">
-                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                <div class="quienes-photos-container">
+                    <div class="photo-card-zoom">
                         <img src="assets/clinica-del-pilar-134.jpg" alt="Sede Dalvian Clínica del Pilar" style="width:100%; height:100%; object-fit:cover;">
                     </div>
-                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                    <div class="photo-card-zoom">
                         <img src="assets/doctor-female.jpg" alt="Profesionales Médicos" style="width:100%; height:100%; object-fit:cover; object-position: top center;">
                     </div>
-                    <div class="photo-card-zoom" style="border-radius:18px; overflow:hidden; height:100%;">
+                    <div class="photo-card-zoom">
                         <img src="assets/clinica-del-pilar-126.jpg" alt="Sede Godoy Cruz Diagnóstico" style="width:100%; height:100%; object-fit:cover;">
                     </div>
                 </div>

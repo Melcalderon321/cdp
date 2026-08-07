@@ -13,6 +13,87 @@
     
     <!-- Premium Stylesheet Links -->
     <link rel="stylesheet" href="styles.css?v=11">
+    <style>
+        .svc-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .svc-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            opacity: 1;
+        }
+        .svc-hero-overlay {
+            display: none;
+        }
+        .svc-hero-body {
+            position: relative;
+            z-index: 5;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+        }
+        .svc-breadcrumb-inline {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: rgba(0,77,77,0.6);
+            margin-bottom: 1.5rem;
+        }
+        .svc-breadcrumb-inline a {
+            color: rgba(0,77,77,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .svc-breadcrumb-inline a:hover { color: #004d4d; }
+        .svc-breadcrumb-inline .bc-sep { opacity: 0.35; }
+        .svc-breadcrumb-inline .bc-current {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .svc-hero-title {
+            font-family: var(--font-title);
+            font-size: 5.2rem;
+            font-weight: 500;
+            line-height: 0.88;
+            letter-spacing: 0.03em;
+            color: #004d4d;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        @media (max-width: 1440px) {
+            .svc-hero-title {
+                font-size: 3.8rem;
+                line-height: 0.92;
+            }
+        }
+        @media (max-width: 1200px) {
+            .svc-hero-title {
+                font-size: 3.2rem;
+                line-height: 0.95;
+            }
+        }
+        .svc-hero-title .accent { color: var(--primary); }
+        .svc-hero-desc {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: #004d4d;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.45;
+            letter-spacing: 0.01em;
+        }
+    </style>
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -33,7 +114,7 @@
                 
                 <!-- Dropdown sedes -->
                 <div class="nav-item-dropdown">
-                    <a href="index.html#sedes" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
+                    <a href="javascript:void(0);" class="nav-link" style="display: flex; align-items: center; gap: 4px;">
                         Sedes <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
@@ -50,9 +131,12 @@
                         Servicios y Especialidades <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
                     </a>
                     <div class="nav-dropdown-menu">
-                        <a href="servicios.html#servicios-principales">Servicios Principales</a>
-                        <a href="servicios.html#especialidades-destacadas">Especialidades Destacadas</a>
-                        <a href="servicios.html#directorio-completo">Directorio Completo</a>
+                        <a href="imagenes-medicas.html">Imágenes médicas</a>
+                        <a href="laboratorio.html">Laboratorio</a>
+                        <a href="cardiologia.html">Cardiología</a>
+                        <a href="odontologia.html">Odontología</a>
+                        <a href="oftalmologia.html">Oftalmología</a>
+                        <a href="servicios.html" style="margin-top:0.3rem; border-top: 1px solid rgba(1,128,128,0.08); padding-top: 0.8rem; font-weight:600; color:var(--primary);">Ver todos los servicios</a>
                     </div>
                 </div>
 
@@ -72,34 +156,42 @@
     </header>
 
     <!-- ==========================================
-       HERO CONTACT BANNER
+       HERO PRINCIPAL (REPLICA FOTO SLIDER HOME)
        ========================================== -->
-    <section class="contact-hero">
-        <!-- Diffused light-blue glow spots (focos celestes difuminados) -->
-        <div class="glow-spot" style="position: absolute; top: -10%; left: 15%; width: 400px; height: 400px; background: rgba(1, 128, 128, 0.05); border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 1;"></div>
-        <div class="glow-spot" style="position: absolute; top: 20%; right: 10%; width: 450px; height: 450px; background: rgba(0, 150, 136, 0.04); border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 1;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <!-- Breadcrumb -->
-            <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 0.45rem; font-family: var(--font-sans); font-size: 0.8rem; color: rgba(0,77,77,0.6); margin-bottom: 1.5rem;">
-                <a href="index.html" style="color: rgba(0,77,77,0.6); text-decoration: none;">Inicio</a>
-                <span class="bc-sep" style="opacity: 0.35;">›</span>
-                <span class="bc-current" style="color: var(--primary); font-weight: 600;">Contacto</span>
-            </nav>
-            <span class="contact-hero-tag">CENTRO DE ATENCIÓN</span>
-            <h1 class="contact-hero-title" style="font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 1rem;">
-                <span class="text-accent-uppercase">CONTACTO</span> Y TURNOS
-            </h1>
-            <p class="contact-hero-subtitle">
-                En Clínica del Pilar, estamos para escucharte y cuidar de tu salud. Si tenés preguntas no dudes en utilizar este formulario de contacto.
-            </p>
+    <section class="svc-hero">
+        <img src="assets/slide-contacto.png" alt="Contacto y Turnos - Clínica del Pilar" class="svc-hero-bg">
+        <div class="svc-hero-overlay"></div>
+
+        <div class="svc-hero-body">
+            <div class="container">
+                <div class="hero-content" style="margin-top:0; padding: 0;">
+                    <nav class="svc-breadcrumb-inline" aria-label="Breadcrumb">
+                        <a href="index.html">Inicio</a>
+                        <span class="bc-sep">›</span>
+                        <span class="bc-current">Contacto</span>
+                    </nav>
+                    <span class="contact-hero-tag" style="display:inline-block; margin-bottom:0.6rem;">CENTRO DE ATENCIÓN</span>
+                    <h1 class="svc-hero-title">
+                        CONTACTO <span class="accent">Y TURNOS</span>
+                    </h1>
+                    <p class="svc-hero-desc">
+                        En Clínica del Pilar, estamos para escucharte y cuidar de tu salud. Si tenés preguntas no dudes en utilizar este formulario de contacto.
+                    </p>
+                    <div class="hero-actions" style="opacity:1; transform:none;">
+                        <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+necesito+solicitar+un+turno" target="_blank" rel="noopener noreferrer" class="btn-hero-booking">
+                            Solicitar turno
+                            <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="btn-whatsapp-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ==========================================
        GRID FORMULARIO DE CONSULTA & CANALES
        ========================================== -->
-    <section style="padding: 0 0 4rem 0; position: relative; overflow: hidden;">
+    <section style="padding: 5rem 0 5rem 0; position: relative; overflow: hidden;">
         <div class="glow-spot" style="position: absolute; top: 10%; left: -5%; width: 450px; height: 450px; background: rgba(1, 128, 128, 0.04); border-radius: 50%; filter: blur(95px); pointer-events: none; z-index: 1;"></div>
         <div class="container" style="position: relative; z-index: 2;">
             <div class="contact-grid">
@@ -238,40 +330,60 @@
     </section>
 
     <!-- ==========================================
-       COBERTURAS & INSURANCE (CARRUSEL RÉPLICA HOME)
+       PORTAL PACIENTES (MIS ESTUDIOS Y MIS RESULTADOS)
        ========================================== -->
-    <section class="cobertura-section" style="padding: 0 0 7.5rem 0;">
+    <section class="patient-portal-section" style="padding: 2rem 0 5rem 0; position: relative;">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
-                <span class="contact-hero-tag">COBERTURA</span>
-                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 0.95; margin-bottom: 0.8rem; font-weight: 500;">
-                    <span class="text-accent-uppercase">Obras sociales</span> y prepagas
+            <div style="text-align: center; margin-bottom: 3rem; width: 100%;">
+                <span class="contact-hero-tag" style="display:inline-block; margin-bottom:0.5rem;">GESTIÓN ONLINE</span>
+                <h2 class="section-title" style="text-align: center; width: 100%; max-width: 100%; margin: 0 auto; font-size: clamp(2.5rem, 4.5vw, 3.6rem); line-height: 1; margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-title); color: #004d4d; text-transform: uppercase;">
+                    TUS ESTUDIOS Y RESULTADOS, <br><span class="text-accent-uppercase" style="color: var(--primary); font-weight: 500;">SIEMPRE A TU ALCANCE</span>
                 </h2>
-                <p class="section-desc" style="margin: 0 auto; text-align: center;">Trabajamos en conjunto con las coberturas<br>y prepagas más completas del país.</p>
-            </div>
-            
-            <div class="cobertura-carousel-wrapper">
-                <div class="cobertura-carousel-track">
-                    <!-- Logos group 1 -->
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                    
-                    <!-- Duplicate group for infinite loop -->
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-osde.webp" alt="OSDE"></div>
-                    <div class="cobertura-logo-box"><img src="assets/logo-prepaga.jpg" alt="Prepaga"></div>
-                </div>
+                <p class="section-desc" style="margin: 0 auto; text-align: center; max-width: 680px; font-family: var(--font-sans); color: var(--text-muted-dark); font-size: 1.05rem; line-height: 1.6;">
+                    Accedé a tus imágenes médicas, análisis de laboratorio e informes digitales de forma rápida, segura y sin salir de tu casa.
+                </p>
             </div>
 
-            <div style="display: flex; justify-content: center; margin-top: 3rem;">
-                <a href="https://api.whatsapp.com/send/?phone=5492615088277&text=Hola%2C+quiero+consultar+cobertura+de+mi+obra+social" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-coverage-trigger">Consultá por tu cobertura</a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1050px; margin: 0 auto;">
+                
+                <!-- Card 1: Mis Estudios -->
+                <div class="portal-card" style="background: url('assets/recurso-1.svg') center/cover no-repeat, linear-gradient(135deg, #018080 0%, #004d4d 100%); background-blend-mode: soft-light; border-radius: 24px; padding: 2.5rem 2rem; box-shadow: 0 16px 40px rgba(1,128,128,0.25); transition: all 0.35s ease; display: flex; flex-direction: column; justify-content: space-between; color: #ffffff; overflow: hidden;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 22px 50px rgba(1,128,128,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 16px 40px rgba(1,128,128,0.25)';">
+                    <div>
+                        <div style="width: 56px; height: 56px; border-radius: 16px; background: rgba(255,255,255,0.18); color: #ffffff; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; backdrop-filter: blur(6px);">
+                            <i data-lucide="file-text" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <span style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); display: block; margin-bottom: 0.4rem;">Portal de Imágenes</span>
+                        <h3 style="font-family: var(--font-title); font-size: 2rem; color: #ffffff; margin-bottom: 0.8rem; line-height: 1.1;">Mis Estudios</h3>
+                        <p style="font-family: var(--font-sans); color: rgba(255,255,255,0.9); font-weight: 400; font-size: 0.98rem; line-height: 1.6; margin-bottom: 2rem;">
+                            Consultá y visualizá tus radiografías, ecografías, resonancias e informes diagnósticos con tecnología Biobox Cloud.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn" style="background: #ffffff; color: #004d4d; font-weight: 700; border: none; padding: 0.75rem 1.75rem; border-radius: var(--radius-full); transition: all 0.3s ease; display: inline-block;">
+                            Acceder a Mis Estudios
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Mis Resultados -->
+                <div class="portal-card" style="background: url('assets/recurso-1.svg') center/cover no-repeat, linear-gradient(135deg, #018080 0%, #004d4d 100%); background-blend-mode: soft-light; border-radius: 24px; padding: 2.5rem 2rem; box-shadow: 0 16px 40px rgba(1,128,128,0.25); transition: all 0.35s ease; display: flex; flex-direction: column; justify-content: space-between; color: #ffffff; overflow: hidden;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 22px 50px rgba(1,128,128,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 16px 40px rgba(1,128,128,0.25)';">
+                    <div>
+                        <div style="width: 56px; height: 56px; border-radius: 16px; background: rgba(255,255,255,0.18); color: #ffffff; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; backdrop-filter: blur(6px);">
+                            <i data-lucide="activity" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <span style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); display: block; margin-bottom: 0.4rem;">Laboratorio & Informes</span>
+                        <h3 style="font-family: var(--font-title); font-size: 2rem; color: #ffffff; margin-bottom: 0.8rem; line-height: 1.1;">Mis Resultados</h3>
+                        <p style="font-family: var(--font-sans); color: rgba(255,255,255,0.9); font-weight: 400; font-size: 0.98rem; line-height: 1.6; margin-bottom: 2rem;">
+                            Descargá los informes completos de tus análisis clínicos de laboratorio con entrega rápida y validación digital.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://v.bioboxcloud.com/login?institucion=clipilar_mdz" target="_blank" rel="noopener noreferrer" class="btn" style="background: #ffffff; color: #004d4d; font-weight: 700; border: none; padding: 0.75rem 1.75rem; border-radius: var(--radius-full); transition: all 0.3s ease; display: inline-block;">
+                            Acceder a Mis Resultados
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
