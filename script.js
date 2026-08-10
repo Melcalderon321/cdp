@@ -584,7 +584,7 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
             tag: "Próximamente · Alta Complejidad",
             title: "Sede Brasil (Próximamente)",
             address: "Brasil 308, Ciudad · Mendoza",
-            phone: "261 4242054",
+            phone: "",
             hours: "Próximamente Apertura",
             mapUrl: "https://maps.google.com/maps?q=Brasil+308,+Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed",
             link: "https://maps.google.com/?q=Brasil+308,+Mendoza"
@@ -608,11 +608,33 @@ Quedo a la espera de la confirmación de la fecha y hora disponible. ¡Muchas gr
                 const key = btn.getAttribute("data-map-sede");
                 const data = mapSedesData[key];
                 if (data) {
+                    const isBrasil = key === 'brasil';
                     if (mapSedeTitle) mapSedeTitle.textContent = data.title;
                     if (mapSedeAddress) mapSedeAddress.innerHTML = `<i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> ${data.address}`;
-                    if (mapSedePhone) mapSedePhone.innerHTML = `<i data-lucide="phone" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Teléfono:</strong> <a href="tel:+54${data.phone}" style="color: var(--primary); text-decoration: none; font-weight: 700;">${data.phone}</a>`;
-                    if (mapSedeHours) mapSedeHours.innerHTML = `<i data-lucide="clock" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Horario:</strong> ${data.hours}`;
-                    if (mapSedeLink) mapSedeLink.href = data.link;
+                    if (mapSedePhone) {
+                        if (data.phone && !isBrasil) {
+                            mapSedePhone.style.display = '';
+                            mapSedePhone.innerHTML = `<i data-lucide="phone" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Teléfono:</strong> <a href="tel:+54${data.phone}" style="color: var(--primary); text-decoration: none; font-weight: 700;">${data.phone}</a>`;
+                        } else {
+                            mapSedePhone.style.display = 'none';
+                        }
+                    }
+                    if (mapSedeHours) {
+                        if (isBrasil) {
+                            mapSedeHours.style.display = 'none';
+                        } else {
+                            mapSedeHours.style.display = '';
+                            mapSedeHours.innerHTML = `<i data-lucide="clock" style="width: 16px; height: 16px; display: inline; color: var(--primary);"></i> <strong>Horario:</strong> ${data.hours}`;
+                        }
+                    }
+                    if (mapSedeLink) {
+                        if (isBrasil) {
+                            mapSedeLink.style.display = 'none';
+                        } else {
+                            mapSedeLink.style.display = '';
+                            mapSedeLink.href = data.link;
+                        }
+                    }
                     mapIframe.src = data.mapUrl;
                     if (typeof lucide !== 'undefined') lucide.createIcons();
                 }
